@@ -1,2 +1,43 @@
-/* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~pretty-checkbox/src/pretty-checkbox.scss';
+
+$mainColor: #B96C55;
+$darkColor: #3A444C;
+$lightGreyColor: #FAFAFA;
+
+// THEME
+* {
+    font-family: Avenir;
+}
+
+.text-dark {
+    color: $darkColor!important;
+}
+
+.bg-dark {
+    background-color: $darkColor!important;
+}
+
+.text-main {
+    color: $mainColor;
+}
+
+.bg-main {
+    background: $mainColor;
+};
+
+.active {
+    color: $mainColor!important;
+}
+
+.active:hover {
+    color: $mainColor!important;
+}
+
+.letter-space-sm {
+    letter-spacing: 1px;
+}
+
+.letter-space-md {
+    letter-spacing: 3px;
+}

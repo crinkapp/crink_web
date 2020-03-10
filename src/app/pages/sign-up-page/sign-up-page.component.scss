@@ -1,0 +1,43 @@
+.mt-top {
+    margin-top: 10rem;
+}
+
+.img-cover {
+    height: 100vh;
+    background-image: url('../../../assets/img/signup-bg.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: bottom;
+    background-position-x: center;
+    clip-path: ellipse(100% 100% at 0% 30%);
+}
+
+input {
+    border-radius: 8px;
+    border: none;
+    background-color: #E9E8EA;
+    padding: 12px 18px;
+}
+
+input::placeholder {
+    color: #3A444C!important;
+    font-weight: 100!important;
+}
+
+input:focus {
+    outline: none;
+}
+
+div button {
+    padding: 14px 20px;
+}
+
+@media (max-width: 767px) {
+    img {
+        height: 25px;
+    }
+
+    .mt-top {
+        margin-top: 1rem;
+    }
+}
