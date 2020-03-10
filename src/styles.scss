@@ -24,8 +24,15 @@ $lightGreyColor: #FAFAFA;
 
 .bg-main {
     background: $mainColor;
-};
+}
 
+.text-grey {
+    color: $lightGreyColor;
+}
+
+.bg-grey {
+    background: $lightGreyColor;
+}
 .active {
     color: $mainColor!important;
 }
@@ -40,4 +47,8 @@ $lightGreyColor: #FAFAFA;
 
 .letter-space-md {
     letter-spacing: 3px;
+}
+
+.font-sm {
+    font-size: 14px;
 }

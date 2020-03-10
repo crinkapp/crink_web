@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-article-list',
@@ -6,6 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./article-list.component.scss']
 })
 export class ArticleListComponent implements OnInit {
+  @Input() title: string;
+  @Input() thumbnail: string;
+  @Input() hashtags: string[];
+  @Input() likes: string;
+  @Input() comments: string;
+  @Input() time: string;
+  @Input() date: string;
 
   constructor() { }
 

@@ -1,1 +1,22 @@
-<p>home-page works!</p>
+<!-- HEADER -->
+<div class="bg-grey header">
+    <div class="container">
+        <span class="text-dark h4 font-weight-bold">Vos publications</span>
+        <img src="./assets/icon/publication-icon.png" alt="Publication" height="35" class="ml-4">
+    </div>
+</div>
+
+<!-- PUBLICATIONS -->
+<div class="my-5 container">
+    <span class="h5 text-dark">Total : <strong>4</strong></span>
+    <div class="my-3">
+        <app-article-list *ngFor="let article of articles"
+        [title]="article.title"
+        [thumbnail]="article.thumbnail"
+        [hashtags]="article.hashtags"
+        [likes]="article.likes"
+        [comments]="article.comments"
+        [time]="article.time"
+        [date]="article.date"></app-article-list>
+    </div>
+</div>

@@ -3,10 +3,14 @@ ul li a {
     color: #3A444C;
 }
 
-img {
+a img {
     height: 40px;
 }
 
 button:focus {
     outline: none;
+}
+
+li img {
+    object-fit: cover;
 }
