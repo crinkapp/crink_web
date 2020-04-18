@@ -1,3 +1,4 @@
-div img {
-    top: 28px;
+div input:focus,
+div textarea:focus {
+  outline: none;
 }
