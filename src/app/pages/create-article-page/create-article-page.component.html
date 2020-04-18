@@ -49,7 +49,16 @@
 
     <div class="col-md-8 offset-md-1 d-flex" style="color: #757575;">
       <label class="pointer">
-        <span class="p-2 font-weight-light font-italic">Ajouter une image</span>
+        <span
+          class="p-2 font-weight-light font-italic"
+          *ngIf="thumbnail === null"
+          >Ajouter une image</span
+        >
+        <span
+          class="p-2 font-weight-light font-italic"
+          *ngIf="thumbnail !== null"
+          >Choisir une autre image</span
+        >
         <img src="./assets/icon/add-icon.png" alt="Add image" height="20" />
         <input
           type="file"
@@ -59,25 +68,27 @@
       </label>
 
       <img
+        [src]="thumbnail"
         id="thumbnail"
-        width="200"
+        width="300"
         height="120"
         style="object-fit: cover;"
-        *ngIf="addedImage"
+        *ngIf="thumbnail !== null"
       />
     </div>
 
     <div class="col-md-3 position-relative text-dark mt-4">
-      <span class="font-weight-bold">Hashtags</span>
+      <span class="font-weight-bold">Hashtags (4 max)</span>
     </div>
 
     <div class="col-md-8 offset-md-1 text-grey mt-4">
-      <input
-        type="text"
-        name="description"
-        placeholder="Entrez une brève description"
-        class="w-100 border-0 p-2 font-weight-light font-italic"
-      />
+      <tag-input
+        [(ngModel)]="hashtags"
+        [maxItems]="4"
+        [separatorKeyCodes]="[32]"
+        [placeholder]="'Ajouter'"
+        [secondaryPlaceholder]="'Nouveau hashtag'"
+      ></tag-input>
     </div>
   </div>
 </div>
