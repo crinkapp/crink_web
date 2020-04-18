@@ -1,64 +1,63 @@
-@import '~bootstrap/dist/css/bootstrap.min.css';
-@import '~pretty-checkbox/src/pretty-checkbox.scss';
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~pretty-checkbox/src/pretty-checkbox.scss";
 
-$mainColor: #B96C55;
-$darkColor: #3A444C;
-$lightGreyColor: #FAFAFA;
+$mainColor: #b96c55;
+$darkColor: #3a444c;
+$lightGreyColor: #fafafa;
 
 // THEME
 * {
-    font-family: Avenir;
+  font-family: Avenir;
 }
 
 .text-dark {
-    color: $darkColor!important;
+  color: $darkColor !important;
 }
 
 .bg-dark {
-    background-color: $darkColor!important;
+  background-color: $darkColor !important;
 }
 
 .text-main {
-    color: $mainColor;
+  color: $mainColor;
 }
 
 .bg-main {
-    background: $mainColor;
+  background: $mainColor;
 }
 
 .text-grey {
-    color: $lightGreyColor;
+  color: $lightGreyColor;
 }
 
 .bg-grey {
-    background: $lightGreyColor;
+  background: $lightGreyColor;
 }
 .active {
-    color: $mainColor!important;
+  color: $mainColor !important;
 }
 
 .active:hover {
-    color: $mainColor!important;
+  color: $mainColor !important;
 }
 
 .letter-space-sm {
-    letter-spacing: 1px;
+  letter-spacing: 1px;
 }
 
 .letter-space-md {
-    letter-spacing: 3px;
+  letter-spacing: 3px;
 }
 
 .font-sm {
-    font-size: 14px;
-}
-
-.header {
-    width: 100%;
-    margin-top: 5rem;
+  font-size: 14px;
 }
 
 .header div {
-    padding-top: 35px;
-    padding-bottom: 35px;
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+
+.pointer {
+  cursor: pointer;
 }
