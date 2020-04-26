@@ -1,0 +1,27 @@
+@import '../../../styles.scss';
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
+
+.bg-crink {
+  background: url('../../../assets/img/violette.jpeg') no-repeat;
+  position: relative;
+  border-bottom-left-radius: 13rem;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+.bg-brown-cover {
+  background-color: rgba(185, 108, 84, 0.8);
+  border-bottom-left-radius: 13rem;
+}
+
+.baseline-title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 50px;
+  letter-spacing: 3px;
+}
+
+.baseline-text {
+  font-size: 22px;
+  letter-spacing: 1px;
+}

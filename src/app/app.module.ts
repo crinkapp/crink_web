@@ -23,7 +23,6 @@ import { ArticlesPageComponent } from "./pages/articles-page/articles-page.compo
 const appRoutes: Routes = [
   { path: "sign-in", component: SignInPageComponent },
   { path: "sign-up", component: SignUpPageComponent },
-  { path: "home", component: HomePageComponent },
   { path: "create-article", component: CreateArticlePageComponent },
   { path: "articles", component: ArticlesPageComponent },
   { path: "profile", component: ProfilePageComponent },

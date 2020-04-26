@@ -1,3 +1,9 @@
+@import '../../../styles.scss';
+
+nav {
+  background-color: transparent;
+}
+
 ul li a {
     font-size: 18px;
     color: #3A444C;
@@ -13,4 +19,41 @@ button:focus {
 
 li img {
     object-fit: cover;
+}
+
+a {
+  animation: ease 0.2s;
+  position: relative;
+}
+
+a:not(.active):not(.navbar-brand):after {
+  position: absolute;
+  content: '';
+  border-bottom: 3px solid #fff;
+  width: 0px;
+  transform: translateX(-50%);
+  bottom: -4px;
+  left: 50%;
+  cursor: initial;
+  transition: ease 0.7s;
+}
+
+a:not(.active):not(.navbar-brand):hover:after {
+  width: 75%;
+}
+
+.active {
+  color: #fff !important;
+}
+
+.active::after {
+  position: absolute;
+  content: '';
+  border-bottom: 3px solid #fff;
+  width: 75%;
+  transform: translateX(-50%);
+  bottom: -4px;
+  left: 50%;
+  cursor: initial;
+  transition: ease 0.7s;
 }

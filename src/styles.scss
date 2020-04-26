@@ -1,5 +1,6 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~pretty-checkbox/src/pretty-checkbox.scss";
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap');
 
 $mainColor: #b96c55;
 $darkColor: #3a444c;
@@ -7,7 +8,7 @@ $lightGreyColor: #fafafa;
 
 // THEME
 * {
-  font-family: Avenir;
+  font-family: 'Lato', sans-serif;
 }
 
 .text-dark {
@@ -32,13 +33,6 @@ $lightGreyColor: #fafafa;
 
 .bg-grey {
   background: $lightGreyColor;
-}
-.active {
-  color: $mainColor !important;
-}
-
-.active:hover {
-  color: $mainColor !important;
 }
 
 .letter-space-sm {
