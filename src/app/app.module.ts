@@ -18,14 +18,16 @@ import { SignUpPageComponent } from "./pages/sign-up-page/sign-up-page.component
 import { HomePageComponent } from "./pages/home-page/home-page.component";
 import { CreateArticlePageComponent } from "./pages/create-article-page/create-article-page.component";
 import { ProfilePageComponent } from "./pages/profile-page/profile-page.component";
+import { ArticlesPageComponent } from "./pages/articles-page/articles-page.component";
 
 const appRoutes: Routes = [
   { path: "sign-in", component: SignInPageComponent },
   { path: "sign-up", component: SignUpPageComponent },
   { path: "home", component: HomePageComponent },
   { path: "create-article", component: CreateArticlePageComponent },
+  { path: "articles", component: ArticlesPageComponent },
   { path: "profile", component: ProfilePageComponent },
-  { path: "", component: SignInPageComponent },
+  { path: "", component: HomePageComponent },
 ];
 
 @NgModule({
@@ -35,9 +37,10 @@ const appRoutes: Routes = [
     SignUpPageComponent,
     HomePageComponent,
     CreateArticlePageComponent,
-    ProfilePageComponent,
-    NavbarComponent,
     ArticleListComponent,
+    ProfilePageComponent,
+    ArticlesPageComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

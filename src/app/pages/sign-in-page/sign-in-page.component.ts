@@ -13,8 +13,5 @@ export class SignInPageComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit() {
-    this.user.connexion();
-  }
 
 }
