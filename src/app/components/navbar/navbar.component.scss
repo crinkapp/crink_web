@@ -2,6 +2,7 @@
 
 nav {
   background-color: transparent;
+  transition: ease 0.3s;
 }
 
 ul li a {
@@ -56,4 +57,8 @@ a:not(.active):not(.navbar-brand):hover:after {
   left: 50%;
   cursor: initial;
   transition: ease 0.7s;
+}
+
+.scroll {
+  background: $mainColor;
 }

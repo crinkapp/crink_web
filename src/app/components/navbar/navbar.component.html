@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md fixed-top px-md-5 px-4 py-3">
+<nav class="navbar navbar-expand-lg fixed-top px-md-5 px-4 py-3" [ngClass]="{'scroll shadow-sm': scrolled}">
   <div class="container">
     <a class="navbar-brand" [routerLink]="['/']">
       <img src="./assets/icon/crink-logo-white.png" alt="Crink" />
@@ -12,7 +12,7 @@
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
-      <i class="material-icons dp48">menu</i>
+    <i class="material-icons dp48 text-white">menu</i>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
