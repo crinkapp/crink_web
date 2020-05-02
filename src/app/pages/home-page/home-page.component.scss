@@ -62,7 +62,7 @@
   font-size: 20px;
   font-family: 'Bebas Neue', cursive;
   letter-spacing: 2px;
-  transition: 0.2s;
+  transition: 0.4s;
 }
 
 .btn-join:hover {
@@ -86,5 +86,18 @@
 
   .features-section {
     border-top-right-radius: 0rem;
+  }
+}
+
+@media(min-width: 992px) {
+  .search-filter {
+    z-index: 100;
+    position: relative;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+  }
+
+  .search-filter,
+  .share-knowledge {
+    margin-top: -3rem;
   }
 }
