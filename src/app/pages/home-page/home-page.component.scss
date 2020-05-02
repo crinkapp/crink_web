@@ -5,7 +5,6 @@
   background: url('../../../assets/img/violette.jpeg') no-repeat;
   position: relative;
   border-bottom-left-radius: 13rem;
-  background-attachment: fixed;
   background-size: cover;
   background-position: center;
 }
@@ -13,6 +12,7 @@
 .bg-brown-cover {
   background-color: rgba(185, 108, 84, 0.8);
   border-bottom-left-radius: 13rem;
+  padding-top: 10rem;
 }
 
 .baseline-title {
@@ -24,4 +24,49 @@
 .baseline-text {
   font-size: 22px;
   letter-spacing: 1px;
+}
+
+.section-title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 34px;
+  letter-spacing: 2px;
+}
+
+.my-high {
+  margin-top: 6.5rem;
+  margin-bottom: 6.5rem;
+}
+
+.py-high {
+  padding-top: 6.5rem;
+  padding-bottom: 6.5rem;
+}
+
+.bg-lightgrey {
+  background-color: $lightGreyColor;
+}
+
+.list-style {
+  list-style: url('../../../assets/icon/check-icon.png');
+}
+
+.features-section {
+  border-top-right-radius: 13rem;
+}
+
+@media(max-width: 991px) {
+  .bg-brown-cover {
+    padding-top: 5rem;
+  }
+}
+
+@media(max-width: 575px) {
+  .bg-crink,
+  .bg-brown-cover {
+    border-bottom-left-radius: 0rem;
+  }
+
+  .features-section {
+    border-top-right-radius: 0rem;
+  }
 }
