@@ -33,6 +33,11 @@ button:hover {
   background-color: #7B3621;
 }
 
+.border-bot {
+  border-bottom: 3px solid #fff;
+  width: 6rem;
+}
+
 @media(max-width: 991px) {
   .form-width {
     width: 50%;
