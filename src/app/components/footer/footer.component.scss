@@ -1,0 +1,54 @@
+footer {
+  background: linear-gradient(to left, #BD4C29, #BB5C3F, #B96C54);
+}
+
+.max-width {
+  max-width: 2250px;
+}
+
+.newsletter {
+  background: #AF8173;
+  border: none;
+  outline: none;
+}
+
+.form-width {
+  width: 100%;
+}
+
+.newsletter::placeholder {
+  color: #fff!important;
+  font-weight: 300!important;
+}
+
+button {
+  border: 2px solid #92452E;
+  background-color: #92452E;
+  transition: ease 0.3s;
+  outline: none;
+}
+
+button:hover {
+  border-color: #7B3621;
+  background-color: #7B3621;
+}
+
+@media(max-width: 991px) {
+  .form-width {
+    width: 50%;
+  }
+}
+
+@media(max-width: 776px) {
+  .form-width {
+    width: 75%;
+  }
+}
+
+@media(max-width: 575px) {
+  .form-width {
+    width: 100%;
+  }
+}
+
+

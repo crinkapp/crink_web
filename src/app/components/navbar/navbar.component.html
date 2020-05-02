@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg fixed-top px-md-5 px-4 py-3" [ngClass]="{'scroll shadow-sm': scrolled}">
   <div class="container">
     <a class="navbar-brand" [routerLink]="['/']">
-      <img src="./assets/icon/crink-logo-white.png" alt="Crink" />
+      <img src="./assets/icon/crink-icon-white.svg" alt="Crink" [attr.height]="scrolled ? 35 : 45"/>
     </a>
     <button
       class="navbar-toggler"
@@ -10,9 +10,8 @@
       data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent"
       aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-    <i class="material-icons dp48 text-white">menu</i>
+      aria-label="Toggle navigation">
+      <i class="material-icons dp48 text-white">menu</i>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">

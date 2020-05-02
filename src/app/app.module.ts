@@ -19,6 +19,7 @@ import { HomePageComponent } from "./pages/home-page/home-page.component";
 import { CreateArticlePageComponent } from "./pages/create-article-page/create-article-page.component";
 import { ProfilePageComponent } from "./pages/profile-page/profile-page.component";
 import { ArticlesPageComponent } from "./pages/articles-page/articles-page.component";
+import { FooterComponent } from './components/footer/footer.component';
 
 const appRoutes: Routes = [
   { path: "sign-in", component: SignInPageComponent },
@@ -40,6 +41,7 @@ const appRoutes: Routes = [
     ProfilePageComponent,
     ArticlesPageComponent,
     NavbarComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

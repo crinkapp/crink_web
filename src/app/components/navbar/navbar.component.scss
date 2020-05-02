@@ -2,16 +2,15 @@
 
 nav {
   background-color: transparent;
-  transition: ease 0.3s;
+  transition: ease 0.4s;
 }
 
 ul li a {
-    font-size: 18px;
     color: #3A444C;
 }
 
-a img {
-    height: 40px;
+img[alt="Crink"] {
+  transition: ease 0.3s;
 }
 
 button:focus {
