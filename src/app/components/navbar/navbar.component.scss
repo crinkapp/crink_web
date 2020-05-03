@@ -57,40 +57,59 @@ a:not(.active):not(.navbar-brand):hover:after {
 .scroll {
   background: #fff;
 
-  ul li a {
+  ul li a:not(.active),
+  .active {
     color: #3A444C!important;
     font-weight: 400!important;
   }
 
   a:not(.active):not(.navbar-brand):after {
-    position: absolute;
-    content: '';
     border-bottom: 3px solid #3A444C;
-    width: 0px;
-    transform: translateX(-50%);
-    bottom: -4px;
-    left: 50%;
-    cursor: initial;
-    transition: ease 0.7s;
-  }
-
-  a:not(.active):not(.navbar-brand):hover:after {
-    width: 75%;
-  }
-
-  .active {
-    color: #3A444C !important;
   }
 
   .active::after {
+    border-bottom: 3px solid #3A444C;
+  }
+}
+
+@media(max-width: 991px) {
+  a:not(.active):not(.navbar-brand):after {
     position: absolute;
     content: '';
-    border-bottom: 3px solid #3A444C;
-    width: 75%;
+    border-bottom: none;
+    width: 0px;
     transform: translateX(-50%);
-    bottom: -4px;
-    left: 50%;
-    cursor: initial;
-    transition: ease 0.7s;
+    left: 0;
+  }
+
+  .active {
+    color: $mainColor!important;
+  }
+
+  .active::after {
+    border-bottom: none;
+    width: none;
+  }
+
+
+  .scroll {
+    a:not(.active):not(.navbar-brand):hover:after {
+      position: absolute;
+      content: '';
+      border-bottom: none;
+      width: 0px;
+      transform: translateX(-50%);
+      left: 0;
+    }
+
+    .active {
+      color: $mainColor!important;
+    }
+
+    .active::after {
+      border-bottom: none;
+      width: none;
+    }
+
   }
 }
