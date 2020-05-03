@@ -2,7 +2,7 @@
 
 nav {
   background-color: transparent;
-  transition: ease 0.6s;
+  transition: ease 0.4s;
 }
 
 img[alt="Crink"] {
@@ -31,7 +31,7 @@ a:not(.active):not(.navbar-brand):after {
   bottom: -4px;
   left: 50%;
   cursor: initial;
-  transition: ease 0.7s;
+  transition: ease 0.5s;
 }
 
 a:not(.active):not(.navbar-brand):hover:after {
@@ -51,7 +51,7 @@ a:not(.active):not(.navbar-brand):hover:after {
   bottom: -4px;
   left: 50%;
   cursor: initial;
-  transition: ease 0.7s;
+  transition: ease 0.5s;
 }
 
 .scroll {
