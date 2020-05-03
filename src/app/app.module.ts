@@ -3,6 +3,8 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { FormsModule } from "@angular/forms";
+import { HttpClientModule } from '@angular/common/http';
 
 // LIBS
 import { TagInputModule } from "ngx-chips";
@@ -48,6 +50,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     TagInputModule,
     BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [],

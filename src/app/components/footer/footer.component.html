@@ -29,15 +29,37 @@
         <span class="d-block text-white text-uppercase mb-2">On vous tient au courant !</span>
         <div class="position-absolute border-bot"></div>
       </div>
-      <div class="d-flex justify-content-between form-width">
+
+      <p class="text-white font-weight-light text-sm">
+        L'application étant encore en développement, nous vous tiendrons au courant lors de sa sortie.
+      </p>
+
+      <form (submit)="onSubmit(emailref.viewModel)" #f="ngForm" class="d-flex justify-content-between form-width">
         <input
-        type="text"
-        name="newsletter"
+        name="email"
+        type="email"
+        class="w-100 p-2 newsletter font-weight-light text-white"
         placeholder="Entrez votre adresse email"
-        class="w-100 p-2 newsletter font-weight-light text-white">
-        <button type="button" class="px-3 py-2 text-sm text-dark d-flex align-items-center">
-          <i class="material-icons dp48 text-white">mail</i>
+        ngModel
+        #emailref="ngModel"
+        required
+        [disabled]="loading || sent">
+        <button
+        type="submit"
+        class="px-3 py-2 text-sm text-dark d-flex align-items-center"
+        [ngClass]="{'sent-success': sent}"
+        [disabled]="f.invalid || loading || sent">
+          <i *ngIf="!sent" class="material-icons dp48 text-white">mail</i>
+          <i *ngIf="sent" class="material-icons dp48 text-white">check</i>
         </button>
+      </form>
+
+      <!-- ON SUBMIT -->
+      <p *ngIf="error && error !== null && !loading" class="text-sm text-white font-weight-light my-3">Veuillez saisir une adresse email valide</p>
+      <p *ngIf='!error && error !== null && !loading' class="text-sm text-white font-weight-light my-3">Super ! On vous tient au courant ! 🥳</p>
+      <div *ngIf="loading" class="my-3 d-flex align-items-center">
+        <p class="text-sm text-white font-weight-light mb-0">Traitement en cours…</p>
+        <span class="loading-spin ml-3 d-inline-flex"></span>
       </div>
     </div>
 
