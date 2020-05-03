@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg fixed-top px-md-5 px-4 py-3" [ngClass]="{'scroll shadow-sm': scrolled}">
   <div class="container">
     <a class="navbar-brand" [routerLink]="['/']">
-      <img src="./assets/icon/crink-icon-white.svg" alt="Crink" [attr.height]="scrolled ? 35 : 45"/>
+      <img [src]="scrolled ? './assets/icon/crink-icon-brown.svg' : './assets/icon/crink-icon-white.svg'" alt="Crink" [attr.height]="scrolled ? 35 : 45"/>
     </a>
     <button
       class="navbar-toggler"
