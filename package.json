@@ -20,7 +20,6 @@
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
     "bootstrap": "^4.4.1",
-    "ng-recaptcha": "^5.0.0",
     "ngx-chips": "^2.1.0",
     "pretty-checkbox": "^3.0.3",
     "rxjs": "~6.4.0",
