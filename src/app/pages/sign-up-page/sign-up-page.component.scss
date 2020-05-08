@@ -16,6 +16,7 @@ input {
   border: none;
   background-color: #e9e8ea;
   padding: 12px 18px;
+  transition: ease 0.3s;
 }
 
 input::placeholder {
@@ -23,12 +24,23 @@ input::placeholder {
   font-weight: 100 !important;
 }
 
-input:focus {
+input:focus,
+button {
   outline: none;
 }
 
 div button {
   padding: 14px 20px;
+}
+
+.on-error {
+  box-shadow: 0 0 0 0.2rem rgba(220,53,69,.5);
+}
+
+.on-success {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
 }
 
 @media (min-width: 1550px) {
@@ -38,10 +50,6 @@ div button {
 }
 
 @media (max-width: 767px) {
-  img {
-    height: 25px;
-  }
-
   .mt-top {
     margin-top: 1rem;
   }
