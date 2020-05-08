@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 // LIBS
 import { TagInputModule } from "ngx-chips";
+import { RecaptchaModule } from 'ng-recaptcha';
 
 // COMPONENTS
 import { AppComponent } from "./app.component";
@@ -51,7 +52,8 @@ const appRoutes: Routes = [
     TagInputModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RecaptchaModule
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [],
