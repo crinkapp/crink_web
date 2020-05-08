@@ -55,8 +55,12 @@
       </form>
 
       <!-- ON SUBMIT -->
-      <p *ngIf="error && error !== null && !loading" class="text-sm text-white font-weight-light my-3">Veuillez saisir une adresse email valide</p>
-      <p *ngIf='!error && error !== null && !loading' class="text-sm text-white font-weight-light my-3">Super ! On vous tient au courant ! 🥳</p>
+      <p *ngIf="error && error !== null && !loading"
+      class="text-sm text-white font-weight-light my-3"
+      >Veuillez saisir une adresse email valide</p>
+      <p *ngIf='!error && error !== null && !loading'
+      class="text-sm text-white font-weight-light my-3"
+      >Super ! Merci pour votre inscription ! 🥳</p>
       <div *ngIf="loading" class="my-3 d-flex align-items-center">
         <p class="text-sm text-white font-weight-light mb-0">Traitement en cours…</p>
         <span class="loading-spin ml-3 d-inline-flex"></span>
