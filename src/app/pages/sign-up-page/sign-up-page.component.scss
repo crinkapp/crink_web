@@ -11,6 +11,10 @@
   clip-path: ellipse(100% 100% at 0% 45%);
 }
 
+img {
+  transition: ease 0.3s;
+}
+
 input {
   border-radius: 8px;
   border: none;
@@ -31,6 +35,11 @@ button {
 
 div button {
   padding: 14px 20px;
+  transition: ease 0.3s;
+}
+
+.valid-form:hover {
+  background-color: #92452E;
 }
 
 .on-error {

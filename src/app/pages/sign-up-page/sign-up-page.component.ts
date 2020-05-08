@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SignUp } from '../../models/sign-up';
+import { SignUp, NewUser } from '../../models/sign-up';
 
 @Component({
   selector: 'app-sign-up-page',
@@ -16,6 +16,8 @@ export class SignUpPageComponent implements OnInit {
   loading: boolean = false;
   sent: boolean = false;
   errormsg: string | null = null;
+
+  next: NewUser | null = null;
 
   constructor() { }
 
@@ -35,12 +37,31 @@ export class SignUpPageComponent implements OnInit {
     } else {
       this.email.error = 'ok';
     }
-    if(this.password.content !== this.confirmPassword) {
-      // if passwords are not the same
-      this.password.error = 'Les mots de passe ne correspondent pas'
+    if(this.password.content.length < 6) {
+      // if passwords is below 6 chars min
+      this.password.error = 'passwordlength'
     } else {
-      this.password.error = 'ok';
+      if(this.password.content !== this.confirmPassword) {
+        // if passwords are not the same
+        this.password.error = 'Les mots de passe ne correspondent pas'
+      } else {
+        this.password.error = 'ok';
+      }
     }
+
+    if(
+      this.username.error === 'ok' &&
+      this.email.error === 'ok' &&
+      this.password.error === 'ok') {
+        this.next = {
+          username: this.username.content,
+          email: this.email.content,
+          password: this.password.content
+        }
+
+        console.log(this.next);
+
+      }
 
   }
 
