@@ -10,8 +10,8 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   sendEmail(email: string) {
-    return this.http.post(this.url + '/sendemail', {
-      email: email
+    return this.http.post(this.url + '/addnewsletter', {
+      email_newsletter: email
     });
   }
 }
