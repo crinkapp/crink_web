@@ -30,6 +30,7 @@ const appRoutes: Routes = [
   { path: "create-article", component: CreateArticlePageComponent },
   { path: "articles", component: ArticlesPageComponent },
   { path: "profile", component: ProfilePageComponent },
+  { path: "diagnostic", component: DiagnosticPageComponent },
   { path: "", component: HomePageComponent },
 ];
 
