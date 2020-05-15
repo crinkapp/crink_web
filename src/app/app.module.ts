@@ -13,6 +13,8 @@ import { TagInputModule } from "ngx-chips";
 import { AppComponent } from "./app.component";
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { ArticleListComponent } from "./components/article-list/article-list.component";
+import { FooterComponent } from './components/footer/footer.component';
+import { DiagnosticBackBtnComponent } from './components/diagnostic-back-btn/diagnostic-back-btn.component';
 
 // PAGES
 import { SignInPageComponent } from "./pages/sign-in-page/sign-in-page.component";
@@ -21,7 +23,6 @@ import { HomePageComponent } from "./pages/home-page/home-page.component";
 import { CreateArticlePageComponent } from "./pages/create-article-page/create-article-page.component";
 import { ProfilePageComponent } from "./pages/profile-page/profile-page.component";
 import { ArticlesPageComponent } from "./pages/articles-page/articles-page.component";
-import { FooterComponent } from './components/footer/footer.component';
 import { DiagnosticPageComponent } from './pages/diagnostic-page/diagnostic-page.component';
 
 const appRoutes: Routes = [
@@ -47,6 +48,7 @@ const appRoutes: Routes = [
     NavbarComponent,
     FooterComponent,
     DiagnosticPageComponent,
+    DiagnosticBackBtnComponent,
   ],
   imports: [
     BrowserModule,
