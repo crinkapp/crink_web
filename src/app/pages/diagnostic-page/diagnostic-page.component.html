@@ -1,1 +1,155 @@
-<p>diagnostic-page works!</p>
+<div *ngIf="page === 'main'" class="container diagnostic-page w-100 bg-white d-flex flex-column justify-content-center align-items-center">
+  <div class="header-title text-center">
+    <span class="d-block text-dark">Pour mieux vous connaître,</span>
+    <span class="d-block text-dark">nous allons passer au diagnostic capillaire !</span>
+  </div>
+  <span class="text-center text-dark font-weight-light mt-4">
+    Pas de panique, certaines questions ne sont pas obligatoire.
+  </span>
+  <button class="btn-diagnostic px-4 py-3 bg-white text-dark d-flex align-items-center" (click)="goToPage('one')">
+    Lancer le diagnostic
+    <i class="material-icons dp48 ml-2 text-dark">keyboard_arrow_right</i>
+  </button>
+  <span class="my-5 text-dark font-weight-light pointer">
+    Ignorez cette étape
+  </span>
+</div>
+
+<div *ngIf="page === 'one'" class="container diagnostic-page not-main w-100 bg-white d-flex flex-column justify-content-center align-items-center position-relative">
+  <app-diagnostic-back-btn (click)="goToPage('main')"></app-diagnostic-back-btn>
+  <div class="header-title text-center">
+    <span class="d-block text-dark mx-md-5 mx-3">1. Avez-vous des locks ?</span>
+  </div>
+  <span class="text-center text-dark font-weight-light mt-4">
+    C'est la seule question obligatoire, promis !
+  </span>
+  <div class="d-flex flex-md-row flex-column justify-content-center align-items-center mt-6">
+    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="goToPage('two')">
+      Oui
+    </button>
+    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="goToPage('two')">
+      Non
+    </button>
+    <div class="position-absolute d-flex align-items-end" style="top: 90%;">
+      <div class="pag mx-1 bg-dark"></div>
+      <div class="pag mx-1 not-fill"></div>
+      <div class="pag mx-1 not-fill"></div>
+      <div class="pag mx-1 not-fill"></div>
+      <div class="pag mx-1 not-fill"></div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="page === 'two'" class="container diagnostic-page not-main w-100 bg-white d-flex flex-column justify-content-center align-items-center position-relative">
+  <app-diagnostic-back-btn (click)="goToPage('one')"></app-diagnostic-back-btn>
+  <div class="header-title text-center">
+    <span class="d-block text-dark mx-md-5 mx-3">2. Quel type de cheveux avez-vous ?</span>
+  </div>
+  <div class="d-flex flex-md-row flex-column justify-content-center align-items-center mt-6">
+    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="goToPage('three')">
+      Ondulés
+    </button>
+    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="goToPage('three')">
+      Bouclés
+    </button>
+    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="goToPage('three')">
+      Crépus
+    </button>
+    <span class="text-dark font-weight-light pointer position-absolute" style="top: 80%;" (click)="goToPage('three')">
+      Ignorez cette étape
+    </span>
+    <div class="position-absolute d-flex align-items-end" style="top: 90%;">
+      <div class="pag mx-1 bg-dark"></div>
+      <div class="pag mx-1 bg-dark"></div>
+      <div class="pag mx-1 not-fill"></div>
+      <div class="pag mx-1 not-fill"></div>
+      <div class="pag mx-1 not-fill"></div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="page === 'three'" class="container diagnostic-page not-main w-100 bg-white d-flex flex-column justify-content-center align-items-center position-relative">
+  <app-diagnostic-back-btn (click)="goToPage('two')"></app-diagnostic-back-btn>
+  <div class="header-title text-center">
+    <span class="d-block text-dark mx-md-5 mx-3">3. Combien de temps vos cheveux prennent-ils avant de sécher ?</span>
+  </div>
+  <div class="d-flex flex-md-row flex-column justify-content-center align-items-center mt-6">
+    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w d-flex justify-content-center align-items-center" (click)="goToPage('four')">
+      <i class="material-icons dp48 mr-2">keyboard_arrow_left</i>
+      10 min
+    </button>
+    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="goToPage('four')">
+      10 à 20 min
+    </button>
+    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w d-flex justify-content-center align-items-center" (click)="goToPage('four')">
+      <i class="material-icons dp48 mr-2">keyboard_arrow_right</i>
+      20 min
+    </button>
+    <span class="text-dark font-weight-light pointer position-absolute" style="top: 80%;" (click)="goToPage('four')">
+      Ignorez cette étape
+    </span>
+    <div class="position-absolute d-flex align-items-end" style="top: 90%;">
+      <div class="pag mx-1 bg-dark"></div>
+      <div class="pag mx-1 bg-dark"></div>
+      <div class="pag mx-1 bg-dark"></div>
+      <div class="pag mx-1 not-fill"></div>
+      <div class="pag mx-1 not-fill"></div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="page === 'four'" class="container diagnostic-page not-main w-100 bg-white d-flex flex-column justify-content-center align-items-center position-relative">
+  <app-diagnostic-back-btn (click)="goToPage('three')"></app-diagnostic-back-btn>
+  <div class="header-title text-center">
+    <span class="d-block text-dark mx-md-5 mx-3">4. En séparant vos cheveux, voyez-vous votre cuir chevelu ?</span>
+  </div>
+  <div class="d-flex flex-md-row flex-column justify-content-center align-items-center mt-6">
+    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="goToPage('five')">
+      Oui facilement
+    </button>
+    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="goToPage('five')">
+      Oui difficilement
+    </button>
+    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="goToPage('five')">
+      Non du tout
+    </button>
+    <span class="text-dark font-weight-light pointer position-absolute" style="top: 80%;" (click)="goToPage('five')">
+      Ignorez cette étape
+    </span>
+    <div class="position-absolute d-flex align-items-end" style="top: 90%;">
+      <div class="pag mx-1 bg-dark"></div>
+      <div class="pag mx-1 bg-dark"></div>
+      <div class="pag mx-1 bg-dark"></div>
+      <div class="pag mx-1 bg-dark"></div>
+      <div class="pag mx-1 not-fill"></div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="page === 'five'" class="container diagnostic-page not-main w-100 bg-white d-flex flex-column justify-content-center align-items-center position-relative">
+  <app-diagnostic-back-btn (click)="goToPage('four')"></app-diagnostic-back-btn>
+  <div class="header-title text-center">
+    <span class="d-block text-dark mx-md-5 mx-3">5. Vos cheveux semblent être</span>
+  </div>
+  <div class="d-flex flex-md-row flex-column justify-content-center align-items-center mt-6">
+    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="goToPage('five')">
+      Fin
+    </button>
+    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="goToPage('five')">
+      Entre les deux
+    </button>
+    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="goToPage('five')">
+      Épais
+    </button>
+    <span class="text-dark font-weight-light pointer position-absolute" style="top: 80%;">
+      Ignorez cette étape
+    </span>
+    <div class="position-absolute d-flex align-items-end" style="top: 90%;">
+      <div class="pag mx-1 bg-dark"></div>
+      <div class="pag mx-1 bg-dark"></div>
+      <div class="pag mx-1 bg-dark"></div>
+      <div class="pag mx-1 bg-dark"></div>
+      <div class="pag mx-1 bg-dark"></div>
+    </div>
+  </div>
+</div>

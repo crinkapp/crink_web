@@ -1,0 +1,85 @@
+.diagnostic-page {
+  height: 91.8vh;
+}
+
+.not-main {
+  padding-bottom: 6rem;
+}
+
+.mt-6 {
+  margin-top: 5rem;
+}
+
+.header-title {
+  font-size: 34px;
+  line-height: 4rem;
+}
+
+.btn-diagnostic {
+  margin-top: 6rem;
+  margin-bottom: 4rem;
+}
+
+.btn-diagnostic,
+.btn-choice {
+  border: 3px solid #3a444c;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  transition: 0.4s;
+}
+
+.btn-choice {
+  background-color: #fff;
+  color: #3a444c;
+}
+
+.btn-choice i {
+  color: #3a444c;
+  transition: 0.4s;
+}
+
+.btn-diagnostic:hover {
+  border: 3px solid #3a444c;
+  color: #3a444c;
+  transform: translate3d(0,-2px,0);
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.1), 0 14px 6px 0 rgba(0,0,0,.25);
+}
+
+.btn-choice:hover {
+  border: 3px solid transparent;
+  background-color: #b96c55;
+  color: #fff;
+}
+
+.btn-choice:hover i {
+  color: #fff;
+}
+
+a {
+  transition: 0.4s;
+}
+
+.pag {
+  height: 4px;
+  width: 80px;
+}
+
+.not-fill {
+  background-color: #D8D8D8;
+}
+
+@media(max-width: 767px) {
+  .mt-6 {
+    margin-top: 3rem;
+  }
+
+  .header-title {
+    font-size: 28px;
+    line-height: 3rem;
+  }
+
+  .mx-w {
+    width: 100%;
+  }
+}
