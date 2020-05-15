@@ -24,10 +24,10 @@
     C'est la seule question obligatoire, promis !
   </span>
   <div class="d-flex flex-md-row flex-column justify-content-center align-items-center mt-6">
-    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="goToPage('two')">
+    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qOne(true)">
       Oui
     </button>
-    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="goToPage('two')">
+    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qOne(false)">
       Non
     </button>
     <div class="position-absolute d-flex align-items-end" style="top: 90%;">
@@ -46,16 +46,16 @@
     <span class="d-block text-dark mx-md-5 mx-3">2. Quel type de cheveux avez-vous ?</span>
   </div>
   <div class="d-flex flex-md-row flex-column justify-content-center align-items-center mt-6">
-    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="goToPage('three')">
+    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qTwo(1)">
       Ondulés
     </button>
-    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="goToPage('three')">
+    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qTwo(2)">
       Bouclés
     </button>
-    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="goToPage('three')">
+    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qTwo(3)">
       Crépus
     </button>
-    <span class="text-dark font-weight-light pointer position-absolute" style="top: 80%;" (click)="goToPage('three')">
+    <span class="text-dark font-weight-light pointer position-absolute" style="top: 80%;" (click)="onIgnore(2)">
       Ignorez cette étape
     </span>
     <div class="position-absolute d-flex align-items-end" style="top: 90%;">
@@ -74,18 +74,18 @@
     <span class="d-block text-dark mx-md-5 mx-3">3. Combien de temps vos cheveux prennent-ils avant de sécher ?</span>
   </div>
   <div class="d-flex flex-md-row flex-column justify-content-center align-items-center mt-6">
-    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w d-flex justify-content-center align-items-center" (click)="goToPage('four')">
+    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w d-flex justify-content-center align-items-center" (click)="qThree(1)">
       <i class="material-icons dp48 mr-2">keyboard_arrow_left</i>
       10 min
     </button>
-    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="goToPage('four')">
+    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qThree(2)">
       10 à 20 min
     </button>
-    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w d-flex justify-content-center align-items-center" (click)="goToPage('four')">
+    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w d-flex justify-content-center align-items-center" (click)="qThree(3)">
       <i class="material-icons dp48 mr-2">keyboard_arrow_right</i>
       20 min
     </button>
-    <span class="text-dark font-weight-light pointer position-absolute" style="top: 80%;" (click)="goToPage('four')">
+    <span class="text-dark font-weight-light pointer position-absolute" style="top: 80%;" (click)="onIgnore(3)">
       Ignorez cette étape
     </span>
     <div class="position-absolute d-flex align-items-end" style="top: 90%;">
@@ -104,16 +104,16 @@
     <span class="d-block text-dark mx-md-5 mx-3">4. En séparant vos cheveux, voyez-vous votre cuir chevelu ?</span>
   </div>
   <div class="d-flex flex-md-row flex-column justify-content-center align-items-center mt-6">
-    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="goToPage('five')">
+    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qFour(1)">
       Oui facilement
     </button>
-    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="goToPage('five')">
+    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qFour(2)">
       Oui difficilement
     </button>
-    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="goToPage('five')">
+    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qFour(3)">
       Non du tout
     </button>
-    <span class="text-dark font-weight-light pointer position-absolute" style="top: 80%;" (click)="goToPage('five')">
+    <span class="text-dark font-weight-light pointer position-absolute" style="top: 80%;" (click)="onIgnore(4)">
       Ignorez cette étape
     </span>
     <div class="position-absolute d-flex align-items-end" style="top: 90%;">
@@ -132,16 +132,16 @@
     <span class="d-block text-dark mx-md-5 mx-3">5. Vos cheveux semblent être</span>
   </div>
   <div class="d-flex flex-md-row flex-column justify-content-center align-items-center mt-6">
-    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="goToPage('five')">
+    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qFive(1)">
       Fin
     </button>
-    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="goToPage('five')">
+    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qFive(2)">
       Entre les deux
     </button>
-    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="goToPage('five')">
+    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qFive(3)">
       Épais
     </button>
-    <span class="text-dark font-weight-light pointer position-absolute" style="top: 80%;">
+    <span class="text-dark font-weight-light pointer position-absolute" style="top: 80%;" (click)="onIgnore(5)">
       Ignorez cette étape
     </span>
     <div class="position-absolute d-flex align-items-end" style="top: 90%;">
@@ -152,4 +152,16 @@
       <div class="pag mx-1 bg-dark"></div>
     </div>
   </div>
+</div>
+
+<div *ngIf="page === 'details'" class="container diagnostic-page not-main w-100 bg-white d-flex flex-column justify-content-center align-items-center position-relative">
+  <div class="header-title text-center">
+    <span class="d-block text-dark mx-md-5 mx-3">Vous avez terminé !</span>
+  </div>
+  <div class="my-4 text-dark">Voici un récap:</div>
+  <span class="text-dark my-3">{{diagnostic.one}}</span>
+  <span class="text-dark my-3">{{diagnostic?.two}}</span>
+  <span class="text-dark my-3">{{diagnostic?.three}}</span>
+  <span class="text-dark my-3">{{diagnostic?.four}}</span>
+  <span class="text-dark my-3">{{diagnostic?.five}}</span>
 </div>
