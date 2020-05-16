@@ -11,9 +11,15 @@ export class FooterComponent implements OnInit {
   loading: boolean = false;
   error: boolean | null = null;
   sent: boolean = false;
+  isAccepted: boolean = false;
+
   constructor(private service: UserService) { }
 
   ngOnInit() {
+  }
+
+  onAccept(ev: boolean) {
+    this.isAccepted = ev;
   }
 
   onSubmit(email: string) {
