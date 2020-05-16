@@ -28,7 +28,7 @@ export class DiagnosticPageComponent implements OnInit {
 
   qOne(choice: boolean) {
     this.diagnostic.one = choice;
-    choice ? this.page = 'two' : this.page = 'details';
+    choice ? this.page = 'details' : this.page = 'two';
   }
 
   qTwo(choice: number) {
