@@ -9,6 +9,18 @@ img[alt="Crink"] {
   transition: ease 0.3s;
 }
 
+.img-on-scroll {
+  height: 35px;
+}
+
+.img-on-top {
+  height: 45px;
+}
+
+.menu-icon {
+  height: 16px;
+}
+
 button:focus {
     outline: none;
 }
@@ -111,5 +123,15 @@ a:not(.active):not(.navbar-brand):hover:after {
       width: none;
     }
 
+  }
+}
+
+@media(max-width: 767px) {
+  .img-on-scroll {
+    height: 30px;
+  }
+
+  .img-on-top {
+    height: 40px;
   }
 }
