@@ -1,14 +1,17 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class UserService {
-  isConnected: boolean = true;
+  url: string = 'http://localhost:3000';
 
-  constructor() { }
+  constructor(private http: HttpClient) {}
 
-  connexion() {
-    this.isConnected = !this.isConnected;
+  sendEmail(email: string) {
+    return this.http.post(this.url + '/sendemail', {
+      email_newsletters: email
+    });
   }
 }

@@ -1,42 +1,47 @@
 .mt-top {
-    margin-top: 10rem;
+  margin-top: 5rem;
 }
 
 .img-cover {
-    height: 100vh;
-    background-image: url('../../../assets/img/signin-bg.jpeg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position-y: bottom;
-    clip-path: ellipse(100% 100% at 0% 30%);
+  background-image: url("../../../assets/img/signin-bg.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: bottom;
+  clip-path: ellipse(100% 100% at 0% 45%);
 }
 
 input {
-    border-radius: 8px;
-    border: none;
-    background-color: #E9E8EA;
-    padding: 12px 18px;
+  border-radius: 8px;
+  border: none;
+  background-color: #e9e8ea;
+  padding: 12px 18px;
 }
 
 input::placeholder {
-    color: #3A444C!important;
-    font-weight: 100!important;
+  color: #3a444c !important;
+  font-weight: 100 !important;
 }
 
 input:focus {
-    outline: none;
+  outline: none;
 }
 
 div button {
-    padding: 14px 20px;
+  padding: 14px 20px;
 }
 
 @media (max-width: 767px) {
-    img {
-        height: 25px;
-    }
+  img {
+    height: 25px;
+  }
 
-    .mt-top {
-        margin-top: 1rem;
-    }
+  .mt-top {
+    margin-top: 1rem;
+  }
+}
+
+@media (min-width: 1550px) {
+  .img-cover {
+    height: 91.6vh;
+  }
 }

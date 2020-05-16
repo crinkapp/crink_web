@@ -1,48 +1,124 @@
 <div class="row m-0">
-    <div class="col-7 d-none d-md-block img-cover"></div>
-    <div class="col-md-5 col-12 mt-top">
-        <div class="px-5 pt-5 pt-md-0">
-            <h1 class="text-center text-main letter-space-md pt-5 pt-md-0">Inscription</h1>
-            <div class="mt-5">
-                <span class="text-dark font-weight-bold d-block my-2">Nom d'utilisateur</span>
-                <input type="text" name="username" placeholder="Entrez un nom d'utilisateur" class="w-100" autocomplete="off">
-            </div>
-
-            <div class="mt-3">
-                <span class="text-dark font-weight-bold d-block my-2">Email</span>
-                <input type="email" name="email" placeholder="Entrez un email" class="w-100" autocomplete="off">
-            </div>
-
-            <div class="mt-3">
-                <span class="text-dark font-weight-bold d-block my-2">Mot de passe</span>
-                <input type="password" name="password" placeholder="Entrez un mot de passe" class="w-100" autocomplete="off">
-            </div>
-
-            <div class="mt-3">
-                <span class="text-dark font-weight-bold d-block my-2">Confirmez votre mot de passe</span>
-                <input type="password" name="confirmPassword" placeholder="Confirmez votre mot de passe" class="w-100" autocomplete="off">
-            </div>
-
-            <div class="mt-5 pretty p-curve p-default p-pulse">
-                <input type="checkbox" />
-                <div class="state">
-                    <label class="text-dark font-weight-bold mx-2">J'ai lu et j'accepte les conditions générales d'utilisation</label>
-                </div>
-            </div>
-
-            <div class="mt-5 text-center">
-                <button class="bg-main rounded border-0 w-50">
-                    <span class="h5 text-white letter-space-sm">Inscription</span>
-                </button>
-            </div>
-
-            <div class="mt-5 mb-md-0 mb-5 text-center">
-                <a href="#" class="text-decoration-none">
-                    <span class="text-main font-weight-bold">Déjà inscrit ? Connectez-vous maintenant !</span>
-                </a>
-            </div>
-        
+  <div class="col-6 d-none d-lg-block img-cover"></div>
+  <div class="col-lg-4 offset-lg-1 col-12 mt-top">
+    <div class="px-5 px-lg-0 py-5 pt-md-0">
+      <form (submit)="onSubmit($event)" #f="ngForm">
+        <h1 class="text-center text-main letter-space-md">
+          Inscription
+        </h1>
+        <div class="mt-5 position-relative">
+          <span class="text-dark font-weight-bold d-block my-2"
+            >Nom d'utilisateur <span class="font-weight-normal">(4 caractères min)</span></span
+          >
+          <input
+            type="text"
+            name="username"
+            placeholder="Entrez un nom d'utilisateur"
+            class="w-100"
+            autocomplete="off"
+            [(ngModel)]="username.content"
+            required
+            [class.on-error]="username.error !== null && username.error !== 'ok'"
+          />
+          <span *ngIf="username.error === 'ok'" class="on-success">
+            <img src="assets/icon/check-icon.svg" alt="Ok" height="11">
+          </span>
+          <span
+          class="my-2 text-danger text-sm d-block"
+          *ngIf="username.error !== null && username.error !== 'ok'">{{username.error}}</span>
         </div>
+
+        <div class="mt-3 position-relative">
+          <span class="text-dark font-weight-bold d-block my-2">Email</span>
+          <input
+            type="email"
+            name="email"
+            placeholder="Entrez un email"
+            class="w-100"
+            autocomplete="off"
+            [(ngModel)]="email.content"
+            required
+            [class.on-error]="email.error !== null && email.error !== 'ok'"
+          />
+          <span *ngIf="email.error === 'ok'" class="on-success">
+            <img src="assets/icon/check-icon.svg" alt="Ok" height="11">
+          </span>
+          <span
+          class="my-2 text-danger text-sm d-block"
+          *ngIf="email.error !== null && email.error !== 'ok'">{{email.error}}</span>
+        </div>
+
+        <div class="mt-3 position-relative">
+          <span class="text-dark font-weight-bold d-block my-2"
+            >Mot de passe <span class="font-weight-normal">(6 caractères min)</span></span
+          >
+          <input
+            type="password"
+            name="password"
+            placeholder="Entrez un mot de passe"
+            class="w-100"
+            autocomplete="off"
+            [(ngModel)]="password.content"
+            required
+            [class.on-error]="password.error === 'passwordlength'"
+          />
+          <span
+          class="my-2 text-danger text-sm d-block"
+          *ngIf="password.error === 'passwordlength'">Votre mot de passe doit comporter au moins 6 caractères</span>
+          <span *ngIf="password.error === 'ok' || password.error === 'Les mots de passe ne correspondent pas'" class="on-success">
+            <img src="assets/icon/check-icon.svg" alt="Ok" height="11">
+          </span>
+        </div>
+
+        <div class="mt-3 position-relative">
+          <span class="text-dark font-weight-bold d-block my-2"
+            >Confirmez votre mot de passe</span
+          >
+          <input
+            type="password"
+            name="confirmPassword"
+            placeholder="Confirmez votre mot de passe"
+            class="w-100"
+            autocomplete="off"
+            [(ngModel)]="confirmPassword"
+            required
+            [class.on-error]="password.error !== null && password.error !== 'ok' && password.error !== 'passwordlength'"
+          />
+          <span *ngIf="password.error === 'ok'" class="on-success">
+            <img src="assets/icon/check-icon.svg" alt="Ok" height="11">
+          </span>
+          <span
+          class="my-2 text-danger text-sm d-block"
+          *ngIf="password.error !== null && password.error !== 'ok'  && password.error !== 'passwordlength'">{{password.error}}</span>
+        </div>
+
+        <div class="mt-5 pretty p-curve p-default p-pulse">
+          <input type="checkbox" />
+          <div class="state">
+            <label class="text-dark font-weight-bold mx-2"
+              >J'accepte de recevoir la newsletter de Crink</label
+            >
+          </div>
+        </div>
+
+        <div class="mt-5 text-center">
+          <button
+            type="submit"
+            class="bg-main rounded border-0 w-50"
+            [disabled]="f.invalid"
+            [class.valid-form]="f.valid">
+            <span class="h5 text-white letter-space-sm">Inscription</span>
+          </button>
+        </div>
+
+        <!-- <div class="py-5 text-center">
+          <a [routerLink]="['/sign-in']" class="text-decoration-none">
+            <span class="text-main font-weight-bold"
+              >Déjà inscrit ? Connectez-vous maintenant !</span
+            >
+          </a>
+        </div> -->
+      </form>
     </div>
-    
+  </div>
 </div>

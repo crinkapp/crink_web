@@ -1,10 +1,94 @@
 <!-- HEADER -->
-<div class="bg-grey header">
-    <div class="container position-relative">
-        <span class="text-dark h4 font-weight-bold">Création d'article</span>
-        <img src="./assets/icon/creation-icon.png" alt="Publication" height="30" class="ml-4 position-absolute">
-    </div>
+<div class="bg-grey">
+  <div class="container py-4 d-flex align-items-center">
+    <img src="./assets/icon/creation-icon.png" alt="Publication" height="35" />
+    <span class="text-dark h4 font-weight-bold title ml-3 mb-0"
+      >Création d'article</span
+    >
+  </div>
 </div>
 
 <!-- CREATION ARTICLE -->
-<div class="my-5 container"></div>
+<div class="my-5 container">
+  <div class="row d-flex">
+    <div class="col-md-3 position-relative text-dark">
+      <span class="font-weight-bold">Titre *</span>
+    </div>
+
+    <div class="col-md-8 offset-md-1 text-grey">
+      <input
+        type="text"
+        name="title"
+        placeholder="Entrez le titre de l'article"
+        class="w-100 border-0 p-2 font-weight-light font-italic"
+      />
+    </div>
+
+    <div class="col-md-3 position-relative text-dark mt-3">
+      <span class="font-weight-bold">Description</span>
+    </div>
+
+    <div class="col-md-8 offset-md-1 text-grey mt-3">
+      <textarea
+        name="description"
+        rows="2"
+        maxlength="100"
+        placeholder="Entrez une brève description"
+        class="w-100 p-2 font-weight-light font-italic border-0"
+        style="resize: none;"
+      ></textarea>
+    </div>
+  </div>
+
+  <hr class="my-5" />
+
+  <div class="row d-flex">
+    <div class="col-md-3 position-relative text-dark">
+      <span class="font-weight-bold">Image de couverture</span>
+    </div>
+
+    <div class="col-md-8 offset-md-1 d-flex" style="color: #757575;">
+      <label class="pointer">
+        <span
+          class="p-2 font-weight-light font-italic"
+          *ngIf="thumbnail === null"
+          >Ajouter une image</span
+        >
+        <span
+          class="p-2 font-weight-light font-italic"
+          *ngIf="thumbnail !== null"
+          >Choisir une autre image</span
+        >
+        <img src="./assets/icon/add-icon.png" alt="Add image" height="20" />
+        <input
+          type="file"
+          style="visibility: hidden;"
+          (change)="onChange($event.target.files[0])"
+        />
+      </label>
+
+      <img
+        [src]="thumbnail"
+        id="thumbnail"
+        width="300"
+        height="120"
+        style="object-fit: cover;"
+        *ngIf="thumbnail !== null"
+      />
+    </div>
+
+    <div class="col-md-3 position-relative text-dark mt-4">
+      <span class="font-weight-bold">Hashtags (4 max)</span>
+    </div>
+
+    <div class="col-md-8 offset-md-1 text-grey mt-4">
+      <tag-input
+        [(ngModel)]="hashtags"
+        [maxItems]="4"
+        [separatorKeyCodes]="[32]"
+        [placeholder]="'Ajouter'"
+        [secondaryPlaceholder]="'Nouveau hashtag'"
+      ></tag-input>
+    </div>
+  </div>
+</div>

@@ -1,22 +1,137 @@
-<!-- HEADER -->
-<div class="bg-grey header">
-    <div class="container position-relative">
-        <span class="text-dark h4 font-weight-bold">Vos publications</span>
-        <img src="./assets/icon/publication-icon.png" alt="Publication" height="35" class="ml-4 position-absolute">
+<!-- BODY HEADER -->
+<div class="bg-crink">
+  <div class="bg-brown-cover">
+    <div class="container">
+      <div class="row mx-0">
+        <div class="col-lg-6 offset-lg-0 col-sm-12 col-10 offset-1 py-5 d-flex flex-column">
+          <p class="text-light baseline-title mb-0 mt-5">Aimez-vous au naturel</p>
+          <p class="text-light font-weight-light baseline-text">L'application qui vous aide à prendre soin de vos cheveux au quotidien</p>
+          <h5 class="text-light font-weight-light mt-3 mb-0">
+            Prochainement
+          </h5>
+          <div class="d-flex align-items-center mt-3">
+            <img src="assets/icon/apple-badge.svg" alt="Disponible sur app store" height="55" class="pointer">
+            <img src="/assets/icon/google-badge.svg" alt="Disponible sur google play" height="55" class="ml-3 pointer">
+          </div>
+        </div>
+        <div class="col-lg-6 d-lg-flex d-none py-5 justify-content-end">
+          <img src="./assets/phones/home-phone.png" alt="Crink application" height="500">
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 
-<!-- PUBLICATIONS -->
-<div class="my-5 container">
-    <span class="h5 text-dark">Total : <strong>4</strong></span>
-    <div class="my-3">
-        <app-article-list *ngFor="let article of articles"
-        [title]="article.title"
-        [thumbnail]="article.thumbnail"
-        [hashtags]="article.hashtags"
-        [likes]="article.likes"
-        [comments]="article.comments"
-        [time]="article.time"
-        [date]="article.date"></app-article-list>
+<!-- OUR VALUES -->
+<div class="my-high container">
+  <p class="text-center section-title mb-5">
+    Nos valeurs
+  </p>
+  <div class="row my-5">
+    <div class="col-md-4 text-center px-5 my-3 my-md-0">
+      <img src="assets/icon/natural.png" alt="Authenticité" height="90" class="mb-4">
+      <h4 class="text-dark font-weight-bold">
+        Authenticité
+      </h4>
+      <p class="text-muted">
+        Notre mission est de vous réconcilier avec l’authenticité de vos cheveux. Vous aider à les sublimer avec des produits naturels.
+      </p>
     </div>
+
+    <div class="col-md-4 text-center px-5 my-3 my-md-0">
+      <img src="assets/icon/knowledge.png" alt="Instructif" height="90" class="mb-4">
+      <h4 class="text-dark font-weight-bold">
+        Instructif
+      </h4>
+      <p class="text-muted">
+        Les bons gestes ne sont pas innés, laissez-nous vous les apprendre.
+      </p>
+    </div>
+
+    <div class="col-md-4 text-center px-5 my-3 my-md-0">
+      <img src="assets/icon/sharing.png" alt="Communautaire" height="90" class="mb-4">
+      <h4 class="text-dark font-weight-bold">
+        Communautaire
+      </h4>
+      <p class="text-muted">
+        Nous mettons tout en œuvre pour réunir autour des mêmes passions et partager ses connaissances.
+      </p>
+    </div>
+  </div>
 </div>
+
+<!-- FEATURES -->
+<div class="my-5 bg-lightgrey features-section py-high">
+  <div class="container">
+    <p class="text-center section-title pb-5">
+      Fonctionnalités
+    </p>
+    <div class="row mx-0 align-items-center">
+      <div class="col-lg-4 order-0">
+        <p class="h4 text-dark my-4 font-weight-bold">
+          Votre Application
+        </p>
+        <p class="text-muted font-weight-normal mb-3">
+          Grâce à notre algorithme, nous déterminerons quelles sont les articles qui seront susceptible de vous plaire.
+          Chaque compte est différent, en fonction de vos goûts et de vos besoins, l'application vous proposera en priorité
+          ce qui vous concernera directement.
+        </p>
+        <ul class="row text-muted text-sm font-weight-bold list-style ml-3 ml-md-0 mt-5 mb-4">
+          <li class="col-12 mb-2 mb-md-3">Conseils de soins personnalisés</li>
+          <li class="col-12 mb-2 mb-md-3">Rappel pour les traitements, shampoings etc…</li>
+        </ul>
+      </div>
+      <div class="col-lg-8 offset-lg-0 col-12 order-1">
+        <img src="assets/phones/signin-screen-2.png" alt="Écran de connexion" class="w-100">
+      </div>
+
+      <div class="col-lg-8 col-12 order-3 order-lg-2">
+        <img src="assets/phones/search-filter.png" alt="Rercherche par filtre" class="w-100 search-filter">
+      </div>
+      <div class="col-lg-4 offset-lg-0 col-12 order-2 order-lg-3 mt-5 mt-lg-0">
+            <p class="h4 text-dark my-4 font-weight-bold">
+              Simple d'utilisation
+            </p>
+            <p class="text-muted font-weight-normal mb-3">
+              Recherchez l'essentiel avec les filtres proposés. Vous pouvez également enregistrer vos filtres favoris pour une utilisation encore plus efficace !
+            </p>
+            <ul class="row text-muted text-sm font-weight-bold list-style ml-3 ml-md-0 mt-5 mb-4">
+              <li class="col-12 mb-2 mb-md-3">Recherche avancée</li>
+              <li class="col-12 mb-2 mb-md-3">Filtres favoris</li>
+            </ul>
+      </div>
+
+      <div class="col-lg-4 order-4 mt-5 mt-lg-0">
+        <p class="h4 text-dark my-4 font-weight-bold">
+          Partagez vos connaissances
+        </p>
+        <p class="text-muted font-weight-normal mb-3">
+          Nous vous proposons également de partager vos connaissances à la communauté à travers des articles ou des vidéos.
+          Notre interface de création d'article, moderne et agréable, vous accompagnera pour vos futurs créations. Nous comptons sur vous !
+        </p>
+        <ul class="row text-muted text-sm font-weight-bold list-style ml-3 ml-md-0 mt-5 mb-4">
+          <li class="col-12 mb-2 mb-md-3">Création d'article</li>
+          <li class="col-12 mb-2 mb-md-3">Avis et commentaires de la communauté</li>
+        </ul>
+      </div>
+      <div class="col-lg-8 offset-lg-0 col-12 order-5">
+        <img src="assets/img/share-knowledge.jpeg" alt="Partagez vos connaisances" class="w-100 share-knowledge">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- JOIN NOW -->
+<!-- <div class="my-high">
+  <div class="container">
+    <div class="row mx-0 align-items-center">
+      <div class="col-md-6 col-12">
+        <h2 class="section-title">Rejoignez-nous dès maintenant</h2>
+        <p class="text-muted">L'application est 100% gratuite !</p>
+      </div>
+      <div class="col-md-6 col-12 d-flex align-items-center justify-content-md-center justify-content-start mt-4 mt-md-0">
+        <a [routerLink]="['sign-up']" class="btn-join w-50 text-decoration-none text-center">Je m'inscris</a>
+      </div>
+    </div>
+  </div>
+</div> -->

@@ -1,10 +1,12 @@
-ul li a {
-    font-size: 18px;
-    color: #3A444C;
+@import '../../../styles.scss';
+
+nav {
+  background-color: transparent;
+  transition: ease 0.4s;
 }
 
-a img {
-    height: 40px;
+img[alt="Crink"] {
+  transition: ease 0.3s;
 }
 
 button:focus {
@@ -13,4 +15,101 @@ button:focus {
 
 li img {
     object-fit: cover;
+}
+
+a {
+  animation: ease 0.2s;
+  position: relative;
+}
+
+a:not(.active):not(.navbar-brand):after {
+  position: absolute;
+  content: '';
+  border-bottom: 3px solid #fff;
+  width: 0px;
+  transform: translateX(-50%);
+  bottom: -4px;
+  left: 50%;
+  cursor: initial;
+  transition: ease 0.5s;
+}
+
+a:not(.active):not(.navbar-brand):hover:after {
+  width: 75%;
+}
+
+.active {
+  color: #fff !important;
+}
+
+.active::after {
+  position: absolute;
+  content: '';
+  border-bottom: 3px solid #fff;
+  width: 75%;
+  transform: translateX(-50%);
+  bottom: -4px;
+  left: 50%;
+  cursor: initial;
+  transition: ease 0.5s;
+}
+
+.scroll {
+  background: #fff;
+
+  ul li a:not(.active),
+  .active {
+    color: #3A444C!important;
+    font-weight: 400!important;
+  }
+
+  a:not(.active):not(.navbar-brand):after {
+    border-bottom: 3px solid #3A444C;
+  }
+
+  .active::after {
+    border-bottom: 3px solid #3A444C;
+  }
+}
+
+@media(max-width: 991px) {
+  a:not(.active):not(.navbar-brand):after {
+    position: absolute;
+    content: '';
+    border-bottom: none;
+    width: 0px;
+    transform: translateX(-50%);
+    left: 0;
+  }
+
+  .active {
+    color: $mainColor!important;
+  }
+
+  .active::after {
+    border-bottom: none;
+    width: none;
+  }
+
+
+  .scroll {
+    a:not(.active):not(.navbar-brand):hover:after {
+      position: absolute;
+      content: '';
+      border-bottom: none;
+      width: 0px;
+      transform: translateX(-50%);
+      left: 0;
+    }
+
+    .active {
+      color: $mainColor!important;
+    }
+
+    .active::after {
+      border-bottom: none;
+      width: none;
+    }
+
+  }
 }

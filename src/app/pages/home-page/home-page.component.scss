@@ -1,3 +1,103 @@
-div img {
-    top: 28px;
+@import '../../../styles.scss';
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
+
+.bg-crink {
+  background: url('../../../assets/img/violette.jpeg') no-repeat;
+  position: relative;
+  border-bottom-left-radius: 13rem;
+  background-size: cover;
+  background-position: center;
+}
+
+.bg-brown-cover {
+  background-color: rgba(185, 108, 84, 0.8);
+  border-bottom-left-radius: 13rem;
+  padding-top: 10rem;
+}
+
+.baseline-title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 50px;
+  letter-spacing: 3px;
+}
+
+.baseline-text {
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+
+.section-title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 34px;
+  letter-spacing: 2px;
+}
+
+.my-high {
+  margin-top: 6.5rem;
+  margin-bottom: 6.5rem;
+}
+
+.py-high {
+  padding-top: 6.5rem;
+  padding-bottom: 6.5rem;
+}
+
+.bg-lightgrey {
+  background-color: $lightGreyColor;
+}
+
+.list-style {
+  list-style: url('../../../assets/icon/check-icon.png');
+}
+
+.features-section {
+  border-top-right-radius: 13rem;
+}
+
+.btn-join {
+  border: 3px solid $mainColor;
+  background-color: #fff;
+  color: $mainColor;
+  padding: 10px 18px;
+  font-size: 20px;
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 2px;
+  transition: 0.4s;
+}
+
+.btn-join:hover {
+  border: 3px solid $darkColor;
+  color: $darkColor;
+  transform: translate3d(0,-2px,0);
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.1), 0 14px 6px 0 rgba(0,0,0,.25);
+}
+
+@media(max-width: 991px) {
+  .bg-brown-cover {
+    padding-top: 5rem;
+  }
+}
+
+@media(max-width: 575px) {
+  .bg-crink,
+  .bg-brown-cover {
+    border-bottom-left-radius: 0rem;
+  }
+
+  .features-section {
+    border-top-right-radius: 0rem;
+  }
+}
+
+@media(min-width: 992px) {
+  .search-filter {
+    z-index: 100;
+    position: relative;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+  }
+
+  .search-filter,
+  .share-knowledge {
+    margin-top: -3rem;
+  }
 }
