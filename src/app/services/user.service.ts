@@ -11,7 +11,7 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   sendEmail(email: string) {
-    return this.http.post(this.url + '/sendemail', {
+    return this.http.post(this.url + '/newsletters', {
       email_newsletters: email
     });
   }
