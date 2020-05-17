@@ -45,7 +45,7 @@
         required
         [disabled]="loading || sent">
 
-        <div class="my-3 pretty p-svg p-plain p-bigger p-smooth text-sm text-light" [class.d-none]="sent">
+        <div class="my-3 pretty p-svg p-plain p-bigger p-rotate text-sm text-light" [class.d-none]="sent">
           <input
           type="checkbox"
           (change)="onAccept($event.srcElement.checked)"
