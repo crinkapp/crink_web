@@ -72,9 +72,67 @@
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.1), 0 14px 6px 0 rgba(0,0,0,.25);
 }
 
+.newsletter-bg {
+  background: url('../../../assets/icon/newsletter-bg.svg') repeat center #fff;
+  background-size: 16rem;
+  overflow: hidden;
+}
+
+.btn-newsletter {
+  border: 3px solid $mainColor;
+  background-color: #fff;
+  color: $mainColor;
+  transition: 0.4s;
+}
+
+.btn-newsletter:hover {
+  border: 3px solid $darkColor;
+  color: $darkColor;
+  transform: translate3d(0,-2px,0);
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.1), 0 14px 6px 0 rgba(0,0,0,.25);
+}
+
+.w-newsletter {
+  width: 60%;
+}
+
+.cursor-default {
+  cursor: default!important;
+}
+
+button[name="sendemail"] {
+  transition: 0.4s;
+}
+
+.loading-spin {
+  width: 18px;
+  height: 18px;
+  animation-name: spin;
+  border-radius: 50%;
+  box-shadow: 0px 1px 0px #6c757d;
+  animation-duration: 2000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes spin {
+  from {
+      transform:rotate(0deg);
+  }
+  to {
+      transform:rotate(360deg);
+  }
+}
+
 @media(max-width: 991px) {
   .bg-brown-cover {
     padding-top: 5rem;
+  }
+}
+
+@media(max-width: 767px) {
+  .w-newsletter {
+    width: 75%;
   }
 }
 
@@ -86,6 +144,10 @@
 
   .features-section {
     border-top-right-radius: 0rem;
+  }
+
+  .w-newsletter {
+    width: 90%;
   }
 }
 

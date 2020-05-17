@@ -61,7 +61,7 @@
 </div>
 
 <!-- FEATURES -->
-<div class="my-5 bg-lightgrey features-section py-high">
+<div class="mt-5 bg-lightgrey features-section py-high">
   <div class="container">
     <p class="text-center section-title pb-5">
       Fonctionnalités
@@ -135,3 +135,69 @@
     </div>
   </div>
 </div> -->
+
+<!-- NEWSLETTER -->
+<div class="py-high newsletter-bg">
+  <div class="container">
+    <div class="row mx-0 align-items-center">
+      <div class="col-12 my-2 justify-content-center align-items-center flex-column">
+        <h3 class="section-title text-center">
+          Suivez-nous pour ne rien manquer !
+        </h3>
+        <p class="text-muted text-center">
+          Inscrivez-vous à notre newsletter pour vous tenir au courant de l'avancement
+        </p>
+        <div class="my-5 mx-auto w-newsletter">
+          <form (submit)="onSubmit(emailref.viewModel)" #f="ngForm">
+            <input
+            name="email"
+            type="email"
+            class="form-control"
+            [ngClass]="{'is-invalid': error && error !== null && !loading, 'is-valid': loading}"
+            placeholder="email@crink.fr"
+            ngModel
+            #emailref="ngModel"
+            required
+            [disabled]="loading || sent">
+            <div class="invalid-feedback" *ngIf="error && error !== null && !loading">
+              Veuillez saisir une adresse email valide.
+            </div>
+
+            <div class="my-4 pretty p-default p-curve p-thick p-pulse" [class.d-none]="sent">
+              <input
+              type="checkbox"
+              (change)="onAccept($event.srcElement.checked)"
+              [disabled]="loading" />
+              <div class="state">
+                <label class="ml-1 text-muted">J'accepte de recevoir les newsletters de Crink</label>
+              </div>
+            </div>
+
+            <button
+            name="sendemail"
+            type="submit"
+            class="btn btn-dark my-1 font-weight-light align-items-center"
+            [class.d-none]="sent"
+            [ngClass]="{'cursor-default': f.invalid || loading || !isAccepted, 'd-block': !sent}"
+            [disabled]="f.invalid || loading || !isAccepted">
+              Envoyer
+              <svg class="bi bi-cursor-fill text-white ml-1" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M14.082 2.182a.5.5 0 01.103.557L8.528 15.467a.5.5 0 01-.917-.007L5.57 10.694.803 8.652a.5.5 0 01-.006-.916l12.728-5.657a.5.5 0 01.556.103z" clip-rule="evenodd"></path>
+              </svg>
+            </button>
+          </form>
+
+          <!-- ON VALID SUBMIT -->
+          <p *ngIf='!error && error !== null && !loading'
+          class="text-sm text-dark font-weight-light my-3"
+          >Super ! Merci pour votre inscription ! 🥳</p>
+          <div *ngIf="loading" class="my-3 d-flex align-items-center">
+            <p class="text-sm text-dark font-weight-light mb-0">Traitement en cours…</p>
+            <span class="loading-spin ml-3 d-inline-flex"></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
