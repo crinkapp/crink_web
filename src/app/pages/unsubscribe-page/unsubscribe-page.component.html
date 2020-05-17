@@ -1,0 +1,39 @@
+<div class="page-content d-flex align-items-center justify-content-center flex-column">
+  <div class="bg-white window mx-auto rounded p-4 shadow">
+    <div class="py-2 display-4 text-dark font-weight-light text-center">
+      <a [routerLink]="['/']" class="text-decoration-none">
+        <img src="assets/icon/crink-icon-brown.svg" alt="Crink" tilte="Crink" height="40">
+      </a>
+    </div>
+    <hr class="mt-3 mb-5">
+    <div *ngIf="!sent else unsubscribeSuccess">
+      <form (submit)="onSubmit()" #f="ngForm">
+        <div class="d-flex flex-column justify-content-center">
+          <p class="text-muted text-center">Veuillez confirmer l'adresse email pour se désabonner:</p>
+          <div class="w-75 mx-auto">
+            <input
+            type="email"
+            name="email"
+            class="form-control mt-3 mb-2"
+            [ngClass]="{'is-invalid': error && error !== null && !loading, 'is-valid': loading}"
+            placeholder="email@crink.fr"
+            [(ngModel)]="email"
+            [disabled]="loading || sent"
+            required>
+            <div class="invalid-feedback" *ngIf="error && error !== null && !loading">
+              Veuillez saisir une adresse email valide.
+            </div>
+          </div>
+        </div>
+        <button
+        class="btn btn-outline-danger my-3 d-flex mx-auto"
+        [disabled]="f.invalid">Se désabonner</button>
+      </form>
+    </div>
+
+    <ng-template #unsubscribeSuccess>
+      <p class="text-muted text-center">Vous vous êtes bien désabonné.</p>
+    </ng-template>
+
+  </div>
+</div>

@@ -15,4 +15,10 @@ export class UserService {
       email_newsletters: email
     });
   }
+
+  unsubscribe(email: string) {
+    return this.http.put(this.url + '/newsletters', {
+      email_newsletters: email
+    });
+  }
 }
