@@ -13,6 +13,7 @@ import { TagInputModule } from "ngx-chips";
 import { AppComponent } from "./app.component";
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { ArticleListComponent } from "./components/article-list/article-list.component";
+import { FooterComponent } from './components/footer/footer.component';
 
 // PAGES
 import { SignInPageComponent } from "./pages/sign-in-page/sign-in-page.component";
@@ -21,7 +22,6 @@ import { HomePageComponent } from "./pages/home-page/home-page.component";
 import { CreateArticlePageComponent } from "./pages/create-article-page/create-article-page.component";
 import { ProfilePageComponent } from "./pages/profile-page/profile-page.component";
 import { ArticlesPageComponent } from "./pages/articles-page/articles-page.component";
-import { FooterComponent } from './components/footer/footer.component';
 import { UnsubscribePageComponent } from './pages/unsubscribe-page/unsubscribe-page.component';
 
 const appRoutes: Routes = [
@@ -30,6 +30,7 @@ const appRoutes: Routes = [
   { path: "create-article", component: CreateArticlePageComponent },
   { path: "articles", component: ArticlesPageComponent },
   { path: "profile", component: ProfilePageComponent },
+  { path: "unsubscribe-newsletter", component: UnsubscribePageComponent },
   { path: "", component: HomePageComponent },
 ];
 
