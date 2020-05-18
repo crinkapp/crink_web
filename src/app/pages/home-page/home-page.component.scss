@@ -115,6 +115,22 @@ button[name="sendemail"] {
   animation-timing-function: linear;
 }
 
+.pretty {
+  white-space: normal;
+  width: 100%;
+}
+
+.pretty .state label {
+  text-indent: 0;
+  padding-left: 2rem;
+}
+
+.pretty .state label:after,
+.pretty .state label:before,
+.pretty.p-icon .state .icon {
+  top: 0;
+}
+
 @keyframes spin {
   from {
       transform:rotate(0deg);
