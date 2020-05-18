@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent {
   scrolled: boolean = false;
+  toggleMenu: boolean = false;
   constructor(public router: Router) {}
 
   @HostListener('window:scroll', ['$event']) onWindowScroll(e: any) {

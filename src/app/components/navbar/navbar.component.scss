@@ -3,6 +3,15 @@
 nav {
   background-color: transparent;
   transition: ease 0.4s;
+  z-index: 3030!important;
+}
+
+.mobile-menu {
+  height: 100vh;
+  z-index: 3000;
+  background-color: $mainColor;
+  animation: ease-in 0.5s;
+  transition: ease-in 0.5s;
 }
 
 img[alt="Crink"] {
