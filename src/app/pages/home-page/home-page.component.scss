@@ -9,6 +9,10 @@
   background-position: center;
 }
 
+.app-badge {
+  height: 60px;
+}
+
 .bg-brown-cover {
   background-color: rgba(185, 108, 84, 0.8);
   border-bottom-left-radius: 13rem;
@@ -115,6 +119,22 @@ button[name="sendemail"] {
   animation-timing-function: linear;
 }
 
+.pretty {
+  white-space: normal;
+  width: 100%;
+}
+
+.pretty .state label {
+  text-indent: 0;
+  padding-left: 2rem;
+}
+
+.pretty .state label:after,
+.pretty .state label:before,
+.pretty.p-icon .state .icon {
+  top: 0;
+}
+
 @keyframes spin {
   from {
       transform:rotate(0deg);
@@ -134,9 +154,7 @@ button[name="sendemail"] {
   .w-newsletter {
     width: 75%;
   }
-}
 
-@media(max-width: 575px) {
   .bg-crink,
   .bg-brown-cover {
     border-bottom-left-radius: 0rem;
@@ -145,13 +163,19 @@ button[name="sendemail"] {
   .features-section {
     border-top-right-radius: 0rem;
   }
+}
 
+@media(max-width: 575px) {
   .w-newsletter {
     width: 90%;
   }
+
+  .app-badge {
+    height: 45px;
+  }
 }
 
-@media(min-width: 992px) {
+@media(min-width: 1200px) {
   .search-filter {
     z-index: 100;
     position: relative;
@@ -163,3 +187,14 @@ button[name="sendemail"] {
     margin-top: -3rem;
   }
 }
+
+@media(min-width: 992px) {
+  .search-filter {
+    margin-top: -1rem;
+  }
+
+  .share-knowledge {
+    margin-top: -5rem;
+  }
+}
+
