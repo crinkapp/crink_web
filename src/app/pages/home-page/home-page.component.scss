@@ -144,9 +144,40 @@ button[name="sendemail"] {
   }
 }
 
+.search-filter,
+.share-knowledge {
+  margin-top: -3rem;
+}
+
+.search-filter {
+  z-index: 100;
+  position: relative;
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+}
+
+
+
+@media(max-width: 1199px) {
+  .search-filter {
+    margin-top: -1.5rem;
+  }
+
+  .share-knowledge {
+    margin-top: -4.5rem;
+  }
+}
+
 @media(max-width: 991px) {
   .bg-brown-cover {
     padding-top: 5rem;
+  }
+
+  .search-filter {
+    margin-top: 0;
+  }
+
+  .share-knowledge {
+    margin-top: 0;
   }
 }
 
@@ -174,27 +205,3 @@ button[name="sendemail"] {
     height: 45px;
   }
 }
-
-@media(min-width: 1200px) {
-  .search-filter {
-    z-index: 100;
-    position: relative;
-    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
-  }
-
-  .search-filter,
-  .share-knowledge {
-    margin-top: -3rem;
-  }
-}
-
-@media(min-width: 992px) {
-  .search-filter {
-    margin-top: -1rem;
-  }
-
-  .share-knowledge {
-    margin-top: -5rem;
-  }
-}
-
