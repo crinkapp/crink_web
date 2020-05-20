@@ -5,6 +5,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 // LIBS
 import { TagInputModule } from "ngx-chips";
@@ -50,14 +51,17 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes, { useHash: true }),
     TagInputModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule
   ],
   schemas: [NO_ERRORS_SCHEMA],
-  providers: [],
+  providers: [{
+    provide: LocationStrategy,
+    useClass: HashLocationStrategy
+  }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
