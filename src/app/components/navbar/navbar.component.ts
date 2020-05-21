@@ -37,7 +37,22 @@ export class NavbarComponent {
     scroll > 140 ? this.scrolled = true : this.scrolled = false;
   }
 
-  toggle() {
+  toggle(route?: string) {
+    if(this.router.url === route) {
+      this.smoothScroll();
+    }
     this.toggleMenu = this.toggleMenu === 'close' ? 'open' : 'close';
+  }
+
+  backHome() {
+    if(this.router.url === '/') {
+      this.smoothScroll();
+    }
+    this.toggleMenu = 'close';
+    this.router.navigate(['/']);
+  }
+
+  smoothScroll() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
