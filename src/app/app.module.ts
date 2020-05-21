@@ -27,12 +27,12 @@ import { UnsubscribePageComponent } from './pages/unsubscribe-page/unsubscribe-p
 import { CguPageComponent } from './pages/cgu-page/cgu-page.component';
 
 const appRoutes: Routes = [
-  { path: "sign-in", component: SignInPageComponent },
-  { path: "sign-up", component: SignUpPageComponent },
-  { path: "create-article", component: CreateArticlePageComponent },
+  { path: "connexion", component: SignInPageComponent },
+  { path: "inscription", component: SignUpPageComponent },
+  { path: "creation-article", component: CreateArticlePageComponent },
   { path: "articles", component: ArticlesPageComponent },
-  { path: "profile", component: ProfilePageComponent },
-  { path: "unsubscribe-newsletter", component: UnsubscribePageComponent },
+  { path: "profil", component: ProfilePageComponent },
+  { path: "desabonnement-newsletter", component: UnsubscribePageComponent },
   { path: "cgu", component: CguPageComponent },
   { path: "", component: HomePageComponent },
 ];
