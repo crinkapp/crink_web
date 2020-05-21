@@ -14,8 +14,8 @@ import { trigger, transition, style, animate, state } from '@angular/animations'
       state('close', style({
         transform: 'translate3d(100%, 0, 0)',
       })),
-      transition('open => close', animate('600ms 0.2ms ease-in-out')),
-      transition('close => open', animate('600ms 0.2ms ease-in-out')),
+      transition('open => close', animate('200ms 0.2ms ease-in-out')),
+      transition('close => open', animate('350ms 0.2ms ease-in-out')),
     ])
   ]
 })
