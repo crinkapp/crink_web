@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-unsubscribe-page',
@@ -13,8 +14,14 @@ export class UnsubscribePageComponent implements OnInit {
   error: boolean | null = null;
   sent: boolean = false;
   isAccepted: boolean = false;
+  userEmail: string;
+  incorrectEmail: boolean = false;
 
-  constructor(private user: UserService) { }
+  constructor(private user: UserService, private activatedRoute: ActivatedRoute) {
+    this.activatedRoute.queryParams.subscribe(params => {
+      this.userEmail = params['email'];
+  });
+  }
 
   ngOnInit() {
   }
@@ -25,26 +32,37 @@ export class UnsubscribePageComponent implements OnInit {
 
   onSubmit() {
     this.loading = true;
-    if (this.emailReg.test(this.email)) {
-      // if email address is valid
-      this.user.unsubscribe(this.email)
-        .subscribe(
-          () => {
-            // if sent successfully
-            this.error = false;
-            this.sent = true;
-            this.loading = false;
-          }
-        ), (err) => {
-          // if error in sending email
-          console.log(err);
-          this.error = true;
-          this.loading = false;
-        }
-    } else {
-        // if email address isn't valid
-        this.error = true;
-        this.loading = false;
+    if (!this.emailReg.test(this.email)) {
+      // if email address isn't valid
+      this.error = true;
+      this.loading = false;
+      this.incorrectEmail = false;
+      return;
+    }
+    // if email address is valid
+    if (this.email === this.userEmail) {
+      // if email address is equal to email of user
+      return this.onUnsubscribe();
+    }
+    this.error = true;
+    this.incorrectEmail = true;
+    this.loading = false;
+  }
+
+
+  onUnsubscribe() {
+    this.user.unsubscribe(this.email).subscribe(() => {
+      // if sent successfully
+      this.error = false;
+      this.sent = true;
+      this.loading = false;
+      this.incorrectEmail = false;
+    }), (err) => {
+      // if error in sending email
+      console.log(err);
+      this.error = true;
+      this.loading = false;
+      this.incorrectEmail = false;
     }
   }
 
