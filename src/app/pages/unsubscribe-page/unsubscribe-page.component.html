@@ -9,19 +9,19 @@
     <div *ngIf="!sent else unsubscribeSuccess">
       <form (submit)="onSubmit()" #f="ngForm">
         <div class="d-flex flex-column justify-content-center">
-          <p class="text-muted text-center">Veuillez confirmer l'adresse email pour se désabonner:</p>
+          <p class="text-muted text-center">Veuillez confirmer votre adresse email pour vous désabonner:</p>
           <div class="w-75 mx-auto">
             <input
             type="email"
             name="email"
             class="form-control mt-3 mb-2"
-            [ngClass]="{'is-invalid': error && error !== null && !loading, 'is-valid': loading}"
+            [ngClass]="{'is-invalid': error && error !== null && !loading}"
             placeholder="email@crink.fr"
             [(ngModel)]="email"
             [disabled]="loading || sent"
             required>
             <div class="invalid-feedback" *ngIf="error && error !== null && !loading">
-              Veuillez saisir une adresse email valide.
+              {{incorrectEmail ? 'Votre email ne correspond pas.' : 'Veuillez saisir une adresse email valide.'}}
             </div>
           </div>
         </div>
@@ -32,7 +32,10 @@
     </div>
 
     <ng-template #unsubscribeSuccess>
-      <p class="text-muted text-center">Vous vous êtes bien désabonné.</p>
+      <div class="d-flex flex-column align-items-center justify-content-center">
+        <p class="text-muted text-center font-weight-light">Vous vous êtes bien désabonné.</p>
+        <a [routerLink]="['/']" class="text-center text-decoration-none my-2 text-sm font-weight-light">Retour à l'accueil</a>
+      </div>
     </ng-template>
 
   </div>
