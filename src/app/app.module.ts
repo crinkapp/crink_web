@@ -33,6 +33,7 @@ const appRoutes: Routes = [
   { path: "articles", component: ArticlesPageComponent },
   { path: "profile", component: ProfilePageComponent },
   { path: "unsubscribe-newsletter", component: UnsubscribePageComponent },
+  { path: "cgu", component: CguPageComponent },
   { path: "", component: HomePageComponent },
 ];
 
