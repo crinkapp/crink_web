@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  API_URL: 'http://rest.crink.fr'
+  API_URL: 'https://rest.crink.fr'
 };
