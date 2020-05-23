@@ -3,10 +3,29 @@
 nav {
   background-color: transparent;
   transition: ease 0.4s;
+  z-index: 3030!important;
+}
+
+.mobile-menu {
+  height: 100vh;
+  z-index: 3000;
+  background-color: $mainColor;
 }
 
 img[alt="Crink"] {
   transition: ease 0.3s;
+}
+
+.img-on-scroll {
+  height: 35px;
+}
+
+.img-on-top {
+  height: 45px;
+}
+
+.menu-icon {
+  height: 16px;
 }
 
 button:focus {
@@ -111,5 +130,15 @@ a:not(.active):not(.navbar-brand):hover:after {
       width: none;
     }
 
+  }
+}
+
+@media(max-width: 767px) {
+  .img-on-scroll {
+    height: 30px;
+  }
+
+  .img-on-top {
+    height: 40px;
   }
 }

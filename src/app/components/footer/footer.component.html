@@ -7,16 +7,23 @@
         quotidien
       </span>
       <div class="mt-3">
-        <a href="https://www.instagram.com/crinkappli/" target="_blank">
+        <a href="https://www.instagram.com/crinkappli/" target="_blank" title="Instagram">
           <img
             src="assets/icon/instagram.svg"
             class="mr-3 pointer"
             height="25"
           />
         </a>
-        <a href="https://www.linkedin.com/company/crink" target="_blank">
+        <a href="https://www.linkedin.com/company/crink" target="_blank" title="Linkedin">
           <img
             src="assets/icon/linkedin.svg"
+            class="mr-3 pointer"
+            height="25"
+          />
+        </a>
+        <a href="https://github.com/crinkapp" target="_blank" title="Github">
+          <img
+            src="assets/icon/github-icon.svg"
             class="mr-3 pointer"
             height="25"
           />
@@ -26,72 +33,34 @@
 
     <div class="col-lg-3 offset-lg-1 mt-lg-2 mt-5">
       <div class="pb-2 mb-lg-4 mb-3 position-relative">
-        <span class="d-block text-white text-uppercase mb-2">On vous tient au courant !</span>
+        <span class="d-block text-light text-uppercase mb-2">Contact</span>
         <div class="position-absolute border-bot"></div>
       </div>
 
-      <p class="text-white font-weight-light text-sm">
-        L'application étant encore en développement, nous vous tiendrons au courant lors de sa sortie.
+      <p class="text-light font-weight-light text-sm">
+        Pour toute question n'hésitez pas à nous contacter, nous aurons le plaisir de vous répondre
       </p>
-
-      <form (submit)="onSubmit(emailref.viewModel)" #f="ngForm">
-        <input
-        name="email"
-        type="email"
-        class="form-width p-2 newsletter font-weight-light text-white d-block"
-        placeholder="Entrez votre adresse email"
-        ngModel
-        #emailref="ngModel"
-        required
-        [disabled]="loading || sent">
-
-        <div class="my-3 pretty p-svg p-plain p-bigger p-smooth text-sm text-light" [class.d-none]="sent">
-          <input
-          type="checkbox"
-          (change)="onAccept($event.srcElement.checked)"
-          [disabled]="loading" />
-          <div class="state">
-              <img class="svg text-light" src="assets/icon/check-circle.svg">
-              <label class="ml-1 text-white font-weight-light">J'accepte de recevoir les newsletters de Crink</label>
-          </div>
-        </div>
-
-        <button
-        type="submit"
-        class="mt-3 mb-2 btn text-light font-weight-light d-flex align-items-center"
-        [ngClass]="{'d-flex': !sent, 'd-none': sent}"
-        [class.pointer]="f.valid || isAccepted"
-        [class.cursor-default]="f.invalid || loading || !isAccepted"
-        [disabled]="f.invalid || loading || !isAccepted">
-        Envoyer
-        <svg *ngIf="!sent" class="bi bi-cursor-fill text-light ml-1" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" d="M14.082 2.182a.5.5 0 01.103.557L8.528 15.467a.5.5 0 01-.917-.007L5.57 10.694.803 8.652a.5.5 0 01-.006-.916l12.728-5.657a.5.5 0 01.556.103z" clip-rule="evenodd"></path>
+      <div class="d-flex align-items-center">
+        <svg class="bi bi-envelope text-light mr-2" width="22" height="22" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M14 3H2a1 1 0 00-1 1v8a1 1 0 001 1h12a1 1 0 001-1V4a1 1 0 00-1-1zM2 2a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V4a2 2 0 00-2-2H2z" clip-rule="evenodd"/>
+          <path fill-rule="evenodd" d="M.071 4.243a.5.5 0 01.686-.172L8 8.417l7.243-4.346a.5.5 0 01.514.858L8 9.583.243 4.93a.5.5 0 01-.172-.686z" clip-rule="evenodd"/>
+          <path d="M6.752 8.932l.432-.252-.504-.864-.432.252.504.864zm-6 3.5l6-3.5-.504-.864-6 3.5.504.864zm8.496-3.5l-.432-.252.504-.864.432.252-.504.864zm6 3.5l-6-3.5.504-.864 6 3.5-.504.864z"/>
         </svg>
-        <i *ngIf="sent" class="ml-1 material-icons dp48 text-white">check</i>
-        </button>
-      </form>
-
-      <!-- ON SUBMIT -->
-      <p *ngIf="error && error !== null && !loading"
-      class="text-sm text-white font-weight-light my-3"
-      >Veuillez saisir une adresse email valide</p>
-      <p *ngIf='!error && error !== null && !loading'
-      class="text-sm text-white font-weight-light my-3"
-      >Super ! Merci pour votre inscription ! 🥳</p>
-      <div *ngIf="loading" class="my-3 d-flex align-items-center">
-        <p class="text-sm text-white font-weight-light mb-0">Traitement en cours…</p>
-        <span class="loading-spin ml-3 d-inline-flex"></span>
+        <a title="contact@crink.fr" href="mailto:contact@crink.fr" class="text-white font-weight-light">
+          contact@crink.fr
+        </a>
       </div>
+
     </div>
 
     <div class="col-lg-2 offset-lg-1 mt-lg-2 mt-5">
       <div class="pb-2 mb-lg-4 mb-3 position-relative">
-        <span class="d-block text-white text-uppercase mb-2">Téléchargement</span>
+        <span class="d-block text-light text-uppercase mb-2">Téléchargement</span>
         <div class="position-absolute border-bot"></div>
 
       </div>
       <div class="d-flex flex-column align-items-start justify-content-around">
-        <p class="text-white text-sm font-weight-light">Prochainement</p>
+        <p class="text-light text-sm font-weight-light">Prochainement</p>
         <img
           src="assets/icon/apple-badge.svg"
           height="60"
@@ -105,8 +74,9 @@
       </div>
     </div>
 
-    <div class="col-12 pt-2 text-white font-weight-light text-xsm text-center text-md-left mt-5 mt-lg-0">
-      © Crink 2020 | Tous droits réservés.
+    <div class="col-12 pt-2 text-light font-weight-light text-xsm text-center text-md-left mt-5 mt-lg-0">
+      © Crink 2020 | Tous droits réservés |
+      <a [routerLink]="['/cgu']" class="d-inline text-white text-decoration-none">CGU</a>
     </div>
   </div>
 
