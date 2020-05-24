@@ -6,7 +6,7 @@
         <h1 class="text-center text-main letter-space-md">
           Inscription
         </h1>
-        <div class="mt-5 position-relative">
+        <div class="mt-5 position-relative py-2">
           <span class="text-dark font-weight-bold d-block my-2"
             >Nom d'utilisateur <span class="font-weight-normal">(4 caractères min)</span></span
           >
@@ -19,16 +19,25 @@
             [(ngModel)]="username.content"
             required
             [class.on-error]="username.error !== null && username.error !== 'ok'"
+            [disabled]="loading || sent"
           />
           <span *ngIf="username.error === 'ok'" class="on-success">
-            <img src="assets/icon/check-icon.svg" alt="Ok" height="11">
+            <svg class="bi bi-check text-success" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.236.236 0 0 1 .02-.022z"/>
+            </svg>
+          </span>
+          <span *ngIf="username.error !== null && username.error !== 'ok'" class="on-error-icon">
+            <svg class="bi bi-exclamation-circle text-danger" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+              <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+            </svg>
           </span>
           <span
-          class="my-2 text-danger text-sm d-block"
+          class="my-2 text-danger text-xsm d-block"
           *ngIf="username.error !== null && username.error !== 'ok'">{{username.error}}</span>
         </div>
 
-        <div class="mt-3 position-relative">
+        <div class="py-2 position-relative">
           <span class="text-dark font-weight-bold d-block my-2">Email</span>
           <input
             type="email"
@@ -39,16 +48,25 @@
             [(ngModel)]="email.content"
             required
             [class.on-error]="email.error !== null && email.error !== 'ok'"
+            [disabled]="loading || sent"
           />
           <span *ngIf="email.error === 'ok'" class="on-success">
-            <img src="assets/icon/check-icon.svg" alt="Ok" height="11">
+            <svg class="bi bi-check text-success" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.236.236 0 0 1 .02-.022z"/>
+            </svg>
+          </span>
+          <span *ngIf="email.error !== null && email.error !== 'ok'" class="on-error-icon">
+            <svg class="bi bi-exclamation-circle text-danger" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+              <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+            </svg>
           </span>
           <span
-          class="my-2 text-danger text-sm d-block"
+          class="my-2 text-danger text-xsm d-block"
           *ngIf="email.error !== null && email.error !== 'ok'">{{email.error}}</span>
         </div>
 
-        <div class="mt-3 position-relative">
+        <div class="py-2 position-relative">
           <span class="text-dark font-weight-bold d-block my-2"
             >Mot de passe <span class="font-weight-normal">(6 caractères min)</span></span
           >
@@ -61,16 +79,25 @@
             [(ngModel)]="password.content"
             required
             [class.on-error]="password.error === 'passwordlength'"
+            [disabled]="loading || sent"
           />
           <span
-          class="my-2 text-danger text-sm d-block"
+          class="my-2 text-danger text-xsm d-block"
           *ngIf="password.error === 'passwordlength'">Votre mot de passe doit comporter au moins 6 caractères</span>
           <span *ngIf="password.error === 'ok' || password.error === 'Les mots de passe ne correspondent pas'" class="on-success">
-            <img src="assets/icon/check-icon.svg" alt="Ok" height="11">
+            <svg class="bi bi-check text-success" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.236.236 0 0 1 .02-.022z"/>
+            </svg>
+          </span>
+          <span *ngIf="password.error === 'passwordlength'" class="on-error-icon">
+            <svg class="bi bi-exclamation-circle text-danger" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+              <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+            </svg>
           </span>
         </div>
 
-        <div class="mt-3 position-relative">
+        <div class="py-2 position-relative">
           <span class="text-dark font-weight-bold d-block my-2"
             >Confirmez votre mot de passe</span
           >
@@ -83,17 +110,30 @@
             [(ngModel)]="confirmPassword"
             required
             [class.on-error]="password.error !== null && password.error !== 'ok' && password.error !== 'passwordlength'"
+            [disabled]="loading || sent"
           />
           <span *ngIf="password.error === 'ok'" class="on-success">
-            <img src="assets/icon/check-icon.svg" alt="Ok" height="11">
+            <svg class="bi bi-check text-success" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.236.236 0 0 1 .02-.022z"/>
+            </svg>
+          </span>
+          <span *ngIf="password.error !== null && password.error !== 'ok'  && password.error !== 'passwordlength'" class="on-error-icon">
+            <svg class="bi bi-exclamation-circle text-danger" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+              <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+            </svg>
           </span>
           <span
-          class="my-2 text-danger text-sm d-block"
+          class="my-2 text-danger text-xsm d-block"
           *ngIf="password.error !== null && password.error !== 'ok'  && password.error !== 'passwordlength'">{{password.error}}</span>
         </div>
 
         <div class="mt-5 pretty p-curve p-default p-pulse">
-          <input type="checkbox" />
+          <input
+          name="newsletter"
+          type="checkbox"
+          [(ngModel)]="newsletter"
+          [disabled]="loading || sent" />
           <div class="state">
             <label class="text-dark font-weight-bold mx-2"
               >J'accepte de recevoir la newsletter de Crink</label
@@ -101,23 +141,25 @@
           </div>
         </div>
 
-        <div class="mt-5 text-center">
+        <div class="my-5 text-center">
           <button
             type="submit"
             class="bg-main rounded border-0 w-50"
-            [disabled]="f.invalid"
+            [disabled]="f.invalid || sent || loading"
             [class.valid-form]="f.valid">
-            <span class="h5 text-white letter-space-sm">Inscription</span>
+            <span class="h5 text-white letter-space-sm" *ngIf="!sent && !loading">Inscription</span>
+            <span class="h5 text-white letter-space-sm" *ngIf="!sent && loading">En attente</span>
+            <span class="h5 text-white letter-space-sm" *ngIf="sent && !loading">Merci !</span>
           </button>
         </div>
 
-        <div class="pt-5 text-center">
+        <!-- <div class="pt-5 text-center">
           <a [routerLink]="['/connexion']" class="text-decoration-none">
             <span class="text-main font-weight-bold"
               >Déjà inscrit ? Connectez-vous maintenant !</span
             >
           </a>
-        </div>
+        </div> -->
       </form>
     </div>
   </div>
