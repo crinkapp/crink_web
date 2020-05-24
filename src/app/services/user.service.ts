@@ -25,9 +25,9 @@ export class UserService {
 
   onSignUp(newUser: NewUser) {
     return this.http.post(this.url + '/user', {
-      username_user: newUser.username,
-      email_user: newUser.email,
-      password_user: newUser.password
+      username_user: newUser.username_user,
+      email_user: newUser.email_user,
+      password_user: newUser.password_user
     })
   }
 }
