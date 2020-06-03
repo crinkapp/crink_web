@@ -36,6 +36,7 @@ const appRoutes: Routes = [
   { path: "desabonnement-newsletter", component: UnsubscribePageComponent },
   { path: "cgu", component: CguPageComponent },
   { path: "", component: HomePageComponent },
+  { path: "**", component: NotFoundPageComponent },
 ];
 
 @NgModule({
