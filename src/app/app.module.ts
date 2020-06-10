@@ -25,6 +25,7 @@ import { ProfilePageComponent } from "./pages/profile-page/profile-page.componen
 import { ArticlesPageComponent } from "./pages/articles-page/articles-page.component";
 import { UnsubscribePageComponent } from './pages/unsubscribe-page/unsubscribe-page.component';
 import { CguPageComponent } from './pages/cgu-page/cgu-page.component';
+import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 
 const appRoutes: Routes = [
   { path: "connexion", component: SignInPageComponent },
@@ -35,6 +36,7 @@ const appRoutes: Routes = [
   { path: "desabonnement-newsletter", component: UnsubscribePageComponent },
   { path: "cgu", component: CguPageComponent },
   { path: "", component: HomePageComponent },
+  { path: "**", component: NotFoundPageComponent },
 ];
 
 @NgModule({
@@ -51,6 +53,7 @@ const appRoutes: Routes = [
     FooterComponent,
     UnsubscribePageComponent,
     CguPageComponent,
+    NotFoundPageComponent,
   ],
   imports: [
     BrowserModule,
