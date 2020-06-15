@@ -33,7 +33,7 @@ export class UserService {
   }
 
   onSignIn(email: string, password: string) {
-    return this.http.post(this.url + '/user/' + email, {
+    return this.http.post(this.url + '/getuser', {
       email_user: email,
       password_user: password
     });
