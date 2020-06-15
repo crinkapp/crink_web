@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { environment } from '../../environments/environment';
+import { NewUser } from '../models/user';
 
 @Injectable({
   providedIn: "root",
@@ -20,5 +21,14 @@ export class UserService {
     return this.http.put(this.url + '/newsletters', {
       email_newsletters: email
     });
+  }
+
+  onSignUp(newUser: NewUser, newsletters: boolean) {
+    return this.http.post(this.url + '/user', {
+      username_user: newUser.username_user,
+      email_user: newUser.email_user,
+      password_user: newUser.password_user,
+      newsletter_user: newsletters // define if user wants to receive Crink's newsletters or not
+    })
   }
 }

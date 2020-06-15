@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { SignUp, NewUser } from '../../models/sign-up';
+import { NewUser } from '../../models/user';
+import { UserService } from 'src/app/services/user.service';
+
+interface SignUp {
+  content: string;
+  error: string | null;
+}
 
 @Component({
   selector: 'app-sign-up-page',
@@ -17,9 +23,10 @@ export class SignUpPageComponent implements OnInit {
   sent: boolean = false;
   errormsg: string | null = null;
 
+  newsletter: boolean = false;
   next: NewUser | null = null;
 
-  constructor() { }
+  constructor(private user: UserService) { }
 
   ngOnInit() {
   }
@@ -53,14 +60,23 @@ export class SignUpPageComponent implements OnInit {
       this.username.error === 'ok' &&
       this.email.error === 'ok' &&
       this.password.error === 'ok') {
+        this.loading = true;
         this.next = {
-          username: this.username.content,
-          email: this.email.content,
-          password: this.password.content
+          username_user: this.username.content,
+          email_user: this.email.content,
+          password_user: this.password.content
         }
-
-        console.log(this.next);
-
+        this.user.onSignUp(this.next, this.newsletter)
+          .subscribe(
+            () =>  {
+              this.sent = true;
+              this.loading = false;
+            },
+            (err) => {
+              console.log(err);
+              this.loading = false;
+            }
+          )
       }
 
   }

@@ -49,13 +49,13 @@ div button {
 .on-success {
   position: absolute;
   right: 14px;
-  bottom: 14px;
+  bottom: 22px;
 }
 
-@media (min-width: 1550px) {
-  .img-cover {
-    height: 91.6vh;
-  }
+.on-error-icon {
+  position: absolute;
+  right: 14px;
+  bottom: 56px;
 }
 
 @media (max-width: 767px) {

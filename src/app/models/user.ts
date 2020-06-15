@@ -1,3 +1,9 @@
+export interface NewUser {
+  username_user: string;
+  email_user: string;
+  password_user: string;
+}
+
 export interface User {
     id: number;
     email: string;
