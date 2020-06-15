@@ -22,7 +22,8 @@ input::placeholder {
   font-weight: 100 !important;
 }
 
-input:focus {
+input:focus,
+button {
   outline: none;
 }
 
@@ -30,18 +31,28 @@ div button {
   padding: 14px 20px;
 }
 
-@media (max-width: 767px) {
-  img {
-    height: 25px;
-  }
-
-  .mt-top {
-    margin-top: 1rem;
-  }
+.valid-form:hover {
+  background-color: #92452E;
 }
 
-@media (min-width: 1550px) {
-  .img-cover {
-    height: 91.6vh;
+.on-error {
+  box-shadow: 0 0 0 0.2rem rgba(220,53,69,.5);
+}
+
+.on-success {
+  position: absolute;
+  right: 14px;
+  bottom: 22px;
+}
+
+.on-error-icon {
+  position: absolute;
+  right: 14px;
+  bottom: 56px;
+}
+
+@media (max-width: 767px) {
+  .mt-top {
+    margin-top: 1rem;
   }
 }
