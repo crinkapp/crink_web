@@ -1,65 +1,91 @@
-<div class="row mx-0 high-mt">
+<div class="row mx-0">
   <div class="col-6 d-none d-lg-block img-cover"></div>
-
   <div class="col-lg-4 offset-lg-1 col-12 mt-top">
-    <div class="px-lg-0 px-5 pt-5 pt-md-0">
-      <h1 class="text-center text-main letter-space-md">
-        Connexion
-      </h1>
-      <div class="mt-5">
-        <span class="text-dark font-weight-bold d-block my-2">Email</span>
-        <input
-          type="email"
-          name="email"
-          placeholder="Entrez votre email"
-          class="w-100"
-          autocomplete="off"
-        />
-      </div>
-
-      <div class="mt-5">
-        <span class="text-dark font-weight-bold d-block my-2"
-          >Mot de passe</span
-        >
-        <input
-          type="password"
-          name="password"
-          placeholder="Entrez votre mot de passe"
-          class="w-100"
-          autocomplete="off"
-        />
-      </div>
-
-      <div class="mt-3">
-        <a href="#" class="text-decoration-none">
-          <span class="text-main font-weight-bold">Mot de passe oublié ?</span>
-        </a>
-      </div>
-
-      <div class="mt-5 pretty p-curve p-default p-smooth">
-        <input type="checkbox" />
-        <div class="state">
-          <label class="text-dark font-weight-bold mx-2"
-            >Se souvenir de moi</label
-          >
+    <div class="px-lg-0 px-5 py-5 pt-md-0">
+      <form (submit)="onSubmit()" #f="ngForm">
+        <h1 class="text-center text-main letter-space-md">
+          Connexion
+        </h1>
+        <div class="mt-5 position-relative py-2">
+          <span class="text-dark font-weight-bold d-block my-2">Email</span>
+          <input
+            type="email"
+            name="email"
+            placeholder="Entrez votre email"
+            class="w-100"
+            autocomplete="off"
+            [(ngModel)]="email.content"
+            [class.on-error]="email.error !== null && email.error !== 'ok'"
+            [disabled]="loading"
+            required
+          />
+          <span *ngIf="email.error !== null && email.error !== 'ok'" class="on-error-icon">
+            <svg class="bi bi-exclamation-circle text-danger" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+              <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+            </svg>
+          </span>
+          <span
+          class="mt-2 text-danger text-xsm d-block"
+          *ngIf="email.error !== null && email.error !== 'ok'">{{email.error}}</span>
         </div>
-      </div>
 
-      <div class="mt-5 text-center">
-        <a routerLink="/home">
-          <button class="bg-main rounded border-0 w-50">
+        <div class="py-2">
+          <span class="text-dark font-weight-bold d-block my-2"
+            >Mot de passe</span
+          >
+          <input
+            type="password"
+            name="password"
+            placeholder="Entrez votre mot de passe"
+            class="w-100"
+            autocomplete="off"
+            [(ngModel)]="password.content"
+            [disabled]="loading"
+            required
+          />
+        </div>
+
+        <div class="mt-3">
+          <a href="#" class="text-decoration-none">
+            <span class="text-main font-weight-bold">Mot de passe oublié ?</span>
+          </a>
+        </div>
+
+        <div class="mt-5 pretty p-curve p-default p-smooth">
+          <input
+          name="rememberMe"
+          type="checkbox"
+          [(ngModel)]="rememberMe"
+          [disabled]="loading" />
+          <div class="state">
+            <label class="text-dark font-weight-bold mx-2"
+              >Se souvenir de moi</label
+            >
+          </div>
+        </div>
+
+        <div class="mt-5 mb-4" *ngIf="error !== '' && !sent">
+          <span class="text-danger text-xsm">{{error}}</span>
+        </div>
+
+        <div class="my-5 text-center">
+          <button
+          type="submit"
+          class="bg-main rounded border-0 w-50"
+          [disabled]="f.invalid || loading">
             <span class="h5 text-white letter-space-sm">Connexion</span>
           </button>
-        </a>
-      </div>
+        </div>
 
-      <div class="text-center py-5">
-        <a [routerLink]="['/inscription']" class="text-decoration-none">
-          <span class="text-main font-weight-bold"
-            >Pas encore de compte ? Inscrivez-vous maintenant !</span
-          >
-        </a>
-      </div>
+        <div class="text-center py-4">
+          <a [routerLink]="['/inscription']" class="text-decoration-none">
+            <span class="text-main font-weight-bold"
+              >Pas encore de compte ? Inscrivez-vous maintenant !</span
+            >
+          </a>
+        </div>
+      </form>
     </div>
   </div>
 </div>
