@@ -9,6 +9,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 // LIBS
 import { TagInputModule } from "ngx-chips";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 // COMPONENTS
 import { AppComponent } from "./app.component";
@@ -61,7 +62,8 @@ const appRoutes: Routes = [
     TagInputModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [{
