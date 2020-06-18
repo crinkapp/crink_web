@@ -27,6 +27,7 @@ import { ArticlesPageComponent } from "./pages/articles-page/articles-page.compo
 import { UnsubscribePageComponent } from './pages/unsubscribe-page/unsubscribe-page.component';
 import { CguPageComponent } from './pages/cgu-page/cgu-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
+import { ForgetPasswordComponent } from './modals/forget-password/forget-password.component';
 
 const appRoutes: Routes = [
   { path: "connexion", component: SignInPageComponent },
@@ -55,6 +56,7 @@ const appRoutes: Routes = [
     UnsubscribePageComponent,
     CguPageComponent,
     NotFoundPageComponent,
+    ForgetPasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,5 +73,8 @@ const appRoutes: Routes = [
     useClass: HashLocationStrategy
   }],
   bootstrap: [AppComponent],
+  entryComponents: [
+    ForgetPasswordComponent
+  ]
 })
 export class AppModule {}
