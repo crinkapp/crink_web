@@ -56,5 +56,7 @@ $lightGreyColor: #fafafa;
   cursor: pointer;
 }
 
-/* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
+button[aria-label="Close"]:focus {
+  outline: none;
+}
+

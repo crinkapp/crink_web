@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-forget-password',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ForgetPasswordComponent implements OnInit {
 
-  constructor() { }
+  constructor(public activeModal: NgbActiveModal) { }
 
   ngOnInit(): void {
   }
