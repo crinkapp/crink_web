@@ -38,4 +38,10 @@ export class UserService {
       password_user: password
     });
   }
+
+  onForgotPassword(email: string) {
+    return this.http.post(this.url + '/sendresetpwd', {
+      email_user: email
+    });
+  }
 }
