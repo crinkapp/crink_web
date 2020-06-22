@@ -9,6 +9,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 // LIBS
 import { TagInputModule } from "ngx-chips";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 // COMPONENTS
 import { AppComponent } from "./app.component";
@@ -26,6 +27,7 @@ import { ArticlesPageComponent } from "./pages/articles-page/articles-page.compo
 import { UnsubscribePageComponent } from './pages/unsubscribe-page/unsubscribe-page.component';
 import { CguPageComponent } from './pages/cgu-page/cgu-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
+import { ForgetPasswordComponent } from './modals/forget-password/forget-password.component';
 
 const appRoutes: Routes = [
   { path: "connexion", component: SignInPageComponent },
@@ -54,6 +56,7 @@ const appRoutes: Routes = [
     UnsubscribePageComponent,
     CguPageComponent,
     NotFoundPageComponent,
+    ForgetPasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,7 +64,8 @@ const appRoutes: Routes = [
     TagInputModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [{
@@ -69,5 +73,8 @@ const appRoutes: Routes = [
     useClass: HashLocationStrategy
   }],
   bootstrap: [AppComponent],
+  entryComponents: [
+    ForgetPasswordComponent
+  ]
 })
 export class AppModule {}

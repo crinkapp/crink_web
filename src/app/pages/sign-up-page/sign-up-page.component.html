@@ -2,7 +2,7 @@
   <div class="col-6 d-none d-lg-block img-cover"></div>
   <div class="col-lg-4 offset-lg-1 col-12 mt-top">
     <div class="px-5 px-lg-0 py-5 pt-md-0">
-      <form (submit)="onSubmit($event)" #f="ngForm">
+      <form (submit)="onSubmit()" #f="ngForm">
         <h1 class="text-center text-main letter-space-md">
           Inscription
         </h1>
@@ -33,7 +33,7 @@
             </svg>
           </span>
           <span
-          class="my-2 text-danger text-xsm d-block"
+          class="mt-2 text-danger text-xsm d-block"
           *ngIf="username.error !== null && username.error !== 'ok'">{{username.error}}</span>
         </div>
 
@@ -62,7 +62,7 @@
             </svg>
           </span>
           <span
-          class="my-2 text-danger text-xsm d-block"
+          class="mt-2 text-danger text-xsm d-block"
           *ngIf="email.error !== null && email.error !== 'ok'">{{email.error}}</span>
         </div>
 
@@ -82,7 +82,7 @@
             [disabled]="loading || sent"
           />
           <span
-          class="my-2 text-danger text-xsm d-block"
+          class="mt-2 text-danger text-xsm d-block"
           *ngIf="password.error === 'passwordlength'">Votre mot de passe doit comporter au moins 6 caractères</span>
           <span *ngIf="password.error === 'ok' || password.error === 'Les mots de passe ne correspondent pas'" class="on-success">
             <svg class="bi bi-check text-success" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -124,7 +124,7 @@
             </svg>
           </span>
           <span
-          class="my-2 text-danger text-xsm d-block"
+          class="mt-2 text-danger text-xsm d-block"
           *ngIf="password.error !== null && password.error !== 'ok'  && password.error !== 'passwordlength'">{{password.error}}</span>
         </div>
 
@@ -153,13 +153,13 @@
           </button>
         </div>
 
-        <!-- <div class="pt-5 text-center">
+        <div class="py-4 text-center">
           <a [routerLink]="['/connexion']" class="text-decoration-none">
             <span class="text-main font-weight-bold"
               >Déjà inscrit ? Connectez-vous maintenant !</span
             >
           </a>
-        </div> -->
+        </div>
       </form>
     </div>
   </div>

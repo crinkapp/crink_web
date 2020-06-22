@@ -29,6 +29,13 @@ export class UserService {
       email_user: newUser.email_user,
       password_user: newUser.password_user,
       newsletter_user: newsletters // define if user wants to receive Crink's newsletters or not
-    })
+    });
+  }
+
+  onSignIn(email: string, password: string) {
+    return this.http.post(this.url + '/getuser', {
+      email_user: email,
+      password_user: password
+    });
   }
 }

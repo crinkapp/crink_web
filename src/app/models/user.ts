@@ -21,3 +21,8 @@ export interface User {
     subscription?: [];
     certificated?: boolean;
 }
+
+export interface Sign {
+  content: string;
+  error: string | null;
+}

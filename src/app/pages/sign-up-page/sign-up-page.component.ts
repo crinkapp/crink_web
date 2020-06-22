@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NewUser } from '../../models/user';
+import { NewUser, Sign } from '../../models/user';
 import { UserService } from 'src/app/services/user.service';
-
-interface SignUp {
-  content: string;
-  error: string | null;
-}
 
 @Component({
   selector: 'app-sign-up-page',
@@ -13,9 +8,9 @@ interface SignUp {
   styleUrls: ['./sign-up-page.component.scss']
 })
 export class SignUpPageComponent implements OnInit {
-  username: SignUp = { content: '', error: null };
-  email: SignUp = { content: '', error: null };
-  password: SignUp = { content: '', error: null };
+  username: Sign = { content: '', error: null };
+  email: Sign = { content: '', error: null };
+  password: Sign = { content: '', error: null };
   confirmPassword: string = '';
 
   emailReg = RegExp('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$');
