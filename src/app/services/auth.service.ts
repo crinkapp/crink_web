@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { NewUser, User } from '../models/user';
 import { environment } from '../../environments/environment';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
-    private jwtHelper: JwtHelperService
+    private jwtHelper: JwtHelperService,
+    private router: Router
   ) { }
 
   public isAuthenticated(): boolean {
@@ -36,5 +38,12 @@ export class AuthService {
       email_user: email,
       password_user: password
     });
+  }
+
+  onSignOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.user = null;
+    return this.router.navigate(['connexion']);
   }
 }
