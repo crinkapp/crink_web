@@ -1,0 +1,28 @@
+@import '../../../styles.scss';
+
+.title {
+  font-size: 26px;
+  letter-spacing: 2px;
+  border-left: 5px solid $mainColor;
+}
+
+.subtitle {
+  letter-spacing: 3px;
+  font-size: 12px;
+}
+
+.mt-high {
+  margin-top: 4rem;
+}
+
+.mb-high {
+  margin-bottom: 4rem;
+}
+
+// HEADER
+img[alt="Avatar"] {
+  object-fit: cover;
+  min-height: 150px;
+  height: 100%;
+  max-height: 15rem;
+}
