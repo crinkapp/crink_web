@@ -41,7 +41,7 @@ class="navbar navbar-expand-lg fixed-top px-md-5 px-4 py-3"
         </li> -->
       </ul>
 
-      <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav ml-auto" *ngIf="auth.user == null">
         <li
           class="nav-item mx-3 mt-md-0 mt-3"
           data-toggle="collapse"
@@ -67,6 +67,42 @@ class="navbar navbar-expand-lg fixed-top px-md-5 px-4 py-3"
             (click)="smoothScroll()"
             >Inscription</a
           >
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto" *ngIf="auth.user != null">
+        <li
+          class="nav-item mx-3 mt-md-0 mt-3"
+          data-toggle="collapse"
+          data-target=".navbar-collapse.show"
+        >
+          <!-- <div class="d-flex align-items-center">
+            <img src="assets/img/home-page.jpeg" alt="Avatar" height="45" width="45" class="border-0 rounded-circle mr-1">
+            <a
+              [routerLink]="['/profil']"
+              [routerLinkActive]="['active']"
+              class="nav-link d-flex text-decoration-none text-white font-weight-light"
+              (click)="smoothScroll()">
+              {{auth?.user.username_user}}
+            </a>
+          </div> -->
+          <div ngbDropdown display="dynamic" placement="bottom-right">
+            <div id="dropdownForm1" ngbDropdownToggle class="d-flex align-items-center text-white">
+              <img src="assets/img/home-page.jpeg" alt="Avatar" height="45" width="45" class="pointer border-0 rounded-circle mr-1">
+              <button class="btn border-0 text-white font-weight-light pr-1">{{auth?.user.username_user}}</button>
+            </div>
+            <div ngbDropdownMenu aria-labelledby="dropdownForm1" class="mt-2">
+              <button
+                ngbDropdownItem
+                [routerLink]="['/profil']"
+                class="text-decoration-none text-dark account"
+                (click)="smoothScroll()"
+                >Mon compte
+              </button>
+              <div class="dropdown-divider"></div>
+              <button ngbDropdownItem class="text-dark" (click)="onSignOut()">Se déconnecter</button>
+            </div>
+          </div>
         </li>
       </ul>
     </div>

@@ -29,11 +29,12 @@ img[alt="Crink"] {
 }
 
 button:focus {
-    outline: none;
+  outline: none!important;
+  box-shadow: none!important;
 }
 
 li img {
-    object-fit: cover;
+  object-fit: cover;
 }
 
 a {
@@ -77,7 +78,9 @@ a:not(.active):not(.navbar-brand):hover:after {
   background: #fff;
 
   ul li a:not(.active),
-  .active {
+  .active,
+  button:not(.active),
+  div[id="dropdownForm1"] {
     color: #3A444C!important;
     font-weight: 400!important;
   }
@@ -89,6 +92,14 @@ a:not(.active):not(.navbar-brand):hover:after {
   .active::after {
     border-bottom: 3px solid #3A444C;
   }
+
+  .account {
+    border-bottom: none!important;
+  }
+}
+
+.dropdown-item:active {
+  background-color: initial!important;
 }
 
 @media(max-width: 991px) {
