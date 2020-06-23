@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../services/user.service';
 import { Sign } from '../../models/user';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ForgetPasswordComponent } from '../../modals/forget-password/forget-password.component';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-sign-in-page',
@@ -19,7 +19,10 @@ export class SignInPageComponent implements OnInit {
   sent: boolean = false;
   error: string = '';
 
-  constructor(private user: UserService, private modalService: NgbModal) { }
+  constructor(
+    private auth: AuthService,
+    private modalService: NgbModal
+  ) { }
 
   ngOnInit() {
   }
@@ -38,7 +41,7 @@ export class SignInPageComponent implements OnInit {
 
     if(this.email.error = 'ok') {
       this.loading = true;
-      this.user.onSignIn(this.email.content, this.password.content)
+      this.auth.onSignIn(this.email.content, this.password.content)
         .subscribe(
           (res: []) => {
             this.loading = false;

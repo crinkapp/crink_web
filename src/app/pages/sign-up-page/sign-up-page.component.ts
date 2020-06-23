@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NewUser, Sign } from '../../models/user';
-import { UserService } from 'src/app/services/user.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-sign-up-page',
@@ -21,7 +21,7 @@ export class SignUpPageComponent implements OnInit {
   newsletter: boolean = false;
   next: NewUser | null = null;
 
-  constructor(private user: UserService) { }
+  constructor(private auth: AuthService) { }
 
   ngOnInit() {
   }
@@ -61,7 +61,7 @@ export class SignUpPageComponent implements OnInit {
           email_user: this.email.content,
           password_user: this.password.content
         }
-        this.user.onSignUp(this.next, this.newsletter)
+        this.auth.onSignUp(this.next, this.newsletter)
           .subscribe(
             () =>  {
               this.sent = true;
