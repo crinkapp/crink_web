@@ -68,7 +68,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes, { useHash: true }),
+    RouterModule.forRoot(appRoutes, { useHash: true, scrollPositionRestoration: 'enabled' }),
     TagInputModule,
     BrowserAnimationsModule,
     FormsModule,

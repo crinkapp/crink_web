@@ -43,12 +43,12 @@ export class SignInPageComponent implements OnInit {
       this.loading = true;
       this.auth.onSignIn(this.email.content, this.password.content)
         .subscribe(
-          (res: []) => {
+          (res: any[]) => {
             this.loading = false;
             if(res.length === 0) {
               this.error = 'L\'email ou le mot de passe est incorrect, veuillez réessayer.';
             } else {
-              console.log(res);
+              localStorage.setItem('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c');
               this.error = '';
               this.sent = true;
             }
