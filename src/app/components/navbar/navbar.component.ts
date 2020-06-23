@@ -1,6 +1,7 @@
 import { Component, HostListener, NgZone } from "@angular/core";
 import { Router } from '@angular/router';
 import { trigger, transition, style, animate, state } from '@angular/animations';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: "app-navbar",
@@ -22,14 +23,22 @@ import { trigger, transition, style, animate, state } from '@angular/animations'
 export class NavbarComponent {
   scrolled: boolean = false;
   toggleMenu: string = 'close';
-  constructor(public router: Router, private ngZone: NgZone) {
-    window.onresize = () => {
-      this.ngZone.run(() => {
-        if(window.innerWidth > 991) {
-          this.toggleMenu = 'close';
-        }
-      });
-    };
+
+  constructor(
+    public router: Router,
+    public auth: AuthService,
+    private ngZone: NgZone) {
+      if(this.auth.isAuthenticated()) {
+        const loggedUser = localStorage.getItem('user');
+        this.auth.user = JSON.parse(loggedUser);
+      }
+      window.onresize = () => {
+          this.ngZone.run(() => {
+            if(window.innerWidth > 991) {
+              this.toggleMenu = 'close';
+            }
+          });
+      };
   }
 
   @HostListener('window:scroll', ['$event']) onWindowScroll(e: any) {
@@ -54,5 +63,10 @@ export class NavbarComponent {
 
   smoothScroll() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  onSignOut() {
+    this.auth.onSignOut();
+    this.toggleMenu = 'close';
   }
 }

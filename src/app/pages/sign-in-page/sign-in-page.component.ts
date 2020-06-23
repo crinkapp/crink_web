@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../services/user.service';
 import { Sign } from '../../models/user';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ForgetPasswordComponent } from '../../modals/forget-password/forget-password.component';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-sign-in-page',
@@ -19,7 +21,11 @@ export class SignInPageComponent implements OnInit {
   sent: boolean = false;
   error: string = '';
 
-  constructor(private user: UserService, private modalService: NgbModal) { }
+  constructor(
+    private auth: AuthService,
+    private modalService: NgbModal,
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
@@ -38,16 +44,19 @@ export class SignInPageComponent implements OnInit {
 
     if(this.email.error = 'ok') {
       this.loading = true;
-      this.user.onSignIn(this.email.content, this.password.content)
+      this.auth.onSignIn(this.email.content, this.password.content)
         .subscribe(
-          (res: []) => {
+          (res: User[]) => {
             this.loading = false;
             if(res.length === 0) {
               this.error = 'L\'email ou le mot de passe est incorrect, veuillez réessayer.';
             } else {
-              console.log(res);
+              localStorage.setItem('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c');
+              localStorage.setItem('user', JSON.stringify(res[0]));
               this.error = '';
               this.sent = true;
+              this.auth.user = res[0];
+              this.router.navigate(['profil']);
             }
           },
           (err) => {
