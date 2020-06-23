@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SignUp, NewUser } from '../../models/sign-up';
+import { NewUser, Sign } from '../../models/user';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-sign-up-page',
@@ -7,9 +8,9 @@ import { SignUp, NewUser } from '../../models/sign-up';
   styleUrls: ['./sign-up-page.component.scss']
 })
 export class SignUpPageComponent implements OnInit {
-  username: SignUp = { content: '', error: null };
-  email: SignUp = { content: '', error: null };
-  password: SignUp = { content: '', error: null };
+  username: Sign = { content: '', error: null };
+  email: Sign = { content: '', error: null };
+  password: Sign = { content: '', error: null };
   confirmPassword: string = '';
 
   emailReg = RegExp('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$');
@@ -17,9 +18,10 @@ export class SignUpPageComponent implements OnInit {
   sent: boolean = false;
   errormsg: string | null = null;
 
+  newsletter: boolean = false;
   next: NewUser | null = null;
 
-  constructor() { }
+  constructor(private auth: AuthService) { }
 
   ngOnInit() {
   }
@@ -53,14 +55,23 @@ export class SignUpPageComponent implements OnInit {
       this.username.error === 'ok' &&
       this.email.error === 'ok' &&
       this.password.error === 'ok') {
+        this.loading = true;
         this.next = {
-          username: this.username.content,
-          email: this.email.content,
-          password: this.password.content
+          username_user: this.username.content,
+          email_user: this.email.content,
+          password_user: this.password.content
         }
-
-        console.log(this.next);
-
+        this.auth.onSignUp(this.next, this.newsletter)
+          .subscribe(
+            () =>  {
+              this.sent = true;
+              this.loading = false;
+            },
+            (err) => {
+              console.log(err);
+              this.loading = false;
+            }
+          )
       }
 
   }

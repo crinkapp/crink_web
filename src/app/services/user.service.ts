@@ -21,4 +21,10 @@ export class UserService {
       email_newsletters: email
     });
   }
+
+  onForgotPassword(email: string) {
+    return this.http.post(this.url + '/sendresetpwd', {
+      email_user: email
+    });
+  }
 }

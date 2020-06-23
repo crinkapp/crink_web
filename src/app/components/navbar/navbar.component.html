@@ -53,7 +53,7 @@ class="navbar navbar-expand-lg fixed-top px-md-5 px-4 py-3"
         </li> -->
       </ul>
 
-      <!-- <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav ml-auto" *ngIf="auth.user == null">
         <li
           class="nav-item mx-3 mt-md-0 mt-3"
           data-toggle="collapse"
@@ -80,7 +80,33 @@ class="navbar navbar-expand-lg fixed-top px-md-5 px-4 py-3"
             >Inscription</a
           >
         </li>
-      </ul> -->
+      </ul>
+
+      <ul class="navbar-nav ml-auto" *ngIf="auth.user != null">
+        <li
+          class="nav-item mx-3 mt-md-0 mt-3"
+          data-toggle="collapse"
+          data-target=".navbar-collapse.show"
+        >
+          <div ngbDropdown display="dynamic" placement="bottom-right">
+            <div id="dropdownForm1" ngbDropdownToggle class="d-flex align-items-center text-white">
+              <img [src]="auth.user.path_profil_picture_user != null ? auth.user.path_profil_picture_user : 'assets/img/no-picture.jpg'" alt="Avatar" height="45" width="45" class="pointer border-0 rounded-circle mr-1">
+              <button class="btn border-0 text-white font-weight-light pr-1">{{auth?.user.username_user}}</button>
+            </div>
+            <div ngbDropdownMenu aria-labelledby="dropdownForm1" class="mt-2">
+              <button
+                ngbDropdownItem
+                [routerLink]="['/profil']"
+                class="text-decoration-none text-dark account"
+                (click)="smoothScroll()"
+                >Mon profil
+              </button>
+              <div class="dropdown-divider"></div>
+              <button ngbDropdownItem class="text-dark" (click)="onSignOut()">Se déconnecter</button>
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>
@@ -98,4 +124,28 @@ class="mobile-menu d-flex flex-column d-lg-none w-100 align-items-center justify
     (click)="toggle('/')"
     >Diagnostic</a
   >
+  <hr class="my-3 border-white w-25">
+  <a *ngIf="auth.user == null"
+    [routerLink]="['/connexion']"
+    class="text-decoration-none text-white font-weight-light h4 font-weight-light my-4"
+    (click)="toggle('/connexion')"
+    >Connexion</a
+  >
+  <a *ngIf="auth.user == null"
+    [routerLink]="['/inscription']"
+    class="text-decoration-none text-white font-weight-light h4 font-weight-light my-4"
+    (click)="toggle('/inscription')"
+    >Inscription</a
+  >
+  <a *ngIf="auth.user != null"
+    [routerLink]="['/profil']"
+    class="text-decoration-none text-white font-weight-light h4 font-weight-light my-4"
+    (click)="toggle('/profil')"
+    >Mon profil</a
+  >
+  <hr class="my-3 border-white w-25" *ngIf="auth.user != null">
+  <span
+  *ngIf="auth.user != null"
+  class="text-white font-weight-light h4 font-weight-light my-4 pointer"
+  (click)="onSignOut()">Se déconnecter</span>
 </div>
