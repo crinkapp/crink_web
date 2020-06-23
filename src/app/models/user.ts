@@ -15,7 +15,7 @@ export interface User {
     first_name_user?: string;
     last_name_user?: string;
     birthday_user?: number;
-    gender_user?: 'male' | 'female';
+    gender_user?: 'Man' | 'Woman';
     hashtags?: string[];
 
     diagnosticId?: number;
