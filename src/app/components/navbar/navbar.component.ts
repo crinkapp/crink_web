@@ -67,5 +67,6 @@ export class NavbarComponent {
 
   onSignOut() {
     this.auth.onSignOut();
+    this.toggleMenu = 'close';
   }
 }
