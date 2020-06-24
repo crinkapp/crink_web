@@ -15,113 +15,154 @@
   </span>
 </div>
 
-<div *ngIf="page === 'one'" class="container diagnostic-page not-main w-100 bg-white d-flex flex-column justify-content-center align-items-center position-relative">
+<div *ngIf="page === 'one'" class="container diagnostic-page d-flex flex-column justify-content-around align-items-center position-relative">
   <app-diagnostic-back-btn (click)="goToPage('main')"></app-diagnostic-back-btn>
-  <div class="header-title text-center">
-    <span class="d-block text-dark mx-md-5 mx-3">1. Avez-vous des locks ?</span>
-  </div>
-  <span class="text-center text-dark font-weight-light mt-4">
-    C'est la seule question obligatoire, promis !
-  </span>
-  <div class="d-flex flex-md-row flex-column justify-content-center align-items-center mt-6">
-    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qOne(true)">
-      Oui
-    </button>
-    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qOne(false)">
-      Non
-    </button>
-    <div class="position-absolute d-flex align-items-end" style="top: 90%;">
-      <div class="pag mx-1 bg-dark"></div>
-      <div class="pag mx-1 not-fill"></div>
-      <div class="pag mx-1 not-fill"></div>
-      <div class="pag mx-1 not-fill"></div>
-      <div class="pag mx-1 not-fill"></div>
+  <div class="d-flex flex-column justify-content-center align-items-center">
+    <div class="header-title text-center">
+      <img src="assets/diagnostic/locks.svg" alt="Locks" height="125" class="mb-5">
+      <span class="d-block text-dark mx-md-5 mx-3">1. Avez-vous des locks ?</span>
     </div>
+    <span class="text-center text-dark font-weight-light mt-4">
+      C'est la seule question obligatoire, promis !
+    </span>
+    <div class="d-flex flex-md-row flex-column justify-content-center align-items-center mt-5">
+      <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qOne(true)">
+        Oui
+      </button>
+      <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qOne(false)">
+        Non
+      </button>
+    </div>
+  </div>
+  <div class="d-flex align-items-end">
+    <div class="pag mx-2 bg-main"></div>
+    <div class="pag mx-2 not-fill"></div>
+    <div class="pag mx-2 not-fill"></div>
+    <div class="pag mx-2 not-fill"></div>
+    <div class="pag mx-2 not-fill"></div>
   </div>
 </div>
 
-<div *ngIf="page === 'two'" class="container diagnostic-page not-main w-100 bg-white d-flex flex-column justify-content-center align-items-center position-relative">
-  <app-diagnostic-back-btn (click)="goToPage('one')"></app-diagnostic-back-btn>
-  <div class="header-title text-center">
-    <span class="d-block text-dark mx-md-5 mx-3">2. Quel type de cheveux avez-vous ?</span>
+<div *ngIf="page === 'two'" class="container diagnostic-page d-flex flex-column justify-content-around align-items-center">
+  <div class="d-flex flex-column justify-content-center align-items-center">
+    <div class="header-title text-center px-4 px-lg-0">
+      <img src="assets/diagnostic/hair-texture.svg" alt="Locks" height="225" class="mb-5">
+      <span class="d-block text-dark mx-md-5 mx-4">2. Quel type de cheveux avez-vous ?</span>
+    </div>
+    <div class="d-flex flex-md-row flex-column justify-content-center align-items-center mt-5">
+      <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qTwo('wavy')">
+        Ondulés
+      </button>
+      <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qTwo('curly')">
+        Bouclés
+      </button>
+      <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qTwo('kinky')">
+        Crépus
+      </button>
+    </div>
   </div>
-  <div class="d-flex flex-md-row flex-column justify-content-center align-items-center mt-6">
-    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qTwo(1)">
-      Ondulés
-    </button>
-    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qTwo(2)">
-      Bouclés
-    </button>
-    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qTwo(3)">
-      Crépus
-    </button>
-    <span class="text-dark font-weight-light pointer position-absolute" style="top: 80%;" (click)="onIgnore(2)">
+  <div class="d-flex flex-column justify-content-center align-items-center">
+    <span class="text-dark font-weight-light pointer mb-5" (click)="onIgnore(2)">
       Ignorez cette étape
     </span>
-    <div class="position-absolute d-flex align-items-end" style="top: 90%;">
-      <div class="pag mx-1 bg-dark"></div>
-      <div class="pag mx-1 bg-dark"></div>
-      <div class="pag mx-1 not-fill"></div>
-      <div class="pag mx-1 not-fill"></div>
-      <div class="pag mx-1 not-fill"></div>
+    <div class="d-flex align-items-end">
+      <div class="pag mx-2 bg-dark pointer" (click)="goToPage('one')" title="Retour question n°1"></div>
+      <div class="pag mx-2 bg-main"></div>
+      <div class="pag mx-2 not-fill"></div>
+      <div class="pag mx-2 not-fill"></div>
+      <div class="pag mx-2 not-fill"></div>
     </div>
   </div>
 </div>
 
-<div *ngIf="page === 'three'" class="container diagnostic-page not-main w-100 bg-white d-flex flex-column justify-content-center align-items-center position-relative">
-  <app-diagnostic-back-btn (click)="goToPage('two')"></app-diagnostic-back-btn>
-  <div class="header-title text-center">
-    <span class="d-block text-dark mx-md-5 mx-3">3. Combien de temps vos cheveux prennent-ils avant de sécher ?</span>
+<div *ngIf="page === 'three'" class="container diagnostic-page d-flex flex-column justify-content-around align-items-center">
+  <div class="d-flex flex-column justify-content-center align-items-center">
+    <div class="header-title text-center px-4 px-lg-0">
+      <img src="assets/diagnostic/porosity.svg" alt="Locks" height="200" class="mb-5">
+      <span class="d-block text-dark mx-md-5 mx-4">3. Quelle est votre porosité ?</span>
+    </div>
+    <div class="d-flex flex-md-row flex-column justify-content-center align-items-center mt-5">
+      <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qThree('low')">
+        Faible
+      </button>
+      <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qThree('normal')">
+        Moyenne
+      </button>
+      <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qThree('high')">
+        Élevée
+      </button>
+    </div>
   </div>
-  <div class="d-flex flex-md-row flex-column justify-content-center align-items-center mt-6">
-    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w d-flex justify-content-center align-items-center" (click)="qThree(1)">
-      <i class="material-icons dp48 mr-2">keyboard_arrow_left</i>
-      10 min
-    </button>
-    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qThree(2)">
-      10 à 20 min
-    </button>
-    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w d-flex justify-content-center align-items-center" (click)="qThree(3)">
-      <i class="material-icons dp48 mr-2">keyboard_arrow_right</i>
-      20 min
-    </button>
-    <span class="text-dark font-weight-light pointer position-absolute" style="top: 80%;" (click)="onIgnore(3)">
+  <div class="d-flex flex-column justify-content-center align-items-center">
+    <span class="text-dark font-weight-light pointer mb-5" (click)="onIgnore(3)">
       Ignorez cette étape
     </span>
-    <div class="position-absolute d-flex align-items-end" style="top: 90%;">
-      <div class="pag mx-1 bg-dark"></div>
-      <div class="pag mx-1 bg-dark"></div>
-      <div class="pag mx-1 bg-dark"></div>
-      <div class="pag mx-1 not-fill"></div>
-      <div class="pag mx-1 not-fill"></div>
+    <div class="d-flex align-items-end">
+      <div class="pag mx-2 bg-dark pointer" (click)="goToPage('one')" title="Retour question n°1"></div>
+      <div class="pag mx-2 bg-dark pointer" (click)="goToPage('two')" title="Retour question n°2"></div>
+      <div class="pag mx-2 bg-main"></div>
+      <div class="pag mx-2 not-fill"></div>
+      <div class="pag mx-2 not-fill"></div>
     </div>
   </div>
 </div>
 
-<div *ngIf="page === 'four'" class="container diagnostic-page not-main w-100 bg-white d-flex flex-column justify-content-center align-items-center position-relative">
+<!-- <div *ngIf="page === 'four'" class="container diagnostic-page not-main w-100 bg-white d-flex flex-column justify-content-center align-items-center position-relative">
   <app-diagnostic-back-btn (click)="goToPage('three')"></app-diagnostic-back-btn>
   <div class="header-title text-center">
     <span class="d-block text-dark mx-md-5 mx-3">4. En séparant vos cheveux, voyez-vous votre cuir chevelu ?</span>
   </div>
   <div class="d-flex flex-md-row flex-column justify-content-center align-items-center mt-6">
-    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qFour(1)">
+    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qFour('low')">
       Oui
     </button>
-    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qFour(2)">
+    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qFour('normal')">
       Légèrement
     </button>
-    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qFour(3)">
+    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qFour('high')">
       Non du tout
     </button>
     <span class="text-dark font-weight-light pointer position-absolute" style="top: 80%;" (click)="onIgnore(4)">
       Ignorez cette étape
     </span>
     <div class="position-absolute d-flex align-items-end" style="top: 90%;">
-      <div class="pag mx-1 bg-dark"></div>
-      <div class="pag mx-1 bg-dark"></div>
-      <div class="pag mx-1 bg-dark"></div>
-      <div class="pag mx-1 bg-dark"></div>
-      <div class="pag mx-1 not-fill"></div>
+      <div class="pag mx-2 bg-dark"></div>
+      <div class="pag mx-2 bg-dark"></div>
+      <div class="pag mx-2 bg-dark"></div>
+      <div class="pag mx-2 bg-dark"></div>
+      <div class="pag mx-2 not-fill"></div>
+    </div>
+  </div>
+</div> -->
+
+<div *ngIf="page === 'four'" class="container diagnostic-page d-flex flex-column justify-content-around align-items-center">
+  <div class="d-flex flex-column justify-content-center align-items-center">
+    <div class="header-title text-center px-4 px-lg-0">
+      <img src="assets/diagnostic/porosity.svg" alt="Locks" height="200" class="mb-5">
+      <span class="d-block text-dark mx-md-5 mx-4">4. En séparant vos cheveux, voyez-vous votre cuir chevelu ?</span>
+    </div>
+    <div class="d-flex flex-md-row flex-column justify-content-center align-items-center mt-5">
+      <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qFour('low')">
+        Oui
+      </button>
+      <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qFour('normal')">
+        Légèrement
+      </button>
+      <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qFour('high')">
+        Non du tout
+      </button>
+    </div>
+  </div>
+  <div class="d-flex flex-column justify-content-center align-items-center">
+    <span class="text-dark font-weight-light pointer mb-5" (click)="onIgnore(4)">
+      Ignorez cette étape
+    </span>
+    <div class="d-flex align-items-end">
+      <div class="pag mx-2 bg-dark pointer" (click)="goToPage('one')" title="Retour question n°1"></div>
+      <div class="pag mx-2 bg-dark pointer" (click)="goToPage('two')" title="Retour question n°2"></div>
+      <div class="pag mx-2 bg-dark pointer" (click)="goToPage('three')" title="Retour question n°3"></div>
+      <div class="pag mx-2 bg-main"></div>
+      <div class="pag mx-2 not-fill"></div>
     </div>
   </div>
 </div>
@@ -132,24 +173,24 @@
     <span class="d-block text-dark mx-md-5 mx-3">5. Vos cheveux semblent être</span>
   </div>
   <div class="d-flex flex-md-row flex-column justify-content-center align-items-center mt-6">
-    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qFive(1)">
+    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qFive('light')">
       Fin
     </button>
-    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qFive(2)">
+    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qFive('medium')">
       Entre les deux
     </button>
-    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qFive(3)">
+    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qFive('heavy')">
       Épais
     </button>
     <span class="text-dark font-weight-light pointer position-absolute" style="top: 80%;" (click)="onIgnore(5)">
       Ignorez cette étape
     </span>
     <div class="position-absolute d-flex align-items-end" style="top: 90%;">
-      <div class="pag mx-1 bg-dark"></div>
-      <div class="pag mx-1 bg-dark"></div>
-      <div class="pag mx-1 bg-dark"></div>
-      <div class="pag mx-1 bg-dark"></div>
-      <div class="pag mx-1 bg-dark"></div>
+      <div class="pag mx-2 bg-dark"></div>
+      <div class="pag mx-2 bg-dark"></div>
+      <div class="pag mx-2 bg-dark"></div>
+      <div class="pag mx-2 bg-dark"></div>
+      <div class="pag mx-2 bg-dark"></div>
     </div>
   </div>
 </div>

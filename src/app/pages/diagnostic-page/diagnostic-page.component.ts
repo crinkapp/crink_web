@@ -11,10 +11,10 @@ export class DiagnosticPageComponent implements OnInit {
   page: Page = 'main';
   diagnostic: {
     one: boolean | null;
-    two?: number;
-    three?: number;
-    four?: number;
-    five?: number;
+    two?: 'wavy' | 'curly' | 'kinky' | null;
+    three?: 'low' | 'normal' | 'high' | null;
+    four?: 'low' | 'normal' | 'high' | null;
+    five?: 'light' | 'medium' | 'heavy' | null;
   } = { one: true };
 
   constructor() { }
@@ -31,22 +31,22 @@ export class DiagnosticPageComponent implements OnInit {
     choice ? this.page = 'details' : this.page = 'two';
   }
 
-  qTwo(choice: number) {
+  qTwo(choice: 'wavy' | 'curly' | 'kinky') {
     this.diagnostic.two = choice;
     this.page = 'three';
   }
 
-  qThree(choice: number) {
+  qThree(choice: 'low' | 'normal' | 'high') {
     this.diagnostic.three = choice;
     this.page = 'four';
   }
 
-  qFour(choice: number) {
+  qFour(choice: 'low' | 'normal' | 'high') {
     this.diagnostic.four = choice;
     this.page = 'five';
   }
 
-  qFive(choice: number) {
+  qFive(choice: 'light' | 'medium' | 'heavy') {
     this.diagnostic.five = choice;
     this.page = 'details';
   }
@@ -54,19 +54,19 @@ export class DiagnosticPageComponent implements OnInit {
   onIgnore(n: number) {
     switch(n) {
       case 2:
-        this.diagnostic.two = 0;
+        this.diagnostic.two = null;
         this.page = 'three';
         break;
       case 3:
-        this.diagnostic.three = 0;
+        this.diagnostic.three = null;
         this.page = 'four';
         break;
       case 4:
-        this.diagnostic.four = 0;
+        this.diagnostic.four = null;
         this.page = 'five';
         break;
       case 5:
-        this.diagnostic.five = 0;
+        this.diagnostic.five = null;
         this.page = 'details';
         break;
     }
