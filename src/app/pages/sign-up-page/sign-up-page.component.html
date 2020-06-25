@@ -6,7 +6,24 @@
         <h1 class="text-center text-main letter-space-md">
           Inscription
         </h1>
-        <div class="mt-5 position-relative py-2">
+        <div class="mt-5 py-2 position-relative">
+          <span class="text-dark font-weight-bold my-2 mr-4">Genre</span>
+          <div class="pretty p-default p-round p-smooth">
+            <input type="radio" name="gender" [(ngModel)]="gender" [value]="'Man'">
+            <div class="state">
+              <label>Homme</label>
+            </div>
+          </div>
+
+          <div class="pretty p-default p-round p-smooth">
+            <input type="radio" name="gender" [(ngModel)]="gender" [value]="'Woman'">
+            <div class="state">
+              <label>Femme</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="position-relative py-2">
           <span class="text-dark font-weight-bold d-block my-2"
             >Nom d'utilisateur <span class="font-weight-normal">(4 caractères min)</span></span
           >
