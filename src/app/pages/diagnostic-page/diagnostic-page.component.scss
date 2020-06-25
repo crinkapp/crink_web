@@ -21,17 +21,17 @@
 
 }
 
-.mt-high {
-  margin-top: 5rem;
+.diag-home {
+  height: calc(100vh - 77px);
 }
 
-.mb-high {
-  margin-bottom: 5rem;
+.line-h {
+  line-height: 2.4rem;
 }
 
 .my-high {
-  margin-top: 5rem;
-  margin-bottom: 5rem;
+  margin-top: 6rem;
+  margin-bottom: 6rem;
 }
 
 .more-info { cursor: help; }
@@ -51,7 +51,6 @@
   top: 48px;
   left: 0;
   z-index: 10;
-  background-color: #fff;
 }
 
 @media(max-width: 767px) {

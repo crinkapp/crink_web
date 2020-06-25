@@ -7,10 +7,13 @@ import { Options } from 'ng5-slider';
   styleUrls: ['./diagnostic-page.component.scss']
 })
 export class DiagnosticPageComponent implements OnInit {
+  startDiag: boolean = false;
   hasLocks: boolean = false;
   locks: boolean = false;
   hairType: boolean = false;
   porosity: boolean = false;
+  density: boolean = false;
+  thickness: boolean = false;
   valueOne: number = 0;
   optionOne: Options = {
     showTicksValues: true,
