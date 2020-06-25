@@ -1,85 +1,61 @@
-.diagnostic-page {
-  min-height: 91.8vh;
+@import '../../../styles.scss';
+
+::ng-deep {
+  .custom-slider .ng5-slider .ng5-slider-pointer {
+    background-color: $mainColor;
+    outline: none;
+  }
+  .custom-slider .ng5-slider .ng5-slider-pointer:focus {
+    outline:none;
+  }
+
+  .custom-slider .ng5-slider .ng5-slider-pointer .ng5-slider-active::after {
+    background-color: #fff!important;
+  }
+
+  // .custom-slider .ng5-slider .ng5-slider-pointer .ng5-slider-pointer-min .ng5-slider-active:focus {
+  //   .custom-slider .ng5-slider .ng5-slider-pointer .ng5-slider-active::after {
+  //     background-color: #fff!important;
+  //   }
+  // }
+
 }
 
-.not-main {
-  padding-bottom: 6rem;
-}
-
-.mt-6 {
+.mt-high {
   margin-top: 5rem;
 }
 
-.header-title {
-  font-size: 30px;
-  line-height: 4rem;
+.mb-high {
+  margin-bottom: 5rem;
 }
 
-.btn-diagnostic {
-  margin-top: 6rem;
-  margin-bottom: 4rem;
+.my-high {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
 }
 
-.btn-diagnostic,
-.btn-choice {
-  border: 3px solid #3a444c;
-  border-radius: 8px;
-  font-size: 18px;
-  font-weight: 600;
-  transition: 0.4s;
+.more-info { cursor: help; }
+
+.more-info::after {
+  content: "?";
+  background-color: #d8e0f3;
+  color: #3a444c;
+  margin-left: 6px;
+  border-radius: 50%;
+  font-size: 16px;
+  padding: 4px 10px;
+  cursor: help;
 }
 
-.btn-choice {
+.help-window {
+  top: 48px;
+  left: 0;
+  z-index: 10;
   background-color: #fff;
-  color: #3a444c;
-}
-
-.btn-choice i {
-  color: #3a444c;
-  transition: 0.4s;
-}
-
-.btn-diagnostic:hover {
-  border: 3px solid #3a444c;
-  color: #3a444c;
-  transform: translate3d(0,-2px,0);
-  box-shadow: 0 2px 5px 0 rgba(0,0,0,.1), 0 14px 6px 0 rgba(0,0,0,.25);
-}
-
-.btn-choice:hover {
-  border: 3px solid transparent;
-  background-color: #b96c55;
-  color: #fff;
-}
-
-.btn-choice:hover i {
-  color: #fff;
-}
-
-a {
-  transition: 0.4s;
-}
-
-.pag {
-  height: 7px;
-  width: 54px;
-}
-
-.not-fill {
-  background-color: #D8D8D8;
 }
 
 @media(max-width: 767px) {
-  .mt-6 {
-    margin-top: 3rem;
-  }
-
-  .header-title {
-    font-size: 24px;
-    line-height: 3rem;
-  }
-
-  .mx-w {
-    width: 100%;
+  .mt-high {
+    margin-top: 5rem;
   }
 }

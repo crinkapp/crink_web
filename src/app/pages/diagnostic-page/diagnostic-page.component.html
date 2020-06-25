@@ -1,208 +1,86 @@
-<div *ngIf="page === 'main'" class="container diagnostic-page w-100 bg-white d-flex flex-column justify-content-center align-items-center">
-  <div class="header-title text-center">
-    <span class="d-block text-dark">Pour mieux vous connaître,</span>
-    <span class="d-block text-dark">nous allons passer au diagnostic capillaire !</span>
+<div class="container my-high">
+  <div class="text-center my-3">
+    <p class="text-dark h2">Pour mieux vous connaître,</p>
+    <p class="text-dark h2">nous allons passer au diagnostic capilaire !</p>
   </div>
-  <span class="text-center text-dark font-weight-light mt-4">
-    Pas de panique, certaines questions ne sont pas obligatoire.
-  </span>
-  <button class="btn-diagnostic px-4 py-3 bg-white text-dark d-flex align-items-center" (click)="goToPage('one')">
-    Lancer le diagnostic
-    <i class="material-icons dp48 ml-2 text-dark">keyboard_arrow_right</i>
-  </button>
-  <span class="my-5 text-dark font-weight-light pointer">
-    Ignorez cette étape
-  </span>
-</div>
 
-<div *ngIf="page === 'one'" class="container diagnostic-page d-flex flex-column justify-content-around align-items-center position-relative">
-  <app-diagnostic-back-btn (click)="goToPage('main')"></app-diagnostic-back-btn>
-  <div class="d-flex flex-column justify-content-center align-items-center">
-    <div class="header-title text-center">
-      <img src="assets/diagnostic/locks.svg" alt="Locks" height="125" class="mb-5">
-      <span class="d-block text-dark mx-md-5 mx-3">1. Avez-vous des locks ?</span>
+  <div class="row mx-0 align-items-center my-high">
+    <div class="col-md-4 col-10 offset-1">
+      <h4 class="text-dark required more-info" (mouseenter)="locks = true" (mouseleave)="locks = false">J'ai des locks</h4>
+      <ng-template [ngIf]="locks">
+        <div class="border border-light position-absolute rounded shadow-sm help-window">
+          <img src="assets/diagnostic/locks.svg" alt="Type de locks" height="140">
+        </div>
+      </ng-template>
     </div>
-    <span class="text-center text-dark font-weight-light mt-4">
-      C'est la seule question obligatoire, promis !
-    </span>
-    <div class="d-flex flex-md-row flex-column justify-content-center align-items-center mt-5">
-      <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qOne(true)">
-        Oui
-      </button>
-      <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qOne(false)">
-        Non
-      </button>
-    </div>
-  </div>
-  <div class="d-flex align-items-end">
-    <div class="pag mx-2 bg-main"></div>
-    <div class="pag mx-2 not-fill"></div>
-    <div class="pag mx-2 not-fill"></div>
-    <div class="pag mx-2 not-fill"></div>
-    <div class="pag mx-2 not-fill"></div>
-  </div>
-</div>
+    <div class="col-md-5 col-10 offset-md-0 mt-md-0 mt-4">
+      <div class="ml-5">
+        <div class="pretty p-default p-round p-smooth">
+          <input type="radio" name="hasLocks" [(ngModel)]="hasLocks" [value]="false">
+          <div class="state">
+            <label>Non</label>
+          </div>
+        </div>
 
-<div *ngIf="page === 'two'" class="container diagnostic-page d-flex flex-column justify-content-around align-items-center">
-  <div class="d-flex flex-column justify-content-center align-items-center">
-    <div class="header-title text-center px-4 px-lg-0">
-      <img src="assets/diagnostic/hair-texture.svg" alt="Locks" height="225" class="mb-5">
-      <span class="d-block text-dark mx-md-5 mx-4">2. Quel type de cheveux avez-vous ?</span>
-    </div>
-    <div class="d-flex flex-md-row flex-column justify-content-center align-items-center mt-5">
-      <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qTwo('wavy')">
-        Ondulés
-      </button>
-      <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qTwo('curly')">
-        Bouclés
-      </button>
-      <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qTwo('kinky')">
-        Crépus
-      </button>
-    </div>
-  </div>
-  <div class="d-flex flex-column justify-content-center align-items-center">
-    <span class="text-dark font-weight-light pointer mb-5" (click)="onIgnore(2)">
-      Ignorez cette étape
-    </span>
-    <div class="d-flex align-items-end">
-      <div class="pag mx-2 bg-dark pointer" (click)="goToPage('one')" title="Retour question n°1"></div>
-      <div class="pag mx-2 bg-main"></div>
-      <div class="pag mx-2 not-fill"></div>
-      <div class="pag mx-2 not-fill"></div>
-      <div class="pag mx-2 not-fill"></div>
-    </div>
-  </div>
-</div>
+        <div class="pretty p-default p-round p-smooth">
+          <input type="radio" name="hasLocks" [(ngModel)]="hasLocks" [value]="true">
+          <div class="state">
+            <label>Oui</label>
+          </div>
+        </div>
+      </div>
 
-<div *ngIf="page === 'three'" class="container diagnostic-page d-flex flex-column justify-content-around align-items-center">
-  <div class="d-flex flex-column justify-content-center align-items-center">
-    <div class="header-title text-center px-4 px-lg-0">
-      <img src="assets/diagnostic/porosity.svg" alt="Locks" height="200" class="mb-5">
-      <span class="d-block text-dark mx-md-5 mx-4">3. Quelle est votre porosité ?</span>
-    </div>
-    <div class="d-flex flex-md-row flex-column justify-content-center align-items-center mt-5">
-      <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qThree('low')">
-        Faible
-      </button>
-      <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qThree('normal')">
-        Moyenne
-      </button>
-      <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qThree('high')">
-        Élevée
-      </button>
     </div>
   </div>
-  <div class="d-flex flex-column justify-content-center align-items-center">
-    <span class="text-dark font-weight-light pointer mb-5" (click)="onIgnore(3)">
-      Ignorez cette étape
-    </span>
-    <div class="d-flex align-items-end">
-      <div class="pag mx-2 bg-dark pointer" (click)="goToPage('one')" title="Retour question n°1"></div>
-      <div class="pag mx-2 bg-dark pointer" (click)="goToPage('two')" title="Retour question n°2"></div>
-      <div class="pag mx-2 bg-main"></div>
-      <div class="pag mx-2 not-fill"></div>
-      <div class="pag mx-2 not-fill"></div>
-    </div>
-  </div>
-</div>
 
-<!-- <div *ngIf="page === 'four'" class="container diagnostic-page not-main w-100 bg-white d-flex flex-column justify-content-center align-items-center position-relative">
-  <app-diagnostic-back-btn (click)="goToPage('three')"></app-diagnostic-back-btn>
-  <div class="header-title text-center">
-    <span class="d-block text-dark mx-md-5 mx-3">4. En séparant vos cheveux, voyez-vous votre cuir chevelu ?</span>
-  </div>
-  <div class="d-flex flex-md-row flex-column justify-content-center align-items-center mt-6">
-    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qFour('low')">
-      Oui
-    </button>
-    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qFour('normal')">
-      Légèrement
-    </button>
-    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qFour('high')">
-      Non du tout
-    </button>
-    <span class="text-dark font-weight-light pointer position-absolute" style="top: 80%;" (click)="onIgnore(4)">
-      Ignorez cette étape
-    </span>
-    <div class="position-absolute d-flex align-items-end" style="top: 90%;">
-      <div class="pag mx-2 bg-dark"></div>
-      <div class="pag mx-2 bg-dark"></div>
-      <div class="pag mx-2 bg-dark"></div>
-      <div class="pag mx-2 bg-dark"></div>
-      <div class="pag mx-2 not-fill"></div>
+  <div *ngIf="!hasLocks">
+    <div class="row mx-0 align-items-center my-high">
+      <div class="col-md-4 col-10 offset-1 position-relative">
+        <h4 class="text-dark more-info" (mouseenter)="hairType = true" (mouseleave)="hairType = false">Mon type de cheveux</h4>
+        <ng-template [ngIf]="hairType">
+          <div class="border border-light position-absolute rounded shadow-sm help-window">
+            <img src="assets/diagnostic/hair-texture.svg" alt="Type de cheveux" height="170">
+          </div>
+        </ng-template>
+      </div>
+      <div class="col-md-5 col-10 offset-md-0 mt-md-0 mt-4 custom-slider">
+        <ng5-slider [(value)]="valueTwo" [options]="optionTwo" class="mx-5"></ng5-slider>
+      </div>
     </div>
-  </div>
-</div> -->
 
-<div *ngIf="page === 'four'" class="container diagnostic-page d-flex flex-column justify-content-around align-items-center">
-  <div class="d-flex flex-column justify-content-center align-items-center">
-    <div class="header-title text-center px-4 px-lg-0">
-      <img src="assets/diagnostic/porosity.svg" alt="Locks" height="200" class="mb-5">
-      <span class="d-block text-dark mx-md-5 mx-4">4. En séparant vos cheveux, voyez-vous votre cuir chevelu ?</span>
-    </div>
-    <div class="d-flex flex-md-row flex-column justify-content-center align-items-center mt-5">
-      <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qFour('low')">
-        Oui
-      </button>
-      <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qFour('normal')">
-        Légèrement
-      </button>
-      <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qFour('high')">
-        Non du tout
-      </button>
-    </div>
-  </div>
-  <div class="d-flex flex-column justify-content-center align-items-center">
-    <span class="text-dark font-weight-light pointer mb-5" (click)="onIgnore(4)">
-      Ignorez cette étape
-    </span>
-    <div class="d-flex align-items-end">
-      <div class="pag mx-2 bg-dark pointer" (click)="goToPage('one')" title="Retour question n°1"></div>
-      <div class="pag mx-2 bg-dark pointer" (click)="goToPage('two')" title="Retour question n°2"></div>
-      <div class="pag mx-2 bg-dark pointer" (click)="goToPage('three')" title="Retour question n°3"></div>
-      <div class="pag mx-2 bg-main"></div>
-      <div class="pag mx-2 not-fill"></div>
-    </div>
-  </div>
-</div>
 
-<div *ngIf="page === 'five'" class="container diagnostic-page not-main w-100 bg-white d-flex flex-column justify-content-center align-items-center position-relative">
-  <app-diagnostic-back-btn (click)="goToPage('four')"></app-diagnostic-back-btn>
-  <div class="header-title text-center">
-    <span class="d-block text-dark mx-md-5 mx-3">5. Vos cheveux semblent être</span>
-  </div>
-  <div class="d-flex flex-md-row flex-column justify-content-center align-items-center mt-6">
-    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qFive('light')">
-      Fin
-    </button>
-    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qFive('medium')">
-      Entre les deux
-    </button>
-    <button class="btn-choice px-5 py-3 mx-5 my-3 mx-w" (click)="qFive('heavy')">
-      Épais
-    </button>
-    <span class="text-dark font-weight-light pointer position-absolute" style="top: 80%;" (click)="onIgnore(5)">
-      Ignorez cette étape
-    </span>
-    <div class="position-absolute d-flex align-items-end" style="top: 90%;">
-      <div class="pag mx-2 bg-dark"></div>
-      <div class="pag mx-2 bg-dark"></div>
-      <div class="pag mx-2 bg-dark"></div>
-      <div class="pag mx-2 bg-dark"></div>
-      <div class="pag mx-2 bg-dark"></div>
+    <div class="row mx-0 align-items-center my-high">
+      <div class="col-md-4 col-10 offset-1">
+        <h4 class="text-dark more-info" (mouseenter)="porosity = true" (mouseleave)="porosity = false">Porosité</h4>
+        <ng-template [ngIf]="porosity">
+          <div class="border border-light position-absolute rounded shadow-sm help-window">
+            <img src="assets/diagnostic/porosity-xl.svg" alt="Test de porosité" height="170" class="d-xl-block d-none">
+            <img src="assets/diagnostic/porosity-sm.svg" alt="Test de porosité" height="280" class="d-block d-xl-none">
+          </div>
+        </ng-template>
+      </div>
+      <div class="col-md-5 col-10 offset-md-0 mt-md-0 mt-4 custom-slider">
+        <ng5-slider [(value)]="valueThree" [options]="optionThree" class="mx-5"></ng5-slider>
+      </div>
+    </div>
+
+    <div class="row mx-0 align-items-center my-high">
+      <div class="col-md-4 col-10 offset-1">
+        <h4 class="text-dark more-info">Densité</h4>
+      </div>
+      <div class="col-md-5 col-10 offset-md-0 mt-md-0 mt-4 custom-slider">
+        <ng5-slider [(value)]="valueFour" [options]="optionFour" class="mx-5"></ng5-slider>
+      </div>
+    </div>
+
+    <div class="row mx-0 align-items-center my-high">
+      <div class="col-md-4 col-10 offset-1">
+        <h4 class="text-dark more-info">Épaisseur des cheveux</h4>
+      </div>
+      <div class="col-md-5 col-10 offset-md-0 mt-md-0 mt-4 custom-slider">
+        <ng5-slider [(value)]="valueFive" [options]="optionFive" class="mx-5"></ng5-slider>
+      </div>
     </div>
   </div>
-</div>
 
-<div *ngIf="page === 'details'" class="container diagnostic-page not-main w-100 bg-white d-flex flex-column justify-content-center align-items-center position-relative">
-  <div class="header-title text-center">
-    <span class="d-block text-dark mx-md-5 mx-3">Vous avez terminé !</span>
-  </div>
-  <div class="my-4 text-dark">Voici un récap:</div>
-  <span class="text-dark my-3">{{diagnostic.one}}</span>
-  <span class="text-dark my-3">{{diagnostic?.two}}</span>
-  <span class="text-dark my-3">{{diagnostic?.three}}</span>
-  <span class="text-dark my-3">{{diagnostic?.four}}</span>
-  <span class="text-dark my-3">{{diagnostic?.five}}</span>
 </div>

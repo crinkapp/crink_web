@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-type Page = 'main' | 'one' | 'two' | 'three' | 'four' | 'five' | 'details';
+import { Options } from 'ng5-slider';
 
 @Component({
   selector: 'app-diagnostic-page',
@@ -8,68 +7,95 @@ type Page = 'main' | 'one' | 'two' | 'three' | 'four' | 'five' | 'details';
   styleUrls: ['./diagnostic-page.component.scss']
 })
 export class DiagnosticPageComponent implements OnInit {
-  page: Page = 'main';
-  diagnostic: {
-    one: boolean | null;
-    two?: 'wavy' | 'curly' | 'kinky' | null;
-    three?: 'low' | 'normal' | 'high' | null;
-    four?: 'low' | 'normal' | 'high' | null;
-    five?: 'light' | 'medium' | 'heavy' | null;
-  } = { one: true };
+  hasLocks: boolean = false;
+  locks: boolean = false;
+  hairType: boolean = false;
+  porosity: boolean = false;
+  valueOne: number = 0;
+  optionOne: Options = {
+    showTicksValues: true,
+    showTicks: false,
+    stepsArray: [
+      {value: 0, legend: 'Oui'},
+      {value: 1, legend: 'Non'}
+    ]
+  };
+  valueTwo: number = 5;
+  optionTwo: Options = {
+    showTicksValues: true,
+    showTicks: false,
+    stepsArray: [
+      {value: 0, legend: 'Ondulés'},
+      {value: 1},
+      {value: 2},
+      {value: 3},
+      {value: 4},
+      {value: 5, legend: 'Bouclés'},
+      {value: 6},
+      {value: 7},
+      {value: 8},
+      {value: 9},
+      {value: 10, legend: 'Crépus'}
+    ]
+  };
+  valueThree: number = 5;
+  optionThree: Options = {
+    showTicksValues: true,
+    showTicks: false,
+    stepsArray: [
+      {value: 0, legend: 'Faible'},
+      {value: 1},
+      {value: 2},
+      {value: 3},
+      {value: 4},
+      {value: 5, legend: 'Moyenne'},
+      {value: 6},
+      {value: 7},
+      {value: 8},
+      {value: 9},
+      {value: 10, legend: 'Élevée'}
+    ]
+  };
+  valueFour: number = 5;
+  optionFour: Options = {
+    showTicksValues: true,
+    showTicks: false,
+    stepsArray: [
+      {value: 0, legend: 'Faible'},
+      {value: 1},
+      {value: 2},
+      {value: 3},
+      {value: 4},
+      {value: 5, legend: 'Moyenne'},
+      {value: 6},
+      {value: 7},
+      {value: 8},
+      {value: 9},
+      {value: 10, legend: 'Élevée'}
+    ]
+  };
+  valueFive: number = 5;
+  optionFive: Options = {
+    showTicksValues: true,
+    showTicks: false,
+    stepsArray: [
+      {value: 0, legend: 'Fin'},
+      {value: 1},
+      {value: 2},
+      {value: 3},
+      {value: 4},
+      {value: 5, legend: 'Moyen'},
+      {value: 6},
+      {value: 7},
+      {value: 8},
+      {value: 9},
+      {value: 10, legend: 'Épais'}
+    ]
+  };
 
   constructor() { }
 
   ngOnInit() {
-  }
-
-  goToPage(p:Page) {
-    this.page = p;
-  }
-
-  qOne(choice: boolean) {
-    this.diagnostic.one = choice;
-    choice ? this.page = 'details' : this.page = 'two';
-  }
-
-  qTwo(choice: 'wavy' | 'curly' | 'kinky') {
-    this.diagnostic.two = choice;
-    this.page = 'three';
-  }
-
-  qThree(choice: 'low' | 'normal' | 'high') {
-    this.diagnostic.three = choice;
-    this.page = 'four';
-  }
-
-  qFour(choice: 'low' | 'normal' | 'high') {
-    this.diagnostic.four = choice;
-    this.page = 'five';
-  }
-
-  qFive(choice: 'light' | 'medium' | 'heavy') {
-    this.diagnostic.five = choice;
-    this.page = 'details';
-  }
-
-  onIgnore(n: number) {
-    switch(n) {
-      case 2:
-        this.diagnostic.two = null;
-        this.page = 'three';
-        break;
-      case 3:
-        this.diagnostic.three = null;
-        this.page = 'four';
-        break;
-      case 4:
-        this.diagnostic.four = null;
-        this.page = 'five';
-        break;
-      case 5:
-        this.diagnostic.five = null;
-        this.page = 'details';
-        break;
-    }
   }
 
 }
