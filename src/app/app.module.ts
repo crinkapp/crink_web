@@ -11,6 +11,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { TagInputModule } from "ngx-chips";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { JwtModule } from "@auth0/angular-jwt";
+import { Ng5SliderModule } from 'ng5-slider';
 
 // GUARDS
 import { AuthGuardService as AuthGuard } from './services/auth-guard.service';
@@ -87,6 +88,7 @@ const appRoutes: Routes = [
         blacklistedRoutes: [],
       },
     }),
+    Ng5SliderModule
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [
