@@ -1,13 +1,15 @@
 export interface NewUser {
   username_user: string;
+  gender_user: 'Man' | 'Woman';
   email_user: string;
   password_user: string;
 }
 
 export interface User {
     id: number;
-    email_user: string;
     username_user: string;
+    gender_user: 'Man' | 'Woman';
+    email_user: string;
     password_user: string;
     createdAt: number;
     updatedAt: number;
@@ -15,7 +17,6 @@ export interface User {
     first_name_user?: string;
     last_name_user?: string;
     birthday_user?: number;
-    gender_user?: 'Man' | 'Woman';
     hashtags?: string[];
 
     diagnosticId?: number;
