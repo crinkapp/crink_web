@@ -8,6 +8,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./sign-up-page.component.scss']
 })
 export class SignUpPageComponent implements OnInit {
+  gender: 'Man' | 'Woman' = 'Man';
   username: Sign = { content: '', error: null };
   email: Sign = { content: '', error: null };
   password: Sign = { content: '', error: null };
@@ -58,8 +59,9 @@ export class SignUpPageComponent implements OnInit {
         this.loading = true;
         this.next = {
           username_user: this.username.content,
+          gender_user: this.gender,
           email_user: this.email.content,
-          password_user: this.password.content
+          password_user: this.password.content,
         }
         this.auth.onSignUp(this.next, this.newsletter)
           .subscribe(

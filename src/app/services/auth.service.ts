@@ -27,6 +27,7 @@ export class AuthService {
   onSignUp(newUser: NewUser, newsletters: boolean) {
     return this.http.post(this.url + '/user', {
       username_user: newUser.username_user,
+      gender_user: newUser.gender_user,
       email_user: newUser.email_user,
       password_user: newUser.password_user,
       newsletter_user: newsletters // define if user wants to receive Crink's newsletters or not
