@@ -1,3 +1,7 @@
 .pt-high {
   padding-top: 77px;
 }
+
+.top-space {
+  min-height: calc(100vh - 77px);
+}
