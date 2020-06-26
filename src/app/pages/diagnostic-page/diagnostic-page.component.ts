@@ -14,85 +14,45 @@ export class DiagnosticPageComponent implements OnInit {
   porosity: boolean = false;
   density: boolean = false;
   thickness: boolean = false;
-  valueOne: number = 0;
-  optionOne: Options = {
-    showTicksValues: true,
-    showTicks: false,
-    stepsArray: [
-      {value: 0, legend: 'Oui'},
-      {value: 1, legend: 'Non'}
-    ]
-  };
-  valueTwo: number = 5;
+
+  valueTwo: number = 1;
   optionTwo: Options = {
     showTicksValues: true,
     showTicks: false,
     stepsArray: [
       {value: 0, legend: 'Ondulés'},
-      {value: 1},
-      {value: 2},
-      {value: 3},
-      {value: 4},
-      {value: 5, legend: 'Bouclés'},
-      {value: 6},
-      {value: 7},
-      {value: 8},
-      {value: 9},
-      {value: 10, legend: 'Crépus'}
+      {value: 1, legend: 'Bouclés'},
+      {value: 2, legend: 'Crépus'}
     ]
   };
-  valueThree: number = 5;
+  valueThree: number = 1;
   optionThree: Options = {
     showTicksValues: true,
     showTicks: false,
     stepsArray: [
       {value: 0, legend: 'Faible'},
-      {value: 1},
-      {value: 2},
-      {value: 3},
-      {value: 4},
-      {value: 5, legend: 'Moyenne'},
-      {value: 6},
-      {value: 7},
-      {value: 8},
-      {value: 9},
-      {value: 10, legend: 'Élevée'}
+      {value: 1, legend: 'Moyenne'},
+      {value: 2, legend: 'Élevée'}
     ]
   };
-  valueFour: number = 5;
+  valueFour: number = 1;
   optionFour: Options = {
     showTicksValues: true,
     showTicks: false,
     stepsArray: [
       {value: 0, legend: 'Faible'},
-      {value: 1},
-      {value: 2},
-      {value: 3},
-      {value: 4},
-      {value: 5, legend: 'Moyenne'},
-      {value: 6},
-      {value: 7},
-      {value: 8},
-      {value: 9},
-      {value: 10, legend: 'Élevée'}
+      {value: 1, legend: 'Moyenne'},
+      {value: 2, legend: 'Élevée'}
     ]
   };
-  valueFive: number = 5;
+  valueFive: number = 1;
   optionFive: Options = {
     showTicksValues: true,
     showTicks: false,
     stepsArray: [
       {value: 0, legend: 'Fin'},
-      {value: 1},
-      {value: 2},
-      {value: 3},
-      {value: 4},
-      {value: 5, legend: 'Moyen'},
-      {value: 6},
-      {value: 7},
-      {value: 8},
-      {value: 9},
-      {value: 10, legend: 'Épais'}
+      {value: 1, legend: 'Moyen'},
+      {value: 2, legend: 'Épais'}
     ]
   };
 
