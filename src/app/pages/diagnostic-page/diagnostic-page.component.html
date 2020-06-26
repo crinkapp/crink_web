@@ -88,14 +88,6 @@
             <p class="text-dark font-weight-light mb-0">Je ne vois pas mon cuir chevelu = <span class="font-weight-normal">élevée</span></p>
           </div>
         </ng-template>
-        <!-- <ng-template [ngIf]="density">
-          <div class="border border-light position-absolute rounded shadow-sm help-window bg-light p-3">
-            <p class="text-dark font-weight-bold">Comment connaître la densité de ses cheveux ?</p>
-            <p class="text-dark font-weight-light mb-0">Séparez vos cheveux et regardez attentivement si votre cuir chevelu est facilement visible ou pas.
-              La densité de vos cheveux est faible si vous arrivez facilement à voir votre cuir chevelu, à l'inverse la densité de vos cheveux
-              est élevée si vous arrivez difficilement (voir pas du tout) à voir votre cuir chevelu.</p>
-          </div>
-        </ng-template> -->
       </div>
       <div class="col-md-5 col-10 offset-md-0 mt-md-0 mt-4 custom-slider">
         <ng5-slider [(value)]="valueFour" [options]="optionFour" class="mx-5"></ng5-slider>
@@ -107,10 +99,7 @@
         <h4 class="text-dark more-info" (mouseenter)="thickness = true" (mouseleave)="thickness = false">Épaisseur des cheveux</h4>
         <ng-template [ngIf]="thickness">
           <div class="border border-light position-absolute rounded shadow-sm help-window bg-light p-3">
-            <p class="text-dark font-weight-bold">Comment connaître l'épaisseur de ses cheveux ?</p>
-            <p class="text-dark font-weight-light mb-0">Séparez vos cheveux et regardez attentivement si votre cuir chevelu est facilement visible ou pas.
-              La densité de vos cheveux est faible si vous arrivez facilement à voir votre cuir chevelu, à l'inverse la densité de vos cheveux
-              est élevée si vous arrivez difficilement (voir pas du tout) à voir votre cuir chevelu.</p>
+            <img src="assets/diagnostic/thickness.svg" alt="Épaisseur des cheveux" height="200">
           </div>
         </ng-template>
       </div>
