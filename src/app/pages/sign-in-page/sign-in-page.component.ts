@@ -4,7 +4,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ForgetPasswordComponent } from '../../modals/forget-password/forget-password.component';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
-import { User } from '../../models/user';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-sign-in-page',
@@ -24,7 +24,8 @@ export class SignInPageComponent implements OnInit {
   constructor(
     private auth: AuthService,
     private modalService: NgbModal,
-    private router: Router
+    private router: Router,
+    private user: UserService
   ) { }
 
   ngOnInit() {
@@ -46,26 +47,35 @@ export class SignInPageComponent implements OnInit {
       this.loading = true;
       this.auth.onSignIn(this.email.content, this.password.content)
         .subscribe(
-          (res: User[]) => {
-            this.loading = false;
-            if(res.length === 0) {
-              this.error = 'L\'email ou le mot de passe est incorrect, veuillez réessayer.';
-            } else {
-              localStorage.setItem('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c');
-              localStorage.setItem('user', JSON.stringify(res[0]));
-              this.error = '';
-              this.sent = true;
-              this.auth.user = res[0];
-              this.router.navigate(['profil']);
-            }
-          },
-          (err) => {
+          // (res: User[]) => {
+          //   this.loading = false;
+          //   if(res.length === 0) {
+          //     this.error = 'L\'email ou le mot de passe est incorrect, veuillez réessayer.';
+          //   } else {
+          //     localStorage.setItem('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c');
+          //     localStorage.setItem('user', JSON.stringify(res[0]));
+          //     this.error = '';
+          //     this.sent = true;
+          //     this.auth.user = res[0];
+          //     this.router.navigate(['profil']);
+          //   }
+          // },
+          // (err) => {
+          //   console.log(err);
+          //   this.loading = false;
+          // }
+          (res) => {
+            console.log(res);
+          }, (err) => {
             console.log(err);
-            this.loading = false;
           }
         )
     }
 
+  }
+
+  getUser() {
+    this.user.getUser();
   }
 
 
