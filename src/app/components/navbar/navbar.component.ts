@@ -29,8 +29,7 @@ export class NavbarComponent {
     public auth: AuthService,
     private ngZone: NgZone) {
       if(this.auth.isAuthenticated()) {
-        const loggedUser = localStorage.getItem('user');
-        this.auth.user = JSON.parse(loggedUser);
+        // TODO
       }
       window.onresize = () => {
           this.ngZone.run(() => {
