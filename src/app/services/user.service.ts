@@ -27,4 +27,14 @@ export class UserService {
       email_user: email
     });
   }
+
+  getUser() {
+    return this.http.get(this.url + '/user').subscribe(
+      (user) => {
+        console.log(user);
+      },(err) => {
+        console.log('not working');
+      }
+    );
+  }
 }
