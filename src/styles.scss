@@ -55,3 +55,8 @@ $lightGreyColor: #fafafa;
 .pointer {
   cursor: pointer;
 }
+
+button[aria-label="Close"]:focus {
+  outline: none;
+}
+

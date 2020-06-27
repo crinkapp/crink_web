@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
 
 .bg-crink {
-  background: url('../../../assets/img/violette.jpeg') no-repeat;
+  background: url('../../../assets/img/home-bg.jpeg') no-repeat;
   position: relative;
   border-bottom-left-radius: 13rem;
   background-size: cover;
@@ -191,6 +191,10 @@ button[name="sendemail"] {
     border-bottom-left-radius: 0rem;
   }
 
+  .bg-crink {
+    background-position: inherit;
+  }
+
   .features-section {
     border-top-right-radius: 0rem;
   }
@@ -203,5 +207,9 @@ button[name="sendemail"] {
 
   .app-badge {
     height: 45px;
+  }
+
+  .bg-crink {
+    background-position-x: -9rem;
   }
 }

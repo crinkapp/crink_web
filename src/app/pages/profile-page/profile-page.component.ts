@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-profile-page',
@@ -6,8 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile-page.component.scss']
 })
 export class ProfilePageComponent implements OnInit {
-
-  constructor() { }
+  hashtags: string[] = [
+    'bouclés', 'soins', 'shampoings', 'twist'
+  ]
+  user: User | null = null;
+  constructor() {
+    this.user = JSON.parse(localStorage.getItem('user'));
+  }
 
   ngOnInit() {
   }
