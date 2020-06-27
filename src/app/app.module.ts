@@ -10,7 +10,6 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 // LIBS
 import { TagInputModule } from "ngx-chips";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { JwtModule } from "@auth0/angular-jwt";
 
 // GUARDS
 import { AuthGuardService as AuthGuard } from './services/auth-guard.service';
@@ -32,10 +31,6 @@ import { UnsubscribePageComponent } from './pages/unsubscribe-page/unsubscribe-p
 import { CguPageComponent } from './pages/cgu-page/cgu-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { ForgetPasswordComponent } from './modals/forget-password/forget-password.component';
-
-export function tokenGetter() {
-  return localStorage.getItem('token');
-}
 
 const appRoutes: Routes = [
   { path: "connexion", component: SignInPageComponent },
@@ -73,14 +68,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    NgbModule,
-    JwtModule.forRoot({
-      config: {
-        tokenGetter: tokenGetter,
-        whitelistedDomains: ["localhost:4200", "https://crink.fr"],
-        blacklistedRoutes: [],
-      },
-    }),
+    NgbModule
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [
