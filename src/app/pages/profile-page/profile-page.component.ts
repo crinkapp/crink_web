@@ -11,9 +11,7 @@ export class ProfilePageComponent implements OnInit {
     'bouclés', 'soins', 'shampoings', 'twist'
   ]
   user: User | null = null;
-  constructor() {
-    this.user = JSON.parse(localStorage.getItem('user'));
-  }
+  constructor() { }
 
   ngOnInit() {
   }
