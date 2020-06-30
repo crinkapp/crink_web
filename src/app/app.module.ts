@@ -4,7 +4,7 @@ import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FormsModule } from "@angular/forms";
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 // LIBS
@@ -19,6 +19,9 @@ import { AppComponent } from "./app.component";
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { ArticleListComponent } from "./components/article-list/article-list.component";
 import { FooterComponent } from './components/footer/footer.component';
+
+// INTERCEPTOR
+import { AppHttpInterceptor } from './services/http-interceptor.service';
 
 // PAGES
 import { SignInPageComponent } from "./pages/sign-in-page/sign-in-page.component";
@@ -75,7 +78,12 @@ const appRoutes: Routes = [
     {
       provide: LocationStrategy,
       useClass: HashLocationStrategy
-    }
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AppHttpInterceptor,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
   entryComponents: [
