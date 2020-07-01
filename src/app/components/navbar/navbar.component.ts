@@ -2,6 +2,7 @@ import { Component, HostListener, NgZone } from "@angular/core";
 import { Router } from '@angular/router';
 import { trigger, transition, style, animate, state } from '@angular/animations';
 import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: "app-navbar",
@@ -25,12 +26,10 @@ export class NavbarComponent {
   toggleMenu: string = 'close';
 
   constructor(
+    private auth: AuthService,
+    private ngZone: NgZone,
     public router: Router,
-    public auth: AuthService,
-    private ngZone: NgZone) {
-      if(this.auth.isAuthenticated()) {
-        // TODO
-      }
+    public user: UserService) {
       window.onresize = () => {
           this.ngZone.run(() => {
             if(window.innerWidth > 991) {
