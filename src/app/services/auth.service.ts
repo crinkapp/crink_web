@@ -1,31 +1,32 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { NewUser, User } from '../models/user';
+import { NewUser } from '../models/user';
 import { environment } from '../../environments/environment';
-import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  public user: User | null = null;
   url: string = environment.API_URL;
 
   constructor(
     private http: HttpClient,
-    private jwtHelper: JwtHelperService,
-    private router: Router
+    private router: Router,
+    private user: UserService
   ) { }
 
   public isAuthenticated(): boolean {
-    const token = localStorage.getItem('token');
-    // Check whether the token is expired and return true or false
-    return !this.jwtHelper.isTokenExpired(token);
+    if (this.user.currentUser) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   onSignUp(newUser: NewUser, newsletters: boolean) {
-    return this.http.post(this.url + '/user', {
+    return this.http.post(this.url + '/register', {
       username_user: newUser.username_user,
       gender_user: newUser.gender_user,
       email_user: newUser.email_user,
@@ -35,16 +36,20 @@ export class AuthService {
   }
 
   onSignIn(email: string, password: string) {
-    return this.http.post(this.url + '/getuser', {
+    return this.http.post(this.url + '/login', {
       email_user: email,
       password_user: password
     });
   }
 
   onSignOut() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    this.user = null;
-    return this.router.navigate(['connexion']);
+    this.http.get(this.url + '/logout').subscribe(
+      () => {
+        this.user.currentUser = null;
+        return this.router.navigate(['connexion']);
+      }, (err) => {
+        console.log(err);
+      }
+    );
   }
 }

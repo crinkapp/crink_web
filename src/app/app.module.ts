@@ -4,14 +4,12 @@ import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FormsModule } from "@angular/forms";
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 // LIBS
 import { TagInputModule } from "ngx-chips";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { JwtModule } from "@auth0/angular-jwt";
-import { Ng5SliderModule } from 'ng5-slider';
 
 // GUARDS
 import { AuthGuardService as AuthGuard } from './services/auth-guard.service';
@@ -22,6 +20,9 @@ import { NavbarComponent } from "./components/navbar/navbar.component";
 import { ArticleListComponent } from "./components/article-list/article-list.component";
 import { FooterComponent } from './components/footer/footer.component';
 import { DiagnosticBackBtnComponent } from './components/diagnostic-back-btn/diagnostic-back-btn.component';
+
+// INTERCEPTOR
+import { AppHttpInterceptor } from './services/http-interceptor.service';
 
 // PAGES
 import { SignInPageComponent } from "./pages/sign-in-page/sign-in-page.component";
@@ -35,10 +36,6 @@ import { UnsubscribePageComponent } from './pages/unsubscribe-page/unsubscribe-p
 import { CguPageComponent } from './pages/cgu-page/cgu-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { ForgetPasswordComponent } from './modals/forget-password/forget-password.component';
-
-export function tokenGetter() {
-  return localStorage.getItem('token');
-}
 
 const appRoutes: Routes = [
   { path: "connexion", component: SignInPageComponent },
@@ -80,22 +77,19 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    NgbModule,
-    JwtModule.forRoot({
-      config: {
-        tokenGetter: tokenGetter,
-        whitelistedDomains: ["localhost:4200", "https://crink.fr"],
-        blacklistedRoutes: [],
-      },
-    }),
-    Ng5SliderModule
+    NgbModule
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [
     {
       provide: LocationStrategy,
       useClass: HashLocationStrategy
-    }
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AppHttpInterceptor,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
   entryComponents: [
