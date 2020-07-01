@@ -41,7 +41,7 @@ class="navbar navbar-expand-lg fixed-top px-md-5 px-4 py-3"
         </li> -->
       </ul>
 
-      <ul class="navbar-nav ml-auto" *ngIf="auth.user == null">
+      <ul class="navbar-nav ml-auto" *ngIf="user.currentUser == null">
         <li
           class="nav-item mx-3 mt-md-0 mt-3"
           data-toggle="collapse"
@@ -70,7 +70,7 @@ class="navbar navbar-expand-lg fixed-top px-md-5 px-4 py-3"
         </li>
       </ul>
 
-      <ul class="navbar-nav ml-auto" *ngIf="auth.user != null">
+      <ul class="navbar-nav ml-auto" *ngIf="user.currentUser != null">
         <li
           class="nav-item mx-3 mt-md-0 mt-3"
           data-toggle="collapse"
@@ -78,8 +78,12 @@ class="navbar navbar-expand-lg fixed-top px-md-5 px-4 py-3"
         >
           <div ngbDropdown display="dynamic" placement="bottom-right">
             <div id="dropdownForm1" ngbDropdownToggle class="d-flex align-items-center text-white">
-              <img [src]="auth.user.path_profil_picture_user != null ? auth.user.path_profil_picture_user : 'assets/img/no-picture.jpg'" alt="Avatar" height="45" width="45" class="pointer border-0 rounded-circle mr-1">
-              <button class="btn border-0 text-white font-weight-light pr-1">{{auth?.user.username_user}}</button>
+              <img [src]="user.currentUser.path_profil_picture_user != null ? user.currentUser.path_profil_picture_user : 'assets/img/no-picture.jpg'"
+              alt="Avatar"
+              height="40"
+              width="40"
+              class="pointer border-0 rounded-circle mr-1">
+              <button class="btn border-0 text-white font-weight-light pr-1">{{user?.currentUser.username_user}}</button>
             </div>
             <div ngbDropdownMenu aria-labelledby="dropdownForm1" class="mt-2">
               <button
@@ -108,27 +112,27 @@ class="mobile-menu d-flex flex-column d-lg-none w-100 align-items-center justify
     >Accueil</a
   >
   <hr class="my-3 border-white w-25">
-  <a *ngIf="auth.user == null"
+  <a *ngIf="user.currentUser == null"
     [routerLink]="['/connexion']"
     class="text-decoration-none text-white font-weight-light h4 font-weight-light my-4"
     (click)="toggle('/connexion')"
     >Connexion</a
   >
-  <a *ngIf="auth.user == null"
+  <a *ngIf="user.currentUser == null"
     [routerLink]="['/inscription']"
     class="text-decoration-none text-white font-weight-light h4 font-weight-light my-4"
     (click)="toggle('/inscription')"
     >Inscription</a
   >
-  <a *ngIf="auth.user != null"
+  <a *ngIf="user.currentUser != null"
     [routerLink]="['/profil']"
     class="text-decoration-none text-white font-weight-light h4 font-weight-light my-4"
     (click)="toggle('/profil')"
     >Mon profil</a
   >
-  <hr class="my-3 border-white w-25" *ngIf="auth.user != null">
+  <hr class="my-3 border-white w-25" *ngIf="user.currentUser != null">
   <span
-  *ngIf="auth.user != null"
+  *ngIf="user.currentUser != null"
   class="text-white font-weight-light h4 font-weight-light my-4 pointer"
   (click)="onSignOut()">Se déconnecter</span>
 </div>
