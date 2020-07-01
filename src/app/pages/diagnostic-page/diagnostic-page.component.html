@@ -1,14 +1,14 @@
-<div class="diag-home bg-light row mx-0 d-flex justify-content-center align-items-center" *ngIf="!startDiag">
-  <div class="col-5 offset-1 d-flex flex-column align-items-start">
-    <p class="display-4 text-dark">Un diagnostic ? Pourquoi ?</p>
-    <p class="h5 font-weight-light my-3 line-h">Faire le diagnostic nous permet de mieux connaître vos besoins ainsi que les articles qui sont
+<div class="diag-home bg-light row mx-0 d-flex justify-content-center align-items-center p-3" *ngIf="!startDiag">
+  <div class="col-lg-5 offset-lg-1 col-10 d-flex flex-column align-items-lg-start align-items-center">
+    <p class="display-4 text-dark text-lg-left text-center">Un diagnostic ? Pourquoi ?</p>
+    <p class="h5 font-weight-light my-3 line-h text-lg-left text-center">Faire le diagnostic nous permet de mieux connaître vos besoins ainsi que les articles qui sont
       susceptible de vous intéresser !
     </p>
     <button class="btn btn-dark btn-lg mt-4" (click)="startDiag = true">C'est parti !</button>
   </div>
 
-  <div class="col-6 d-flex flex-column align-items-center">
-    <img src="assets/diagnostic/barber.svg" alt="Diagnostic" class="w-75">
+  <div class="col-lg-6 d-flex flex-column align-items-center">
+    <img src="assets/diagnostic/barber.svg" alt="Diagnostic" class="diagnostic-img">
   </div>
 </div>
 

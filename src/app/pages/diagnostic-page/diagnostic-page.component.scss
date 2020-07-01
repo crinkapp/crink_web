@@ -19,7 +19,7 @@
 }
 
 .diag-home {
-  height: calc(100vh - 77px);
+  min-height: calc(100vh - 77px);
 }
 
 .line-h {
@@ -50,8 +50,20 @@
   z-index: 10;
 }
 
+.diagnostic-img {
+  width: 75%;
+
+  @media(max-width: 991px) {
+    width: 60%;
+  }
+}
+
 @media(max-width: 767px) {
   .mt-high {
     margin-top: 5rem;
+  }
+
+  .diagnostic-img {
+    width: 70%;
   }
 }
