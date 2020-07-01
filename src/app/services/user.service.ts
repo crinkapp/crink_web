@@ -1,12 +1,14 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { environment } from '../../environments/environment';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: "root",
 })
 export class UserService {
   url: string = environment.API_URL;
+  currentUser: User | null = null;
 
   constructor(private http: HttpClient) {}
 
@@ -29,12 +31,6 @@ export class UserService {
   }
 
   getUser() {
-    return this.http.get(this.url + '/user').subscribe(
-      (user) => {
-        console.log(user);
-      },(err) => {
-        console.log('not working');
-      }
-    );
+    return this.http.get(this.url + '/user');
   }
 }
