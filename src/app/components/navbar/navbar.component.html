@@ -28,6 +28,7 @@ class="navbar navbar-expand-lg fixed-top px-md-5 px-4 py-3"
           >
         </li>
         <li
+          *ngIf="user.currentUser != null"
           class="nav-item mx-3 mt-md-0 mt-3"
           data-toggle="collapse"
           data-target=".navbar-collapse.show"
@@ -123,7 +124,8 @@ class="mobile-menu d-flex flex-column d-lg-none w-100 align-items-center justify
     (click)="toggle('/')"
     >Accueil</a
   >
-  <a [routerLink]="['/diagnostic']"
+  <a *ngIf="user.currentUser != null"
+    [routerLink]="['/diagnostic']"
     class="text-decoration-none text-white font-weight-light h4 font-weight-light my-4"
     (click)="toggle('/')"
     >Diagnostic</a

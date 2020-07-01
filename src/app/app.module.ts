@@ -10,6 +10,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 // LIBS
 import { TagInputModule } from "ngx-chips";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { Ng5SliderModule } from 'ng5-slider';
 
 // GUARDS
 import { AuthGuardService as AuthGuard } from './services/auth-guard.service';
@@ -77,7 +78,8 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    Ng5SliderModule
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [
