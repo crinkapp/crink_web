@@ -1,5 +1,7 @@
 <app-navbar></app-navbar>
 <div [class.pt-high]="router.url !== '/'">
-  <router-outlet></router-outlet>
-  <app-footer></app-footer>
+  <div class="d-flex flex-column justify-content-between top-space">
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+  </div>
 </div>

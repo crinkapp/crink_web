@@ -19,6 +19,7 @@ import { AppComponent } from "./app.component";
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { ArticleListComponent } from "./components/article-list/article-list.component";
 import { FooterComponent } from './components/footer/footer.component';
+import { DiagnosticBackBtnComponent } from './components/diagnostic-back-btn/diagnostic-back-btn.component';
 
 // INTERCEPTOR
 import { AppHttpInterceptor } from './services/http-interceptor.service';
@@ -30,6 +31,7 @@ import { HomePageComponent } from "./pages/home-page/home-page.component";
 import { CreateArticlePageComponent } from "./pages/create-article-page/create-article-page.component";
 import { ProfilePageComponent } from "./pages/profile-page/profile-page.component";
 import { ArticlesPageComponent } from "./pages/articles-page/articles-page.component";
+import { DiagnosticPageComponent } from './pages/diagnostic-page/diagnostic-page.component';
 import { UnsubscribePageComponent } from './pages/unsubscribe-page/unsubscribe-page.component';
 import { CguPageComponent } from './pages/cgu-page/cgu-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
@@ -40,6 +42,8 @@ const appRoutes: Routes = [
   { path: "inscription", component: SignUpPageComponent },
   { path: "creation-article", component: CreateArticlePageComponent },
   { path: "articles", component: ArticlesPageComponent },
+  { path: "profile", component: ProfilePageComponent },
+  { path: "diagnostic", component: DiagnosticPageComponent },
   { path: "profil", component: ProfilePageComponent, canActivate: [AuthGuard] },
   { path: "desabonnement-newsletter", component: UnsubscribePageComponent },
   { path: "cgu", component: CguPageComponent },
@@ -59,6 +63,8 @@ const appRoutes: Routes = [
     ArticlesPageComponent,
     NavbarComponent,
     FooterComponent,
+    DiagnosticPageComponent,
+    DiagnosticBackBtnComponent,
     UnsubscribePageComponent,
     CguPageComponent,
     NotFoundPageComponent,

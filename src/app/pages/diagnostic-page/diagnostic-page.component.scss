@@ -1,0 +1,69 @@
+@import '../../../styles.scss';
+
+::ng-deep {
+  .custom-slider .ng5-slider .ng5-slider-pointer {
+    background-color: $mainColor;
+    outline: none;
+  }
+  .custom-slider .ng5-slider .ng5-slider-pointer:focus {
+    outline:none;
+  }
+
+  .custom-slider .ng5-slider-active::after {
+    background-color: #fff!important;
+  }
+
+  .custom-slider .ng5-slider-inner-tooltip {
+    display: none;
+  }
+}
+
+.diag-home {
+  min-height: calc(100vh - 77px);
+}
+
+.line-h {
+  line-height: 2.4rem;
+}
+
+.my-high {
+  margin-top: 6rem;
+  margin-bottom: 6rem;
+}
+
+.more-info { cursor: help; }
+
+.more-info::after {
+  content: "?";
+  background-color: #d8e0f3;
+  color: #3a444c;
+  margin-left: 6px;
+  border-radius: 50%;
+  font-size: 16px;
+  padding: 4px 10px;
+  cursor: help;
+}
+
+.help-window {
+  top: 48px;
+  left: 0;
+  z-index: 10;
+}
+
+.diagnostic-img {
+  width: 75%;
+
+  @media(max-width: 991px) {
+    width: 60%;
+  }
+}
+
+@media(max-width: 767px) {
+  .mt-high {
+    margin-top: 5rem;
+  }
+
+  .diagnostic-img {
+    width: 70%;
+  }
+}

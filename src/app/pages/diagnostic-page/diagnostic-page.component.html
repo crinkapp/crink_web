@@ -1,0 +1,112 @@
+<div class="diag-home bg-light row mx-0 d-flex justify-content-center align-items-center p-3" *ngIf="!startDiag">
+  <div class="col-lg-5 offset-lg-1 col-10 d-flex flex-column align-items-lg-start align-items-center">
+    <p class="display-4 text-dark text-lg-left text-center">Un diagnostic ? Pourquoi ?</p>
+    <p class="h5 font-weight-light my-3 line-h text-lg-left text-center">Faire le diagnostic nous permet de mieux connaître vos besoins ainsi que les articles qui sont
+      susceptible de vous intéresser !
+    </p>
+    <button class="btn btn-dark btn-lg mt-4" (click)="startDiag = true">C'est parti !</button>
+  </div>
+
+  <div class="col-lg-6 d-flex flex-column align-items-center">
+    <img src="assets/diagnostic/barber.svg" alt="Diagnostic" class="diagnostic-img">
+  </div>
+</div>
+
+<div class="container my-high" *ngIf="startDiag">
+  <div class="row mx-0 align-items-center my-high">
+    <div class="col-md-4 col-10 offset-1">
+      <h4 class="text-dark required more-info" (mouseenter)="locks = true" (mouseleave)="locks = false">J'ai des locks</h4>
+      <ng-template [ngIf]="locks">
+        <div class="border border-light position-absolute rounded shadow-sm help-window bg-light">
+          <img src="assets/diagnostic/locks.svg" alt="Type de locks" height="140">
+        </div>
+      </ng-template>
+    </div>
+    <div class="col-md-5 col-10 offset-md-0 mt-md-0 mt-4">
+      <div class="ml-5">
+        <div class="pretty p-default p-round p-smooth">
+          <input type="radio" name="hasLocks" [(ngModel)]="hasLocks" [value]="false">
+          <div class="state">
+            <label>Non</label>
+          </div>
+        </div>
+
+        <div class="pretty p-default p-round p-smooth">
+          <input type="radio" name="hasLocks" [(ngModel)]="hasLocks" [value]="true">
+          <div class="state">
+            <label>Oui</label>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div *ngIf="!hasLocks">
+    <div class="row mx-0 align-items-center my-high">
+      <div class="col-md-4 col-10 offset-1 position-relative">
+        <h4 class="text-dark more-info" (mouseenter)="hairType = true" (mouseleave)="hairType = false">Mon type de cheveux</h4>
+        <ng-template [ngIf]="hairType">
+          <div class="border border-light position-absolute rounded shadow-sm help-window bg-light">
+            <img src="assets/diagnostic/hair-texture.svg" alt="Type de cheveux" height="170">
+          </div>
+        </ng-template>
+      </div>
+      <div class="col-md-5 col-10 offset-md-0 mt-md-0 mt-4 custom-slider">
+        <ng5-slider [(value)]="valueTwo" [options]="optionTwo" class="mx-5"></ng5-slider>
+      </div>
+    </div>
+
+
+    <div class="row mx-0 align-items-center my-high">
+      <div class="col-md-4 col-10 offset-1">
+        <h4 class="text-dark more-info" (mouseenter)="porosity = true" (mouseleave)="porosity = false">Porosité</h4>
+        <ng-template [ngIf]="porosity">
+          <div class="border border-light position-absolute rounded shadow-sm help-window bg-light">
+            <img src="assets/diagnostic/porosity-xl.svg" alt="Test de porosité" height="170" class="d-xl-block d-none">
+            <img src="assets/diagnostic/porosity-sm.svg" alt="Test de porosité" height="280" class="d-block d-xl-none">
+          </div>
+        </ng-template>
+      </div>
+      <div class="col-md-5 col-10 offset-md-0 mt-md-0 mt-4 custom-slider">
+        <ng5-slider [(value)]="valueThree" [options]="optionThree" class="mx-5"></ng5-slider>
+      </div>
+    </div>
+
+    <div class="row mx-0 align-items-center my-high">
+      <div class="col-md-4 col-10 offset-1">
+        <h4 class="text-dark more-info" (mouseenter)="density = true" (mouseleave)="density = false">Densité</h4>
+        <ng-template [ngIf]="density">
+          <div class="border border-light position-absolute rounded shadow-sm help-window bg-light p-3">
+            <p class="text-dark font-weight-bold">Pour connaître la densité de mes cheveux:</p>
+            <ol class="pl-3">
+              <li class="text-dark font-weight-light">Je <span class="font-weight-normal">sépare</span> mes cheveux</li>
+              <li class="text-dark font-weight-light">Je <span class="font-weight-normal">regarde attentivement</span> mon cuir chevelu</li>
+              <li class="text-dark font-weight-light">Je <span class="font-weight-normal">constate</span></li>
+            </ol>
+            <p class="text-dark font-weight-light mb-0">Je vois facilement mon cuir chevelu = <span class="font-weight-normal">faible</span></p>
+            <p class="text-dark font-weight-light mb-0">Je ne vois pas mon cuir chevelu = <span class="font-weight-normal">élevée</span></p>
+          </div>
+        </ng-template>
+      </div>
+      <div class="col-md-5 col-10 offset-md-0 mt-md-0 mt-4 custom-slider">
+        <ng5-slider [(value)]="valueFour" [options]="optionFour" class="mx-5"></ng5-slider>
+      </div>
+    </div>
+
+    <div class="row mx-0 align-items-center my-high">
+      <div class="col-md-4 col-10 offset-1">
+        <h4 class="text-dark more-info" (mouseenter)="thickness = true" (mouseleave)="thickness = false">Épaisseur des cheveux</h4>
+        <ng-template [ngIf]="thickness">
+          <div class="border border-light position-absolute rounded shadow-sm help-window bg-light p-3">
+            <img src="assets/diagnostic/thickness.svg" alt="Épaisseur des cheveux" height="200">
+          </div>
+        </ng-template>
+      </div>
+      <div class="col-md-5 col-10 offset-md-0 mt-md-0 mt-4 custom-slider">
+        <ng5-slider [(value)]="valueFive" [options]="optionFive" class="mx-5"></ng5-slider>
+      </div>
+    </div>
+  </div>
+
+</div>

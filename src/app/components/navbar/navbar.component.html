@@ -27,6 +27,18 @@ class="navbar navbar-expand-lg fixed-top px-md-5 px-4 py-3"
             >Accueil</a
           >
         </li>
+        <li
+          class="nav-item mx-3 mt-md-0 mt-3"
+          data-toggle="collapse"
+          data-target=".navbar-collapse.show"
+        >
+          <a
+            [routerLink]="['/diagnostic']"
+            [routerLinkActive]="['active']"
+            class="nav-link text-decoration-none text-white font-weight-light"
+            >Diagnostic</a
+          >
+        </li>
         <!-- <li
           class="nav-item mx-3 mt-md-0 mt-2"
           data-toggle="collapse"
@@ -110,6 +122,11 @@ class="mobile-menu d-flex flex-column d-lg-none w-100 align-items-center justify
     class="text-decoration-none text-white font-weight-light h4 font-weight-light my-4"
     (click)="toggle('/')"
     >Accueil</a
+  >
+  <a [routerLink]="['/diagnostic']"
+    class="text-decoration-none text-white font-weight-light h4 font-weight-light my-4"
+    (click)="toggle('/')"
+    >Diagnostic</a
   >
   <hr class="my-3 border-white w-25">
   <a *ngIf="user.currentUser == null"
