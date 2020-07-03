@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { UserService } from './services/user.service';
+import { User } from './models/user';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +9,7 @@ import { Router, NavigationEnd } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(public router: Router) { }
+  constructor(public router: Router, private user: UserService) { }
 
   ngOnInit() {
     this.router.events.subscribe((evt) => {
@@ -16,5 +18,10 @@ export class AppComponent {
       }
       window.scrollTo(0, 0)
     });
+    this.user.getUser()
+    .subscribe(
+      (user: User) => this.user.currentUser = user,
+      () => this.user.currentUser = null
+    )
   }
 }

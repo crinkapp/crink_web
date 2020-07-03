@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/models/user';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-profile-page',
@@ -10,8 +10,7 @@ export class ProfilePageComponent implements OnInit {
   hashtags: string[] = [
     'bouclés', 'soins', 'shampoings', 'twist'
   ]
-  user: User | null = null;
-  constructor() { }
+  constructor(public user: UserService) { }
 
   ngOnInit() {
   }

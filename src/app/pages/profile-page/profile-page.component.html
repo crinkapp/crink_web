@@ -5,21 +5,21 @@
   <div class="row mx-0 mt-high bg-light">
     <!-- HEADER LEFT COL -->
     <div class="col-lg-3 col-md-4 d-flex flex-column">
-      <img [src]="user.path_profil_picture_user != null ? user.path_profil_picture_user : 'assets/img/no-picture.jpg'" alt="Avatar" class="w-100 border">
+      <img [src]="user.currentUser?.path_profil_picture_user != null ? user.currentUser?.path_profil_picture_user : 'assets/img/no-picture.jpg'" alt="Avatar" class="w-100 border">
     </div>
 
     <!-- HEADER RIGHT COL -->
     <div class="col-lg-9 col-md-8">
       <div class="p-3 d-flex flex-column">
-        <h3 class="text-dark font-weight-bold">{{user.username_user}}</h3>
-        <span class="d-block mt-3 mb-2 text-muted">{{user.first_name_user}} {{user.last_name_user}}</span>
+        <h3 class="text-dark font-weight-bold">{{user.currentUser?.username_user}}</h3>
+        <span class="d-block mt-3 mb-2 text-muted">{{user.currentUser?.first_name_user}} {{user.currentUser?.last_name_user}}</span>
         <div class="d-block my-md-2 my-1">
           <span class="text-dark header-info font-weight-light mr-2">Nombres d'articles:</span>
           <span class="text-dark header-info">0</span>
         </div>
         <div class="d-block my-md-2 my-1">
           <span class="text-dark font-weight-light mr-2">Membre depuis le:</span>
-          <span class="text-dark">{{user.createdAt | date:'dd/MM/yyyy'}}</span>
+          <span class="text-dark">{{user.currentUser?.createdAt | date:'dd/MM/yyyy'}}</span>
         </div>
       </div>
     </div>
@@ -55,11 +55,7 @@
 
         <div class="mt-3 mb-1">
           <span class="text-muted font-weight-light mr-2">Adresse email:</span>
-          <span class="text-dark">{{user.email_user}}</span>
-        </div>
-        <div class="my-1 d-flex align-items-end">
-          <span class="text-muted font-weight-light mr-2">Mot de passe:</span>
-          <span class="text-dark h5 mb-0" *ngFor="let i of [].constructor(user.password_user.length)">•</span>
+          <span class="text-dark">{{user.currentUser?.email_user}}</span>
         </div>
 
         <div class="d-flex align-items-center justify-content-between mt-5 mb-2">
@@ -70,9 +66,9 @@
           <div class="w-100 border-bottom"></div>
         </div>
 
-        <div class="mt-3 mb-2" *ngIf="user.gender_user">
+        <div class="mt-3 mb-2" *ngIf="user.currentUser?.gender_user">
           <span class="text-muted font-weight-light mr-2">Genre:</span>
-          <span class="text-dark">{{user.gender_user === 'Man' ? 'Homme' : 'Femme'}}</span>
+          <span class="text-dark">{{user.currentUser?.gender_user === 'Man' ? 'Homme' : 'Femme'}}</span>
         </div>
 
       </div>

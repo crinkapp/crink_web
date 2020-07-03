@@ -24,7 +24,9 @@ export class AppHttpInterceptor implements HttpInterceptor {
         // in which case we delete the stored user and redirect to the login page
         switch (err.status) {
           case 401:
-            this.auth.onSignOut();
+            if (req.url !== `${environment.API_URL}/user`) {
+              this.auth.onSignOut();
+            }
             break;
           default:
           // do nothing (should be caught by each component)
