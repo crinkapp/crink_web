@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Options } from 'ng5-slider';
+import { Diagnostic } from '../../models/diagnostic';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-diagnostic-page',
@@ -9,14 +11,17 @@ import { Options } from 'ng5-slider';
 export class DiagnosticPageComponent implements OnInit {
   startDiag: boolean = false;
   hasLocks: boolean = false;
+
+  // Tooltip variables
   locks: boolean = false;
   hairType: boolean = false;
   porosity: boolean = false;
   density: boolean = false;
   thickness: boolean = false;
+  curlPattern: boolean = false;
 
-  valueTwo: number = 1;
-  optionTwo: Options = {
+  hairTypeValue: number = 1;
+  hairTypeOption: Options = {
     showTicksValues: true,
     showTicks: false,
     stepsArray: [
@@ -25,8 +30,8 @@ export class DiagnosticPageComponent implements OnInit {
       {value: 2, legend: 'Crépus'}
     ]
   };
-  valueThree: number = 1;
-  optionThree: Options = {
+  porosityValue: number = 1;
+  porosityOption: Options = {
     showTicksValues: true,
     showTicks: false,
     stepsArray: [
@@ -35,8 +40,8 @@ export class DiagnosticPageComponent implements OnInit {
       {value: 2, legend: 'Élevée'}
     ]
   };
-  valueFour: number = 1;
-  optionFour: Options = {
+  densityValue: number = 1;
+  densityOption: Options = {
     showTicksValues: true,
     showTicks: false,
     stepsArray: [
@@ -45,8 +50,8 @@ export class DiagnosticPageComponent implements OnInit {
       {value: 2, legend: 'Élevée'}
     ]
   };
-  valueFive: number = 1;
-  optionFive: Options = {
+  thicknessValue: number = 1;
+  thicknessOption: Options = {
     showTicksValues: true,
     showTicks: false,
     stepsArray: [
@@ -55,10 +60,113 @@ export class DiagnosticPageComponent implements OnInit {
       {value: 2, legend: 'Épais'}
     ]
   };
+  curlPatternValue: number = 1;
+  curlPatternOption: Options = {
+    showTicksValues: true,
+    showTicks: false,
+    stepsArray: [
+      {value: 0, legend: '|'},
+      {value: 1, legend: 'S'},
+      {value: 2, legend: 'Z'},
+      {value: 3, legend: 'O'}
+    ]
+  };
+  distanceBetweenCurlsValue: number = 1;
+  distanceBetweenCurlsOption: Options = {
+    showTicksValues: true,
+    showTicks: false,
+    stepsArray: [
+      {value: 0, legend: 'Peu rapprochés'},
+      {value: 1},
+      {value: 2},
+      {value: 3, legend: 'Très rapprochés'}
+    ]
+  };
 
-  constructor() { }
+  constructor(private user: UserService) { }
 
   ngOnInit() {
+  }
+
+  getHairType(value: number) {
+    switch(value) {
+      case 0:
+        return 'wavy';
+      case 1:
+        return 'curly';
+      case 2:
+        return 'kinky'
+    }
+  }
+
+  getLevel(value: number) {
+    switch(value) {
+      case 0:
+        return 'low';
+      case 1:
+        return 'normal';
+      case 2:
+        return 'high'
+    }
+  }
+
+  getThickness(value: number) {
+    switch(value) {
+      case 0:
+        return 'light';
+      case 1:
+        return 'medium';
+      case 2:
+        return 'heavy'
+    }
+  }
+
+  getCurlPattern(value: number) {
+    switch(value) {
+      case 0:
+        return 'l';
+      case 1:
+        return 's';
+      case 2:
+        return 'z'
+      case 3:
+        return 'o'
+    }
+  }
+
+  getDistanceBetweenCurls(value: number) {
+    switch(value) {
+      case 0:
+        return 'loose';
+      case 1:
+        return 'medium';
+      case 2:
+        return 'tight'
+      case 3:
+        return 'very_tight'
+    }
+  }
+
+  onSubmit() {
+    let next: Diagnostic;
+    if(!this.hasLocks) {
+      next = {
+        locks_diagnostic: this.hasLocks,
+        hair_texture_diagnostic: this.getHairType(this.hairTypeValue),
+        porosity_diagnostic: this.getLevel(this.porosityValue),
+        density_diagnostic: this.getLevel(this.densityValue),
+        thickness_diagnostic: this.getThickness(this.thicknessValue),
+        curl_pattern_diagnostic: this.getCurlPattern(this.curlPatternValue),
+        distance_between_curls_diagnostic: this.getDistanceBetweenCurls(this.distanceBetweenCurlsValue)
+      }
+    } else {
+      next = { locks_diagnostic: this.hasLocks };
+    }
+    this.user.addDiagnostic(next)
+      .subscribe(
+        (res) => console.log(res),
+        (err) => console.log(err)
+      );
   }
 
 }

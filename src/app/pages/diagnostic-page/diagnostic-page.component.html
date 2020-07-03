@@ -53,7 +53,7 @@
         </ng-template>
       </div>
       <div class="col-md-5 col-10 offset-md-0 mt-md-0 mt-4 custom-slider">
-        <ng5-slider [(value)]="valueTwo" [options]="optionTwo" class="mx-5"></ng5-slider>
+        <ng5-slider [(value)]="hairTypeValue" [options]="hairTypeOption" class="mx-5"></ng5-slider>
       </div>
     </div>
 
@@ -69,7 +69,7 @@
         </ng-template>
       </div>
       <div class="col-md-5 col-10 offset-md-0 mt-md-0 mt-4 custom-slider">
-        <ng5-slider [(value)]="valueThree" [options]="optionThree" class="mx-5"></ng5-slider>
+        <ng5-slider [(value)]="porosityValue" [options]="porosityOption" class="mx-5"></ng5-slider>
       </div>
     </div>
 
@@ -90,7 +90,7 @@
         </ng-template>
       </div>
       <div class="col-md-5 col-10 offset-md-0 mt-md-0 mt-4 custom-slider">
-        <ng5-slider [(value)]="valueFour" [options]="optionFour" class="mx-5"></ng5-slider>
+        <ng5-slider [(value)]="densityValue" [options]="densityOption" class="mx-5"></ng5-slider>
       </div>
     </div>
 
@@ -104,9 +104,36 @@
         </ng-template>
       </div>
       <div class="col-md-5 col-10 offset-md-0 mt-md-0 mt-4 custom-slider">
-        <ng5-slider [(value)]="valueFive" [options]="optionFive" class="mx-5"></ng5-slider>
+        <ng5-slider [(value)]="thicknessValue" [options]="thicknessOption" class="mx-5"></ng5-slider>
       </div>
     </div>
+
+    <div class="row mx-0 align-items-center my-high">
+      <div class="col-md-4 col-10 offset-1">
+        <h4 class="text-dark more-info" (mouseenter)="curlPattern = true" (mouseleave)="curlPattern = false">Forme du cheveu</h4>
+        <ng-template [ngIf]="curlPattern">
+          <div class="border border-light position-absolute rounded shadow-sm help-window bg-light p-3">
+            <img src="assets/diagnostic/curl-pattern.svg" alt="Forme du cheveu" height="200">
+          </div>
+        </ng-template>
+      </div>
+      <div class="col-md-5 col-10 offset-md-0 mt-md-0 mt-4 custom-slider">
+        <ng5-slider [(value)]="curlPatternValue" [options]="curlPatternOption" class="mx-5"></ng5-slider>
+      </div>
+    </div>
+
+    <div class="row mx-0 align-items-center my-high">
+      <div class="col-md-4 col-10 offset-1">
+        <h4 class="text-dark">Distance entre les boucles</h4>
+      </div>
+      <div class="col-md-5 col-10 offset-md-0 mt-md-0 mt-4 custom-slider">
+        <ng5-slider [(value)]="distanceBetweenCurlsValue" [options]="distanceBetweenCurlsOption" class="mx-5"></ng5-slider>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center" [class.my-5]="!hasLocks">
+    <button class="btn btn-lg btn-outline-dark my-5" (click)="onSubmit()">Terminer</button>
   </div>
 
 </div>
