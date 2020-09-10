@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
 
 .bg-crink {
-  background: url('../../../assets/img/home-bg.jpeg') no-repeat;
+  background: url('https://crinksite.s3.eu-west-3.amazonaws.com/home-bg.jpeg') no-repeat;
   position: relative;
   border-bottom-left-radius: 13rem;
   background-size: cover;
@@ -14,7 +14,7 @@
 }
 
 .bg-brown-cover {
-  background-color: rgba(185, 108, 84, 0.8);
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(185, 108, 84, 0.6));
   border-bottom-left-radius: 13rem;
   padding-top: 10rem;
 }
@@ -59,9 +59,9 @@
 }
 
 .btn-join {
-  border: 3px solid $mainColor;
+  border: 3px solid $darkColor;
   background-color: #fff;
-  color: $mainColor;
+  color: $darkColor;
   padding: 10px 18px;
   font-size: 20px;
   font-family: 'Bebas Neue', cursive;
@@ -74,6 +74,18 @@
   color: $darkColor;
   transform: translate3d(0,-2px,0);
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.1), 0 14px 6px 0 rgba(0,0,0,.25);
+}
+
+.banniere-img {
+  background: url('https://images.pexels.com/photos/935985/pexels-photo-935985.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.banniere-filter {
+  background: rgba(185, 108, 84, 0.6);
+  // background: linear-gradient(to left, rgba(0, 0, 0, 0.6), rgba(185, 108, 84, 0.6))
 }
 
 .newsletter-bg {
@@ -144,6 +156,13 @@ button[name="sendemail"] {
   }
 }
 
+.home-screen-app,
+.search-filter,
+.share-knowledge {
+  height: 28rem;
+  object-fit: cover;
+}
+
 .search-filter,
 .share-knowledge {
   margin-top: -3rem;
@@ -154,8 +173,6 @@ button[name="sendemail"] {
   position: relative;
   box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
 }
-
-
 
 @media(max-width: 1199px) {
   .search-filter {
@@ -197,6 +214,12 @@ button[name="sendemail"] {
 
   .features-section {
     border-top-right-radius: 0rem;
+  }
+
+  .home-screen-app,
+  .search-filter,
+  .share-knowledge {
+    height: 22rem;
   }
 }
 

@@ -161,12 +161,15 @@
         <div class="my-5 text-center">
           <button
             type="submit"
-            class="bg-main rounded border-0 w-50"
-            [disabled]="f.invalid || sent || loading"
+            class="btn-secondary rounded border-0 w-50"
+            [disabled]
             [class.valid-form]="f.valid">
-            <span class="h5 text-white letter-space-sm" *ngIf="!sent && !loading">Inscription</span>
+            <!-- class="bg-main rounded border-0 w-50" -->
+            <!-- [disabled]="f.invalid || sent || loading" -->
+            <span class="h5 font-weight-light text-white letter-space-sm">Prochainement</span>
+            <!-- <span class="h5 text-white letter-space-sm" *ngIf="!sent && !loading">Inscription</span>
             <span class="h5 text-white letter-space-sm" *ngIf="!sent && loading">En attente</span>
-            <span class="h5 text-white letter-space-sm" *ngIf="sent && !loading">Merci !</span>
+            <span class="h5 text-white letter-space-sm" *ngIf="sent && !loading">Merci !</span> -->
           </button>
         </div>
 
